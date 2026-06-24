@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Élégance - Restaurant Gastronomique & Template Premium</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: 'var(--primary)',
+                            primaryHover: 'var(--primary-hover)',
+                            gold: 'var(--gold)',
+                            bgLight: 'var(--bg-light)',
+                            cardLight: 'var(--card-light)',
+                            textLight: 'var(--text-light)',
+                            textMutedLight: 'var(--text-muted-light)',
+                            borderLight: 'var(--border-light)',
+                            bgDark: 'var(--bg-dark)',
+                            cardDark: 'var(--card-dark)',
+                            textDark: 'var(--text-dark)',
+                            textMutedDark: 'var(--text-muted-dark)',
+                            borderDark: 'var(--border-dark)',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Premium Core Styling and Variables -->
+    <style>
+        :root {
+            /* Light Mode Variables - Elegant Cream Theme */
+            --bg-light: #fcfbf7;
+            --card-light: #ffffff;
+            --text-light: #1c1917;
+            --text-muted-light: #57534e;
+            --border-light: #e7e5e4;
+
+            /* Dark Mode Variables - Deep Obsidian Theme */
+            --bg-dark: #070707;
+            --card-dark: #121212;
+            --text-dark: #f5f5f4;
+            --text-muted-dark: #a8a29e;
+            --border-dark: #222222;
+
+            /* Brand Colors */
+            --primary: #c5a880; /* Premium Champagne Gold */
+            --primary-hover: #b3946a;
+            --gold: #d4af37;
+        }
+
+        /* Custom Scrollbar for Luxury Aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Reveal on Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* Custom Clip Paths for Creative Overlapping Images */
+        .clip-premium {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body 
+    x-data="appState()" 
+    class="font-sans antialiased transition-colors duration-300 bg-brand-bgLight text-brand-textLight dark:bg-brand-bgDark dark:text-brand-textDark"
+>
+
+    <!-- ================= NAVBAR SECTION ================= -->
+    <header 
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
+        :class="scrolled ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md py-3 shadow-lg border-b border-brand-borderLight dark:border-brand-borderDark' : 'bg-transparent py-6 border-b border-transparent'"
+    >
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col items-center tracking-widest text-center group">
+                <span class="font-serif text-2xl font-semibold text-brand-primary group-hover:text-brand-gold transition-colors duration-300">L'ÉLÉGANCE</span>
+                <span class="text-[9px] uppercase tracking-[0.3em] text-brand-textMutedLight dark:text-brand-textMutedDark -mt-1 font-medium">Black Concept</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.home')"></a>
+                <a href="#about" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.about')"></a>
+                <a href="#spaces" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.spaces')"></a>
+                <a href="#menu" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.menu')"></a>
+                <a href="#reviews" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.reviews')"></a>
+                <a href="#contact" class="text-sm font-medium tracking-wide hover:text-brand-primary transition-colors duration-300" x-text="t('nav.contact')"></a>
+            </nav>
+
+            <!-- Navigation Controls (Language, Theme, CTA) -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <!-- Translation Toggle -->
+                <div class="flex items-center border border-brand-borderLight dark:border-brand-borderDark rounded-full p-1 bg-white/20 dark:bg-black/20 text-xs">
+                    <button 
+                        @click="setLang('fr')" 
+                        class="px-3 py-1 rounded-full transition-all duration-300 font-semibold"
+                        :class="lang === 'fr' ? 'bg-brand-primary text-white' : 'hover:text-brand-primary'"
+                    >FR</button>
+                    <button 
+                        @click="setLang('en')" 
+                        class="px-3 py-1 rounded-full transition-all duration-300 font-semibold"
+                        :class="lang === 'en' ? 'bg-brand-primary text-white' : 'hover:text-brand-primary'"
+                    >EN</button>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button 
+                    @click="toggleTheme()" 
+                    class="p-2 rounded-full border border-brand-borderLight dark:border-brand-borderDark hover:bg-brand-primary/10 transition-colors duration-300 text-brand-primary"
+                    aria-label="Toggle Theme"
+                >
+                    <!-- Sun Icon (shown in dark mode) -->
+                    <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m2.828 0l-.707-.707m12.728-12.728l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                    <!-- Moon Icon (shown in light mode) -->
+                    <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+
+                <!-- Book a Table CTA -->
+                <button 
+                    @click="bookingOpen = true" 
+                    class="px-6 py-2.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white text-sm font-semibold tracking-wider transition-all duration-300 shadow-md shadow-brand-primary/20"
+                    x-text="t('nav.book')"
+                ></button>
+            </div>
+
+            <!-- Mobile Menu Burger Button -->
+            <div class="flex items-center lg:hidden space-x-4">
+                <!-- Theme Switcher for Mobile -->
+                <button @click="toggleTheme()" class="p-2 text-brand-primary">
+                    <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m2.828 0l-.707-.707m12.728-12.728l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                    <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                </button>
+                
+                <button 
+                    @click="mobileMenuOpen = !mobileMenuOpen" 
+                    class="p-2 text-brand-textLight dark:text-brand-textDark focus:outline-none"
+                    aria-label="Toggle Menu"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Overlay -->
+        <div 
+            x-show="mobileMenuOpen" 
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-[-100%]"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 translate-y-[-100%]"
+            class="fixed inset-x-0 top-[70px] bg-white dark:bg-brand-bgDark border-b border-brand-borderLight dark:border-brand-borderDark z-40 lg:hidden py-8 px-6 shadow-xl"
+        >
+            <nav class="flex flex-col space-y-6 text-center">
+                <a href="#home" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.home')"></a>
+                <a href="#about" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.about')"></a>
+                <a href="#spaces" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.spaces')"></a>
+                <a href="#menu" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.menu')"></a>
+                <a href="#reviews" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.reviews')"></a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="text-lg font-medium tracking-wide" x-text="t('nav.contact')"></a>
+                
+                <hr class="border-brand-borderLight dark:border-brand-borderDark my-2">
+
+                <!-- Language Selection Mobile -->
+                <div class="flex justify-center space-x-6 text-sm">
+                    <button @click="setLang('fr')" class="px-4 py-2 rounded-full border border-brand-borderLight dark:border-brand-borderDark" :class="lang === 'fr' ? 'bg-brand-primary text-white' : ''">Français</button>
+                    <button @click="setLang('en')" class="px-4 py-2 rounded-full border border-brand-borderLight dark:border-brand-borderDark" :class="lang === 'en' ? 'bg-brand-primary text-white' : ''">English</button>
+                </div>
+
+                <!-- Call to Action Mobile -->
+                <button 
+                    @click="mobileMenuOpen = false; bookingOpen = true" 
+                    class="px-8 py-3 rounded-full bg-brand-primary text-white font-semibold tracking-wider shadow-lg"
+                    x-text="t('nav.book')"
+                ></button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ================= HERO SECTION (WITH VIDEO BACKROUND) ================= -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Video Layer -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-black/60 dark:bg-black/75 z-10"></div>
+            <!-- Video -->
+            <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+                <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27d2ad5cfb30530780582847ffc92900227a627&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Content Layer -->
+        <div class="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+            <!-- Animated Gold Badge -->
+            <div class="mb-4 inline-flex items-center space-x-2 border border-brand-primary/40 px-4 py-1 rounded-full bg-black/35 backdrop-blur-sm transform translate-y-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.2s_forwards]">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-primary animate-ping"></span>
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-medium" x-text="t('hero.slogan')"></span>
+            </div>
+
+            <!-- Restaurant Title -->
+            <h1 class="font-serif text-5xl md:text-8xl font-bold tracking-tight text-white mb-6 transform translate-y-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.4s_forwards]">
+                L'Élégance
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-stone-300 text-base md:text-xl font-light tracking-wide max-w-2xl mb-10 leading-relaxed transform translate-y-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.6s_forwards]" x-text="t('hero.subtitle')">
+            </p>
+
+            <!-- Action Buttons Grid -->
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-center transform translate-y-4 opacity-0 animate-[fade-in-up_1s_ease-out_0.8s_forwards]">
+                <!-- View Menu CTA -->
+                <a 
+                    href="#menu" 
+                    class="w-56 sm:w-auto px-8 py-3.5 rounded-full border border-brand-primary hover:bg-brand-primary text-white font-medium tracking-wider transition-all duration-300 bg-brand-primary/10 hover:shadow-lg hover:shadow-brand-primary/25"
+                    x-text="t('hero.viewMenu')"
+                ></a>
+
+                <!-- Book Table CTA -->
+                <button 
+                    @click="bookingOpen = true" 
+                    class="w-56 sm:w-auto px-8 py-3.5 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-white font-semibold tracking-wider transition-all duration-300 shadow-xl shadow-brand-primary/20 hover:scale-105"
+                    x-text="t('hero.bookTable')"
+                ></button>
+
+                <!-- Order via Glovo -->
+                <a 
+                    href="https://glovoapp.com" 
+                    target="_blank" 
+                    class="w-56 sm:w-auto px-8 py-3.5 rounded-full bg-amber-500 hover:bg-amber-600 text-stone-900 font-bold tracking-wider transition-all duration-300 flex items-center justify-center space-x-2"
+                >
+                    <svg class="w-4 h-4 text-stone-900 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span x-text="t('hero.orderGlovo')"></span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Elegant Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <a href="#about" class="flex flex-col items-center">
+                <span class="text-[9px] uppercase tracking-[0.2em] text-white font-medium mb-2">Scroll</span>
+                <span class="w-[1px] h-12 bg-white/20 relative overflow-hidden">
+                    <span class="absolute top-0 left-0 w-full h-1/2 bg-brand-primary animate-[scroll-line_2s_infinite]"></span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ================= ABOUT SECTION PREVIEW ================= -->
+    <section id="about" class="py-24 md:py-32 px-6 max-w-7xl mx-auto overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <!-- Left Side: Overlapping Photo Stack (WOW Creative design) -->
+            <div class="lg:col-span-6 relative flex items-center justify-center reveal">
+                <!-- Background Gold Framed Border decorative panel -->
+                <div class="absolute -top-6 -left-6 w-3/4 h-[85%] border-2 border-brand-primary/20 rounded-2xl hidden md:block"></div>
+                
+                <!-- Main Background Large Image -->
+                <div class="relative w-full h-[350px] md:h-[480px] rounded-2xl overflow-hidden shadow-2xl z-10 group">
+                    <img 
+                        src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" 
+                        alt="Chef plating luxury dish" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s]"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                </div>
+
+                <!-- Overlapping Foreground Smaller Image -->
+                <div class="absolute -bottom-10 -right-4 w-1/2 h-[180px] md:h-[260px] rounded-2xl overflow-hidden border-8 border-brand-bgLight dark:border-brand-bgDark shadow-2xl z-20 hidden sm:block group">
+                    <img 
+                        src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" 
+                        alt="Fresh organic gourmet ingredients" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1.5s]"
+                    >
+                </div>
+            </div>
+
+            <!-- Right Side: Content Block -->
+            <div class="lg:col-span-6 flex flex-col justify-center reveal delay-200">
+                <!-- Tag -->
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-semibold mb-3" x-text="t('about.tag')"></span>
+                
+                <!-- Title -->
+                <h2 class="font-serif text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-tight" x-text="t('about.title')"></h2>
+                
+                <!-- Separator Line -->
+                <div class="w-16 h-[2px] bg-brand-primary mb-8"></div>
+
+                <!-- Descriptions -->
+                <p class="text-base md:text-lg font-light leading-relaxed text-brand-textMutedLight dark:text-brand-textMutedDark mb-6" x-text="t('about.text1')"></p>
+                <p class="text-base font-light leading-relaxed text-brand-textMutedLight dark:text-brand-textMutedDark mb-10" x-text="t('about.text2')"></p>
+
+                <!-- Elegant Signature SVG or Chef Name -->
+                <div class="flex items-center justify-between border-t border-brand-borderLight dark:border-brand-borderDark pt-8">
+                    <!-- Read More Link -->
+                    <a 
+                        href="#about-full" 
+                        class="group inline-flex items-center text-sm font-semibold tracking-wider text-brand-primary hover:text-brand-primaryHover transition-colors duration-300"
+                    >
+                        <span x-text="t('about.readMore')"></span>
+                        <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+
+                    <!-- Decorative Chef Quote Info -->
+                    <div class="text-right">
+                        <h4 class="font-serif text-lg italic font-semibold text-brand-primary">Marc Veyrat</h4>
+                        <p class="text-[10px] uppercase tracking-widest text-brand-textMutedLight dark:text-brand-textMutedDark">Chef de Cuisine</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= CREATIVE SPACE SECTION (WOW EFFECT) ================= -->
+    <section id="spaces" class="py-24 md:py-32 bg-stone-100 dark:bg-[#0c0c0c] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-semibold mb-3" x-text="t('space.tag')"></span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold tracking-tight mb-4" x-text="t('space.title')"></h2>
+                <div class="w-12 h-[2px] bg-brand-primary mx-auto mb-6"></div>
+                <p class="text-sm md:text-base font-light text-brand-textMutedLight dark:text-brand-textMutedDark" x-text="t('space.subtitle')"></p>
+            </div>
+
+            <!-- Premium Accordion Grid (Desktop) / Sliding list (Mobile) -->
+            <div class="reveal delay-200">
+                <!-- Desktop View (Flex Accordion) -->
+                <div class="hidden md:flex gap-4 h-[550px] w-full overflow-hidden">
+                    <template x-for="(space, index) in spaces" :key="index">
+                        <div 
+                            @mouseenter="activeSpace = index"
+                            class="relative h-full overflow-hidden rounded-2xl transition-all duration-700 ease-out cursor-pointer group"
+                            :style="'background-image: url(' + space.img + '); background-size: cover; background-position: center;'"
+                            :class="activeSpace === index ? 'flex-[3.5]' : 'flex-[1]'"
+                        >
+                            <!-- Dark Overlay -->
+                            <div class="absolute inset-0 bg-black/55 group-hover:bg-black/40 transition-colors duration-500 z-10"></div>
+                            
+                            <!-- Gold Border Overlay when Active -->
+                            <div class="absolute inset-4 border border-brand-primary/40 rounded-xl pointer-events-none z-20 transition-opacity duration-500" :class="activeSpace === index ? 'opacity-100' : 'opacity-0'"></div>
+
+                            <!-- Content Wrapper -->
+                            <div class="absolute inset-0 p-8 flex flex-col justify-end z-30 h-full text-white">
+                                <!-- Collapsed Title: Vertical text -->
+                                <div 
+                                    x-show="activeSpace !== index" 
+                                    x-transition:enter="transition ease-out duration-300 delay-200"
+                                    x-transition:enter-start="opacity-0"
+                                    x-transition:enter-end="opacity-100"
+                                    class="absolute inset-0 flex items-center justify-center"
+                                >
+                                    <h3 class="font-serif text-2xl font-semibold tracking-wider whitespace-nowrap -rotate-90 origin-center text-brand-primary/80" x-text="space.title[lang]"></h3>
+                                </div>
+
+                                <!-- Expanded Content -->
+                                <div 
+                                    x-show="activeSpace === index"
+                                    x-transition:enter="transition ease-out duration-500 delay-300"
+                                    x-transition:enter-start="opacity-0 translate-y-4"
+                                    x-transition:enter-end="opacity-100 translate-y-0"
+                                    class="max-w-md"
+                                >
+                                    <!-- Badges -->
+                                    <div class="flex gap-2 mb-3">
+                                        <span class="text-[9px] uppercase tracking-wider bg-brand-primary/80 text-white px-2.5 py-0.5 rounded-full" x-text="space.capacity[lang]"></span>
+                                        <span class="text-[9px] uppercase tracking-wider bg-white/10 backdrop-blur-sm text-stone-200 px-2.5 py-0.5 rounded-full" x-text="space.ambiance[lang]"></span>
+                                    </div>
+                                    <!-- Title -->
+                                    <h3 class="font-serif text-3xl font-bold mb-3 text-brand-primary" x-text="space.title[lang]"></h3>
+                                    <!-- Description -->
+                                    <p class="text-sm font-light text-stone-300 mb-6 leading-relaxed" x-text="space.desc[lang]"></p>
+                                    <!-- Button CTA -->
+                                    <button 
+                                        @click="bookingOpen = true" 
+                                        class="px-5 py-2 rounded-full border border-brand-primary/50 text-white hover:bg-brand-primary text-xs font-semibold tracking-widest uppercase transition-all duration-300"
+                                        x-text="t('nav.book')"
+                                    ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Mobile View (Vertical Cards with carousel styling) -->
+                <div class="flex flex-col gap-6 md:hidden">
+                    <template x-for="(space, index) in spaces" :key="index">
+                        <div class="bg-white dark:bg-brand-cardDark border border-brand-borderLight dark:border-brand-borderDark rounded-2xl overflow-hidden shadow-lg">
+                            <div class="h-56 relative">
+                                <img :src="space.img" :alt="space.title[lang]" class="w-full h-full object-cover">
+                                <div class="absolute top-4 right-4 flex gap-2">
+                                    <span class="text-[9px] uppercase tracking-wider bg-brand-primary text-white px-3 py-1 rounded-full shadow-md" x-text="space.capacity[lang]"></span>
+                                    <span class="text-[9px] uppercase tracking-wider bg-black/60 text-white px-3 py-1 rounded-full backdrop-blur-sm" x-text="space.ambiance[lang]"></span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-2xl font-bold mb-2 text-brand-primary" x-text="space.title[lang]"></h3>
+                                <p class="text-sm font-light text-brand-textMutedLight dark:text-brand-textMutedDark mb-4 leading-relaxed" x-text="space.desc[lang]"></p>
+                                <button 
+                                    @click="bookingOpen = true" 
+                                    class="w-full py-2.5 rounded-full bg-brand-primary text-white font-semibold text-xs tracking-widest uppercase"
+                                    x-text="t('nav.book')"
+                                ></button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= MENU PREVIEW SECTION ================= -->
+    <section id="menu" class="py-24 md:py-32 px-6 max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+            <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-semibold mb-3" x-text="t('menu.tag')"></span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold tracking-tight mb-4" x-text="t('menu.title')"></h2>
+            <div class="w-12 h-[2px] bg-brand-primary mx-auto mb-6"></div>
+            <p class="text-sm md:text-base font-light text-brand-textMutedLight dark:text-brand-textMutedDark" x-text="t('menu.subtitle')"></p>
+        </div>
+
+        <!-- Menu Tabs Navigation -->
+        <div class="flex justify-center mb-16 reveal delay-100">
+            <div class="inline-flex border border-brand-borderLight dark:border-brand-borderDark rounded-full p-1.5 bg-stone-50 dark:bg-brand-cardDark/50 shadow-inner">
+                <button 
+                    @click="activeMenuTab = 'starters'" 
+                    class="px-6 py-2 rounded-full text-xs md:text-sm font-semibold tracking-wider transition-all duration-300 uppercase"
+                    :class="activeMenuTab === 'starters' ? 'bg-brand-primary text-white shadow-md' : 'text-brand-textMutedLight dark:text-brand-textMutedDark hover:text-brand-primary'"
+                >
+                    <span x-show="lang === 'fr'">Entrées</span>
+                    <span x-show="lang === 'en'">Starters</span>
+                </button>
+                <button 
+                    @click="activeMenuTab = 'mains'" 
+                    class="px-6 py-2 rounded-full text-xs md:text-sm font-semibold tracking-wider transition-all duration-300 uppercase"
+                    :class="activeMenuTab === 'mains' ? 'bg-brand-primary text-white shadow-md' : 'text-brand-textMutedLight dark:text-brand-textMutedDark hover:text-brand-primary'"
+                >
+                    <span x-show="lang === 'fr'">Plats</span>
+                    <span x-show="lang === 'en'">Mains</span>
+                </button>
+                <button 
+                    @click="activeMenuTab = 'desserts'" 
+                    class="px-6 py-2 rounded-full text-xs md:text-sm font-semibold tracking-wider transition-all duration-300 uppercase"
+                    :class="activeMenuTab === 'desserts' ? 'bg-brand-primary text-white shadow-md' : 'text-brand-textMutedLight dark:text-brand-textMutedDark hover:text-brand-primary'"
+                >
+                    <span x-show="lang === 'fr'">Desserts</span>
+                    <span x-show="lang === 'en'">Desserts</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dishes Grid -->
+        <div class="reveal delay-200">
+            <!-- Dishes mapping dynamic from alpine -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <template x-for="(dish, idx) in dishes[activeMenuTab]" :key="idx">
+                    <div 
+                        x-transition:enter="transition ease-out duration-500"
+                        x-transition:enter-start="opacity-0 translate-y-6 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        class="bg-white dark:bg-brand-cardDark rounded-2xl overflow-hidden border border-brand-borderLight dark:border-brand-borderDark shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
+                    >
+                        <!-- Dish Image -->
+                        <div class="h-52 overflow-hidden relative">
+                            <img :src="dish.img" :alt="dish.name[lang]" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <!-- Overlay Badge -->
+                            <template x-if="dish.badge">
+                                <span class="absolute top-4 left-4 bg-brand-primary text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold shadow-md" x-text="dish.badge[lang]"></span>
+                            </template>
+                        </div>
+                        
+                        <!-- Details -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <!-- Header name / price -->
+                                <div class="flex items-baseline justify-between mb-3 gap-2">
+                                    <h3 class="font-serif text-xl font-bold tracking-tight group-hover:text-brand-primary transition-colors duration-300" x-text="dish.name[lang]"></h3>
+                                    <span class="text-brand-primary font-serif font-bold text-lg" x-text="dish.price"></span>
+                                </div>
+                                <!-- Ingredients description -->
+                                <p class="text-xs md:text-sm font-light text-brand-textMutedLight dark:text-brand-textMutedDark leading-relaxed italic" x-text="dish.desc[lang]"></p>
+                            </div>
+
+                            <!-- CTA to request detail/order -->
+                            <div class="border-t border-brand-borderLight dark:border-brand-borderDark mt-6 pt-4 flex justify-between items-center">
+                                <span class="text-[9px] uppercase tracking-widest text-brand-textMutedLight dark:text-brand-textMutedDark font-medium font-sans">L'Étoile Selection</span>
+                                <button @click="bookingOpen = true" class="text-xs text-brand-primary hover:text-brand-primaryHover font-semibold flex items-center gap-1 group/btn">
+                                    <span x-text="t('nav.book')"></span>
+                                    <svg class="w-3.5 h-3.5 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Global Menu CTA -->
+        <div class="text-center mt-16 reveal delay-300">
+            <a 
+                href="#full-menu" 
+                class="inline-flex items-center px-8 py-3 rounded-full border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold text-sm tracking-wider transition-all duration-300 shadow-md"
+            >
+                <span x-text="t('menu.allMenu')"></span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ================= GOOGLE REVIEWS SECTION ================= -->
+    <section id="reviews" class="py-24 md:py-32 bg-stone-100 dark:bg-[#0c0c0c] transition-colors duration-300 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-semibold mb-3" x-text="t('reviews.tag')"></span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold tracking-tight mb-4" x-text="t('reviews.title')"></h2>
+                <div class="w-12 h-[2px] bg-brand-primary mx-auto mb-6"></div>
+                <p class="text-sm md:text-base font-light text-brand-textMutedLight dark:text-brand-textMutedDark" x-text="t('reviews.subtitle')"></p>
+            </div>
+
+            <!-- Reviews Slider / Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 reveal delay-200">
+                <template x-for="(review, index) in reviews" :key="index">
+                    <div class="bg-white dark:bg-brand-cardDark border border-brand-borderLight dark:border-brand-borderDark p-8 rounded-2xl shadow-sm flex flex-col justify-between h-full relative">
+                        <!-- Quote Icon background decoration -->
+                        <span class="absolute top-4 right-6 text-brand-primary/10 font-serif text-8xl pointer-events-none select-none">“</span>
+                        
+                        <div>
+                            <!-- Google Star Rating -->
+                            <div class="flex items-center space-x-1 mb-6 text-brand-gold">
+                                <template x-for="star in Array.from({length: review.stars})">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                </template>
+                            </div>
+
+                            <!-- Comment -->
+                            <p class="text-sm font-light text-brand-textMutedLight dark:text-brand-textMutedDark italic leading-relaxed mb-8" x-text="review.text[lang]"></p>
+                        </div>
+
+                        <!-- Reviewer Profile info -->
+                        <div class="flex items-center space-x-4 border-t border-brand-borderLight dark:border-brand-borderDark pt-6">
+                            <img :src="review.avatar" :alt="review.name" class="w-12 h-12 rounded-full object-cover border-2 border-brand-primary/30">
+                            <div>
+                                <h4 class="text-sm font-bold tracking-wide" x-text="review.name"></h4>
+                                <div class="flex items-center space-x-2 text-[10px] text-brand-textMutedLight dark:text-brand-textMutedDark">
+                                    <span x-text="review.date[lang]"></span>
+                                    <span>•</span>
+                                    <span class="text-green-600 font-medium">Avis vérifié</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Average stats footer -->
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center reveal delay-300">
+                <div class="flex items-center space-x-2">
+                    <span class="font-serif text-2xl font-bold text-brand-primary">4.9 / 5</span>
+                    <span class="text-xs text-brand-textMutedLight dark:text-brand-textMutedDark">(Basé sur 412 avis Google Maps)</span>
+                </div>
+                <div class="w-1.5 h-1.5 rounded-full bg-brand-primary hidden sm:block"></div>
+                <a href="https://maps.google.com" target="_blank" class="text-xs font-semibold text-brand-primary hover:text-brand-primaryHover flex items-center space-x-1">
+                    <span>Donner votre avis</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= INSTAGRAM SOCIAL GALLERY ================= -->
+    <section class="py-24 md:py-32 max-w-7xl mx-auto px-6">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+            <span class="text-xs uppercase tracking-[0.25em] text-brand-primary font-semibold mb-3" x-text="t('social.tag')"></span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold tracking-tight mb-4" x-text="t('social.title')"></h2>
+            <div class="w-12 h-[2px] bg-brand-primary mx-auto mb-6"></div>
+            <p class="text-sm md:text-base font-light text-brand-textMutedLight dark:text-brand-textMutedDark" x-text="t('social.subtitle')"></p>
+        </div>
+
+        <!-- Instagram Grid (WOW Creative display aspect ratio layouts) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 reveal delay-200">
+            <template x-for="(img, idx) in instagramPhotos" :key="idx">
+                <div class="relative aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md">
+                    <!-- Image -->
+                    <img :src="img" alt="Instagram post mockup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    
+                    <!-- Glass Hover Overlay -->
+                    <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center z-10 text-white p-4">
+                        <!-- Instagram Logo Icon -->
+                        <svg class="w-6 h-6 mb-2 text-brand-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        
+                        <!-- Fake likes/comments -->
+                        <div class="flex space-x-4 text-xs font-semibold">
+                            <span class="flex items-center space-x-1">
+                                <span>❤️</span> <span x-text="Math.floor(Math.random() * 200) + 50"></span>
+                            </span>
+                            <span class="flex items-center space-x-1">
+                                <span>💬</span> <span x-text="Math.floor(Math.random() * 30) + 5"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Follow CTA -->
+        <div class="text-center mt-12 reveal delay-300">
+            <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                class="inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white font-semibold text-sm tracking-wider transition-all duration-300 shadow-md shadow-pink-500/20"
+            >
+                <span x-text="t('social.viewAll')"></span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ================= FOOTER SECTION ================= -->
+    <footer id="contact" class="bg-stone-900 text-stone-200 border-t border-brand-primary/20 pt-20 pb-10 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+            
+            <!-- Column 1: Brand Info -->
+            <div class="lg:col-span-4 flex flex-col space-y-6">
+                <a href="#" class="flex flex-col tracking-widest text-left">
+                    <span class="font-serif text-3xl font-semibold text-brand-primary">L'ÉLÉGANCE</span>
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-stone-500 -mt-1 font-medium">Black Concept</span>
+                </a>
+                <p class="text-stone-400 font-light text-sm leading-relaxed max-w-sm" x-text="lang === 'fr' ? 'Créateurs d\'instants mémorables. Une gastronomie authentique sublimée par un cadre élégant au service de vos émotions.' : 'Creators of memorable moments. Authentic gastronomy sublimated by an elegant setting at the service of your emotions.'"></p>
+                
+                <!-- Social media links -->
+                <div class="flex space-x-4">
+                    <a href="#" class="w-9 h-9 rounded-full bg-stone-800 hover:bg-brand-primary hover:text-stone-900 text-brand-primary flex items-center justify-center transition-all duration-300">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-stone-800 hover:bg-brand-primary hover:text-stone-900 text-brand-primary flex items-center justify-center transition-all duration-300">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://wa.me/212600000000" target="_blank" class="w-9 h-9 rounded-full bg-stone-800 hover:bg-brand-primary hover:text-stone-900 text-brand-primary flex items-center justify-center transition-all duration-300">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.248 8.477 3.514 2.266 2.265 3.51 5.272 3.512 8.479-.004 6.657-5.34 11.995-11.957 11.995-1.998-.001-3.959-.5-5.698-1.448L0 24zm5.824-3.342c1.602.951 3.237 1.487 4.908 1.488 5.642.003 10.228-4.577 10.23-10.211a10.15 10.15 0 00-2.986-7.227A10.21 10.21 0 0012.008 1.74c-5.649 0-10.237 4.58-10.24 10.216-.002 1.902.504 3.753 1.468 5.405l-.986 3.593 3.811-.976z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Hours -->
+            <div class="lg:col-span-4 flex flex-col space-y-4">
+                <h3 class="font-serif text-xl font-semibold text-brand-primary" x-text="t('footer.hours')"></h3>
+                <div class="w-8 h-[1px] bg-brand-primary"></div>
+                <div class="text-sm font-light text-stone-400 space-y-3 leading-relaxed">
+                    <p class="font-medium text-stone-200">Services :</p>
+                    <p x-text="t('footer.hoursWeek')"></p>
+                    <p x-text="t('footer.hoursWeekend')"></p>
+                    <p class="text-xs text-brand-primary italic">Important : Réservations conseillées 24h à l'avance.</p>
+                </div>
+            </div>
+
+            <!-- Column 3: Contact & Info -->
+            <div class="lg:col-span-4 flex flex-col space-y-4">
+                <h3 class="font-serif text-xl font-semibold text-brand-primary">Contact</h3>
+                <div class="w-8 h-[1px] bg-brand-primary"></div>
+                <ul class="text-sm font-light text-stone-400 space-y-4">
+                    <li class="flex items-start space-x-3">
+                        <svg class="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <a href="https://maps.google.com" target="_blank" class="hover:text-brand-primary transition-colors duration-300">12 Rue du Faubourg Saint-Honoré, 75008 Paris, France</a>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <a href="tel:+33100000000" class="hover:text-brand-primary transition-colors duration-300">+33 1 00 00 00 00</a>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-brand-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <a href="mailto:contact@lelegance-restaurant.com" class="hover:text-brand-primary transition-colors duration-300">contact@lelegance.com</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Footer Bottom Bar (Newsletter & Copyright) -->
+        <div class="max-w-7xl mx-auto px-6 border-t border-stone-850 pt-8 flex flex-col lg:flex-row items-center justify-between gap-6 text-xs text-stone-500">
+            <!-- Left Copyright -->
+            <p>© 2026 Black Concept Agency. All rights reserved. Made by Salma Akajou.</p>
+
+            <!-- Newsletter Signup -->
+            <form @submit.prevent="alert('Merci pour votre inscription !')" class="flex w-full sm:w-auto">
+                <input 
+                    type="email" 
+                    required 
+                    :placeholder="t('footer.newsletterPlaceholder')" 
+                    class="px-4 py-2 bg-stone-800 border border-stone-700 rounded-l-full focus:outline-none focus:border-brand-primary text-stone-200 text-xs w-full sm:w-60"
+                >
+                <button 
+                    type="submit" 
+                    class="px-6 py-2 bg-brand-primary hover:bg-brand-primaryHover text-stone-900 font-bold rounded-r-full tracking-wider transition-colors duration-300 uppercase shrink-0"
+                    x-text="t('footer.subscribe')"
+                ></button>
+            </form>
+        </div>
+    </footer>
+
+
+    <!-- ================= BOOKING MODAL (ALPINE.JS INTERACTIVE) ================= -->
+    <div 
+        x-show="bookingOpen" 
+        class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        style="display: none;"
+    >
+        <!-- Modal Container -->
+        <div 
+            @click.away="bookingOpen = false" 
+            class="relative w-full max-w-2xl bg-white dark:bg-brand-cardDark border border-brand-borderLight dark:border-brand-borderDark rounded-3xl p-8 shadow-2xl overflow-hidden"
+            x-transition:enter="transition ease-out duration-300 transform"
+            x-transition:enter-start="scale-95 translate-y-4"
+            x-transition:enter-end="scale-100 translate-y-0"
+        >
+            
+            <!-- Success Overlay inside the modal -->
+            <div 
+                x-show="bookingSuccess" 
+                class="absolute inset-0 bg-white dark:bg-brand-cardDark z-20 flex flex-col items-center justify-center text-center p-8 transition-opacity duration-300"
+                style="display: none;"
+            >
+                <div class="w-16 h-16 bg-brand-primary/20 text-brand-primary rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h3 class="font-serif text-3xl font-bold mb-4 text-brand-primary">Réservation Reçue !</h3>
+                <p class="text-sm font-light text-brand-textMutedLight dark:text-brand-textMutedDark max-w-sm" x-text="lang === 'fr' ? 'Nous vous remercions pour votre demande. Un e-mail de confirmation vous sera envoyé dans quelques instants après validation de notre service.' : 'We thank you for your request. A confirmation email will be sent to you in a few moments after validation from our service.'"></p>
+            </div>
+
+            <!-- Close Button -->
+            <button 
+                @click="bookingOpen = false" 
+                class="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 dark:hover:bg-stone-850 text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 transition-colors"
+                aria-label="Close modal"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <!-- Form Title -->
+            <div class="mb-8">
+                <span class="text-[10px] uppercase tracking-[0.35em] text-brand-primary font-bold">L'Élégance</span>
+                <h2 class="font-serif text-3xl font-bold mt-1" x-text="t('nav.book')"></h2>
+                <div class="w-12 h-[2px] bg-brand-primary mt-3"></div>
+            </div>
+
+            <!-- Form -->
+            <form @submit.prevent="submitBooking()" class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs md:text-sm">
+                <!-- Name -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Nom complet *</label>
+                    <input 
+                        type="text" 
+                        required 
+                        x-model="bookingForm.name"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                        placeholder="Ex: Jean Dupont"
+                    >
+                </div>
+
+                <!-- Phone -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Numéro de téléphone *</label>
+                    <input 
+                        type="tel" 
+                        required 
+                        x-model="bookingForm.phone"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                        placeholder="Ex: +33 6 12 34 56 78"
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="flex flex-col space-y-2 sm:col-span-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Adresse e-mail *</label>
+                    <input 
+                        type="email" 
+                        required 
+                        x-model="bookingForm.email"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                        placeholder="Ex: jean.dupont@email.com"
+                    >
+                </div>
+
+                <!-- Date -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Date de visite *</label>
+                    <input 
+                        type="date" 
+                        required 
+                        x-model="bookingForm.date"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                    >
+                </div>
+
+                <!-- Time -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Heure *</label>
+                    <select 
+                        required 
+                        x-model="bookingForm.time"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                    >
+                        <option value="">Sélectionner</option>
+                        <option value="12:00">12:00 (Déjeuner)</option>
+                        <option value="12:30">12:30 (Déjeuner)</option>
+                        <option value="13:00">13:00 (Déjeuner)</option>
+                        <option value="13:30">13:30 (Déjeuner)</option>
+                        <option value="19:00">19:00 (Dîner)</option>
+                        <option value="19:30">19:30 (Dîner)</option>
+                        <option value="20:00">20:00 (Dîner)</option>
+                        <option value="20:30">20:30 (Dîner)</option>
+                        <option value="21:00">21:00 (Dîner)</option>
+                    </select>
+                </div>
+
+                <!-- Guests count -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Nombre de convives *</label>
+                    <input 
+                        type="number" 
+                        min="1" 
+                        max="15" 
+                        required 
+                        x-model="bookingForm.guests"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                    >
+                </div>
+
+                <!-- Target Salon/Space -->
+                <div class="flex flex-col space-y-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Espace souhaité</label>
+                    <select 
+                        x-model="bookingForm.space"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                    >
+                        <option value="default" x-text="lang === 'fr' ? 'Aucune préférence' : 'No preference'"></option>
+                        <option value="salon" x-text="lang === 'fr' ? 'Salon Principal' : 'Main Dining Hall'"></option>
+                        <option value="prive" x-text="lang === 'fr' ? 'Salon Privé' : 'Private Lounge'"></option>
+                        <option value="chef" x-text="lang === 'fr' ? 'Table du Chef' : 'Chef\'s Table'"></option>
+                        <option value="terrasse" x-text="lang === 'fr' ? 'Terrasse Panoramique' : 'Rooftop Terrace'"></option>
+                    </select>
+                </div>
+
+                <!-- Notes / Special Requests -->
+                <div class="flex flex-col space-y-2 sm:col-span-2">
+                    <label class="font-semibold text-brand-textMutedLight dark:text-brand-textMutedDark uppercase tracking-wider text-[10px]">Demandes particulières (Allergies, anniversaire...)</label>
+                    <textarea 
+                        rows="3" 
+                        x-model="bookingForm.notes"
+                        class="px-4 py-3 bg-stone-50 dark:bg-stone-900 border border-brand-borderLight dark:border-brand-borderDark rounded-xl focus:outline-none focus:border-brand-primary text-brand-textLight dark:text-brand-textDark font-light"
+                        placeholder="Ex: Table près de la fenêtre, sans gluten..."
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="sm:col-span-2 mt-4">
+                    <button 
+                        type="submit" 
+                        class="w-full py-4 rounded-full bg-brand-primary hover:bg-brand-primaryHover text-stone-950 font-bold uppercase tracking-widest text-xs transition-all duration-300 shadow-lg shadow-brand-primary/20 flex items-center justify-center space-x-2"
+                    >
+                        <span x-text="t('nav.book')"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ================= ALPINE.JS APPLICATION STATE & DATA ================= -->
+    <script>
+        // Translations Data Dictionary
+        const translations = {
+            fr: {
+                nav: {
+                    home: "Accueil",
+                    about: "À Propos",
+                    spaces: "Nos Espaces",
+                    menu: "Menu",
+                    reviews: "Avis clients",
+                    contact: "Contact",
+                    book: "Réserver une table"
+                },
+                hero: {
+                    slogan: "L'art de la gastronomie fine",
+                    subtitle: "Découvrez une cuisine d'exception mêlant tradition et modernité dans un cadre élégant au cœur de la capitale.",
+                    viewMenu: "Découvrir la carte",
+                    bookTable: "Réserver une table",
+                    orderGlovo: "Commander sur Glovo"
+                },
+                about: {
+                    tag: "Notre Héritage",
+                    title: "La Passion du Gout & de l'Élégance",
+                    text1: "Fondé sous la vision d'une cuisine créative et sincère, notre établissement incarne l'excellence culinaire. Nous sélectionnons avec passion des ingrédients locaux d'exception pour élaborer des créations gustatives qui racontent une histoire.",
+                    text2: "Chaque plat est une symphonie de saveurs épurées, pensée par notre chef et sa brigade pour éveiller vos sens et graver un souvenir inoubliable.",
+                    readMore: "Découvrir notre histoire"
+                },
+                space: {
+                    tag: "L'Atmosphère",
+                    title: "Des Espaces d'Exception",
+                    subtitle: "Imprégnez-vous de nos ambiances distinctes, dessinées sur mesure pour chaque moment de votre journée."
+                },
+                menu: {
+                    tag: "Créations du moment",
+                    title: "La Sélection du Chef",
+                    subtitle: "Un voyage gustatif initiatique à travers nos plats signatures les plus raffinés.",
+                    allMenu: "Consulter la carte complète"
+                },
+                reviews: {
+                    tag: "Témoignages",
+                    title: "Ce que disent nos hôtes",
+                    subtitle: "Votre satisfaction est notre plus belle distinction. Retrouvez leurs impressions sincères."
+                },
+                social: {
+                    tag: "Black Concept Social Library",
+                    title: "Notre Univers Visuel",
+                    subtitle: "Suivez-nous sur Instagram pour vous imprégner des coulisses et de l'art de nos dressages.",
+                    viewAll: "Nous rejoindre sur Instagram"
+                },
+                footer: {
+                    hours: "Horaires",
+                    hoursWeek: "Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30",
+                    hoursWeekend: "Sam - Dim: 19h00 - 23h30",
+                    newsletterPlaceholder: "Votre adresse e-mail",
+                    subscribe: "S'inscrire"
+                }
+            },
+            en: {
+                nav: {
+                    home: "Home",
+                    about: "About Us",
+                    spaces: "Spaces",
+                    menu: "Menu",
+                    reviews: "Reviews",
+                    contact: "Contact",
+                    book: "Book a Table"
+                },
+                hero: {
+                    slogan: "The art of fine dining",
+                    subtitle: "Discover exceptional cuisine blending tradition and modernity in an elegant setting in the heart of the capital.",
+                    viewMenu: "View the Menu",
+                    bookTable: "Book a Table",
+                    orderGlovo: "Order via Glovo"
+                },
+                about: {
+                    tag: "Our Heritage",
+                    title: "A Passion for Taste & Elegance",
+                    text1: "Founded on the vision of creative and sincere cuisine, our establishment embodies culinary excellence. We passionately select exceptional local ingredients to craft culinary creations that tell a story.",
+                    text2: "Each dish is a symphony of pure flavors, designed by our chef and crew to awaken your senses and leave an unforgettable memory.",
+                    readMore: "Discover our story"
+                },
+                space: {
+                    tag: "The Atmosphere",
+                    title: "Exceptional Spaces",
+                    subtitle: "Immerse yourself in our distinct atmospheres, custom designed for every moment of your day."
+                },
+                menu: {
+                    tag: "Seasonal creations",
+                    title: "The Chef's Selection",
+                    subtitle: "An initiation of culinary journey through our most refined signature dishes.",
+                    allMenu: "View the full menu"
+                },
+                reviews: {
+                    tag: "Testimonials",
+                    title: "What our guests say",
+                    subtitle: "Your satisfaction is our finest distinction. Read reviews from our guests."
+                },
+                social: {
+                    tag: "Black Concept Social Library",
+                    title: "Our Visual Universe",
+                    subtitle: "Follow us on Instagram to immerse yourself in the backstage and our plating art.",
+                    viewAll: "Join us on Instagram"
+                },
+                footer: {
+                    hours: "Hours",
+                    hoursWeek: "Mon - Fri: 12:00 PM - 2:30 PM | 7:30 PM - 10:30 PM",
+                    hoursWeekend: "Sat - Sun: 7:00 PM - 11:30 PM",
+                    newsletterPlaceholder: "Your email address",
+                    subscribe: "Subscribe"
+                }
+            }
+        };
+
+        // Alpine JS Application Initialization
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('appState', () => ({
+                // Mode and Language State
+                darkMode: localStorage.getItem('darkMode') === 'true' || localStorage.getItem('darkMode') === null, // Default: dark mode
+                lang: localStorage.getItem('lang') || 'fr',
+                
+                // Interactions state
+                scrolled: false,
+                mobileMenuOpen: false,
+                bookingOpen: false,
+                bookingSuccess: false,
+                activeSpace: 0,
+                activeMenuTab: 'starters',
+
+                // Booking form models
+                bookingForm: {
+                    name: '',
+                    phone: '',
+                    email: '',
+                    date: '',
+                    time: '',
+                    guests: 2,
+                    space: 'default',
+                    notes: ''
+                },
+
+                // Spaces configuration array
+                spaces: [
+                    {
+                        title: { fr: "Le Salon Principal", en: "Main Dining Hall" },
+                        desc: { fr: "Un mélange raffiné de velours sombre, de bois précieux et de lumières feutrées. Idéal pour vos dîners chaleureux ou repas d'affaires.", en: "A refined blend of dark velvet, precious wood and soft lighting. Ideal for warm dinners or business meals." },
+                        capacity: { fr: "80 couverts", en: "80 guests" },
+                        ambiance: { fr: "Chic & Intime", en: "Chic & Intimate" },
+                        img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                    },
+                    {
+                        title: { fr: "Le Salon Privé", en: "Private Lounge" },
+                        desc: { fr: "Un espace d'exception confidential et discret, idéal pour vos réunions privées ou célébrations en petit comité.", en: "An exceptional confidential and discreet space, ideal for your private meetings or small celebrations." },
+                        capacity: { fr: "20 couverts", en: "20 guests" },
+                        ambiance: { fr: "Confidentiel", en: "Confidential" },
+                        img: "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80"
+                    },
+                    {
+                        title: { fr: "La Table du Chef", en: "The Chef's Table" },
+                        desc: { fr: "Vivez l'expérience immersive au plus près de la création. Face à nos cuisines ouvertes, dégustez un menu à l'aveugle unique.", en: "Live an immersive experience closest to culinary creation. Facing our open kitchen, taste a unique blind menu." },
+                        capacity: { fr: "8 couverts", en: "8 guests" },
+                        ambiance: { fr: "Gastronomique", en: "Gastronomic" },
+                        img: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80"
+                    },
+                    {
+                        title: { fr: "La Terrasse Panoramique", en: "Rooftop Terrace" },
+                        desc: { fr: "Dînez sous les étoiles avec une vue imprenable sur la ville. Ambiance feutrée et cocktails signatures à la bougie.", en: "Dine under the stars with breathtaking views of the city. Intimate candlelight atmosphere and signature cocktails." },
+                        capacity: { fr: "45 couverts", en: "45 guests" },
+                        ambiance: { fr: "Cocktails & Sunset", en: "Cocktails & Sunset" },
+                        img: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=800&q=80"
+                    }
+                ],
+
+                // Dishes List (FR & EN support)
+                dishes: {
+                    starters: [
+                        {
+                            name: { fr: "Foie Gras Poêlé", en: "Pan-Seared Foie Gras" },
+                            desc: { fr: "Brioche maison toastée, chutney de figues de pays au vinaigre balsamique trentenaire.", en: "Homemade toasted brioche, local fig chutney with 30-year-old balsamic vinegar." },
+                            price: "28€",
+                            img: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Signature", en: "Signature" }
+                        },
+                        {
+                            name: { fr: "Carpaccio de Saint-Jacques", en: "Scallop Carpaccio" },
+                            desc: { fr: "Huile de truffe blanche d'Alba, zestes de lime caviar et perles fumées.", en: "Alba white truffle oil, finger lime zests and smoked pearls." },
+                            price: "24€",
+                            img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80",
+                            badge: null
+                        },
+                        {
+                            name: { fr: "Velouté de Cèpes & Truffes", en: "Porcini & Truffle Velouté" },
+                            desc: { fr: "Émulsion de lait de noisette torréfié, tuile dentelle croustillante aux éclats d'or.", en: "Roasted hazelnut milk emulsion, crispy lace tuile with gold flakes." },
+                            price: "22€",
+                            img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Végétarien", en: "Vegetarian" }
+                        }
+                    ],
+                    mains: [
+                        {
+                            name: { fr: "Filet de Bœuf Rossini", en: "Beef Filet Rossini" },
+                            desc: { fr: "Filet de bœuf de race Charolaise poêlé, tranches de foie gras et râpée fine de truffe noire.", en: "Pan-seared Charolais beef filet, slices of foie gras and fine shavings of black truffle." },
+                            price: "48€",
+                            img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Classique", en: "Classic" }
+                        },
+                        {
+                            name: { fr: "Bar de Ligne Rôti", en: "Roasted Wild Sea Bass" },
+                            desc: { fr: "Écrasé de pommes de terre de Noirmoutier à l'huile d'olive d'exception, écume de safran sauvage.", en: "Noirmoutier crushed potatoes with exceptional olive oil, wild saffron foam." },
+                            price: "42€",
+                            img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80",
+                            badge: null
+                        },
+                        {
+                            name: { fr: "Risotto d'Épeautre & Morilles", en: "Spelt Risotto & Morels" },
+                            desc: { fr: "Risotto d'épeautre crémeux aux morilles fraîches, copeaux de vieux parmesan reggiano.", en: "Creamy spelt risotto with fresh morel mushrooms, shavings of aged parmesan reggiano." },
+                            price: "36€",
+                            img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Saison", en: "Seasonal" }
+                        }
+                    ],
+                    desserts: [
+                        {
+                            name: { fr: "Soufflé au Chocolat 72%", en: "72% Chocolate Souffle" },
+                            desc: { fr: "Cœur coulant au chocolat grand cru d'Équateur, glace turbinée à la vanille Bourbon.", en: "Molten heart Ecuadorian grand cru chocolate, churned Bourbon vanilla ice cream." },
+                            price: "18€",
+                            img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Incontournable", en: "Must-Have" }
+                        },
+                        {
+                            name: { fr: "Pavlova Exotique", en: "Exotic Pavlova" },
+                            desc: { fr: "Meringue française craquante, crème montée coco, compotée mangue-passion infusée au basilic.", en: "Crispy French meringue, whipped coconut cream, mango-passion compote infused with basil." },
+                            price: "16€",
+                            img: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=400&q=80",
+                            badge: null
+                        },
+                        {
+                            name: { fr: "Mille-Feuille Céleste", en: "Celestial Mille-Feuille" },
+                            desc: { fr: "Feuilletage inversé caramélisé, crème légère diplomate parfumée à la vanille de Madagascar.", en: "Caramelized inverted puff pastry, light diplomat cream flavored with Madagascar vanilla." },
+                            price: "17€",
+                            img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=400&q=80",
+                            badge: { fr: "Chef Selection", en: "Chef Selection" }
+                        }
+                    ]
+                },
+
+                // Reviews List
+                reviews: [
+                    {
+                        name: "Alexandre Laurent",
+                        stars: 5,
+                        date: { fr: "Il y a une semaine", en: "A week ago" },
+                        text: { fr: "Une expérience culinaire absolument hors du temps. Le filet Rossini était d'une tendreté incomparable et le service d'une élégance rare. Nous reviendrons sans hésiter !", en: "An absolutely timeless culinary experience. The Rossini beef filet was incredibly tender and the service was exceptionally elegant. We will return without hesitation!" },
+                        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+                    },
+                    {
+                        name: "Sophie Dubois",
+                        stars: 5,
+                        date: { fr: "Il y a 3 jours", en: "3 days ago" },
+                        text: { fr: "Le cadre est somptueux, surtout l'ambiance près des cuisines. Les assiettes sont dressées comme des œuvres d'art. Une vraie signature gastronomique !", en: "The setting is sumptuous, especially the atmosphere near the kitchen. The plates are arranged like works of art. A true culinary signature!" },
+                        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+                    },
+                    {
+                        name: "Marcus Vance",
+                        stars: 5,
+                        date: { fr: "Il y a un mois", en: "A month ago" },
+                        text: { fr: "Service aux petits oignons sans être intrusif. La terrasse extérieure sous les lumières tamisées à la bougie offre une ambiance magique.", en: "Attentive service without being intrusive. The outdoor terrace under dim candlelit lights offers a magical atmosphere." },
+                        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+                    }
+                ],
+
+                // Instagram Static Grid Photos (High definition restaurant content)
+                instagramPhotos: [
+                    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1473093290043-c9418f6624db?auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=500&q=80",
+                    "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=500&q=80"
+                ],
+
+                // Init Actions
+                init() {
+                    this.applyTheme();
+                    window.addEventListener('scroll', () => {
+                        this.scrolled = window.scrollY > 50;
+                    });
+                },
+
+                // Switcher actions
+                toggleTheme() {
+                    this.darkMode = !this.darkMode;
+                    localStorage.setItem('darkMode', this.darkMode);
+                    this.applyTheme();
+                },
+
+                applyTheme() {
+                    if (this.darkMode) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                },
+
+                setLang(language) {
+                    this.lang = language;
+                    localStorage.setItem('lang', language);
+                },
+
+                // Translation Translate Helper
+                t(path) {
+                    return path.split('.').reduce((o, i) => o ? o[i] : null, translations[this.lang]);
+                },
+
+                // Booking Submit Logic Simulation
+                submitBooking() {
+                    setTimeout(() => {
+                        this.bookingSuccess = true;
+                        // Reset forms after popup completes
+                        setTimeout(() => {
+                            this.bookingOpen = false;
+                            this.bookingSuccess = false;
+                            this.bookingForm = {
+                                name: '',
+                                phone: '',
+                                email: '',
+                                date: '',
+                                time: '',
+                                guests: 2,
+                                space: 'default',
+                                notes: ''
+                            };
+                        }, 3500);
+                    }, 800);
+                }
+            }));
+        });
+
+        // Intersection Observer script to animate scroll reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                    }
+                });
+            }, { threshold: 0.08 });
+
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+    <!-- Keyframe animation styles -->
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes scrollLine {
+            0% {
+                transform: translateY(-100%);
+            }
+            50% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</body>
+</html>
