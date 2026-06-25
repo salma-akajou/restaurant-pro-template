@@ -182,7 +182,7 @@
         .fade-up {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .fade-up.visible {
@@ -231,6 +231,9 @@
                 <a href="#menu"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-menu">Menu</a>
+                <a href="#reservation"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-reservation">Reservation</a>
             </div>
 
             <!-- Icons (Right) -->
@@ -1030,8 +1033,8 @@
         /* =================== SCROLL ANIMATIONS =================== */
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            rootMargin: '0px 0px -150px 0px',
+            threshold: 0
         };
         const fadeObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -1126,6 +1129,7 @@ function toggleTheme() {
                 "nav-about": "About",
                 "nav-space": "Space",
                 "nav-menu": "Menu",
+                "nav-reservation": "Reservation",
                 "hero-eyebrow": "CASABLANCA • SINCE 2014",
                 "hero-desc": "Where light meets cuisine. Signature dishes, lively ingredients, seamless service.",
                 "hero-btn-explore": "Explore Menu",
@@ -1165,6 +1169,7 @@ function toggleTheme() {
                 "nav-about": "À propos",
                 "nav-space": "Espace",
                 "nav-menu": "Menu",
+                "nav-reservation": "Réservation",
                 "hero-eyebrow": "CASABLANCA • DEPUIS 2014",
                 "hero-desc": "Où la lumière rencontre la cuisine. Une cuisine d'auteur, des produits vivants, un service qui sait se faire oublier.",
                 "hero-btn-explore": "Explorer le menu",
