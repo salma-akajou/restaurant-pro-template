@@ -189,6 +189,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Hero Specific Animations */
+        .hero-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -202,7 +214,8 @@
     <div id="preloader"
         class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
         <div class="flex flex-col items-center gap-4">
-            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span class="text-primary italic">Lumière</span></h1>
+            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span
+                    class="text-primary italic">Lumière</span></h1>
             <div class="w-16 h-px bg-white/20 mt-4 relative">
                 <div class="absolute inset-0 bg-primary animate-pulse"></div>
             </div>
@@ -247,6 +260,15 @@
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
                 </button>
+                <div class="w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
+                <a href="https://wa.me/212000000000" target="_blank" class="hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hover:text-[#25D366] transition-colors">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                </a>
+                <a href="https://glovoapp.com/" target="_blank" class="hover:scale-110 transition-transform ml-1 w-8 h-8 rounded-full bg-[#FFC244] overflow-hidden flex items-center justify-center shadow-sm border border-white/10">
+                    <img src="images/glovo.png" alt="Glovo" class="w-5 h-5 object-contain">
+                </a>
             </div>
         </div>
     </nav>
@@ -264,27 +286,43 @@
                 <source src="../video/IMG_9646.MP4" type="video/mp4">
             </video>
         </div>
-            <!-- Vertical Social Icons (Left) -->
-            <div class="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
-                <a href="#" class="text-white/50 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="#" class="text-white/50 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                </a>
-                <a href="#" class="text-white/50 hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-                </a>
-                <!-- Vertical Line -->
-                <div class="w-px h-16 bg-white/30 mt-2"></div>
-            </div>
+        <!-- Vertical Social Icons (Left) -->
+        <div class="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <path
+                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Vertical Line -->
+            <div class="w-px h-16 bg-white/30 mt-2"></div>
+        </div>
 
 
         <!-- Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-12">
             <!-- Eyebrow text -->
             <div
-                class="flex items-center gap-3 text-[9px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
+                class="hero-fade-up flex items-center gap-3 text-[9px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
                 <span data-i18n="hero-eyebrow">CASABLANCA • SINCE 2014</span>
                 <span>•</span>
                 <span class="flex gap-1 text-white">
@@ -297,25 +335,25 @@
             </div>
 
             <!-- Title -->
-            <h1 class="font-serif text-6xl md:text-[5.5rem] text-white mb-6 drop-shadow-2xl leading-[1.1]">
+            <h1 class="hero-fade-up font-serif text-6xl md:text-[5.5rem] text-white mb-6 drop-shadow-2xl leading-[1.1]">
                 Maison
                 <span class="italic">Lumière</span>
             </h1>
 
             <!-- Description -->
             <p data-i18n="hero-desc"
-                class="text-sm md:text-lg text-gray-100 mb-10 max-w-2xl font-light leading-relaxed drop-shadow-md">
+                class="hero-fade-up text-sm md:text-lg text-gray-100 mb-10 max-w-2xl font-light leading-relaxed drop-shadow-md">
                 Where light meets cuisine. Signature dishes, lively ingredients, seamless service.
             </p>
 
             <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#menu"
+            <div class="hero-fade-up flex flex-col sm:flex-row items-center gap-4">
+                <a href="menu.html"
                     class="flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-sm transition-all shadow-lg">
                     <span data-i18n="hero-btn-explore">Explore Menu</span> <i data-lucide="arrow-right"
                         class="w-4 h-4"></i>
                 </a>
-                <a href="#reservations"
+                <a href="#reservation"
                     class="px-8 py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
                     <span data-i18n="hero-btn-book">Book a table</span>
                 </a>
@@ -348,14 +386,44 @@
                 </a>
             </div>
 
-            <!-- Right: Floating PNG Images -->
-            <div class="w-full md:w-1/2 relative h-[300px] md:h-[400px] flex items-center justify-center mt-12 md:mt-0">
-                <!-- Burger PNG -->
-                <img src="burger.png" alt="Burger"
-                    class="absolute top-0 md:top-12 right-6 md:right-16 w-40 md:w-56 object-contain animate-float drop-shadow-2xl z-20">
-                <!-- Pizza PNG -->
-                <img src="pizza.png" alt="Pizza"
-                    class="absolute bottom-0 md:bottom-12 left-6 md:left-16 w-36 md:w-48 object-contain animate-float-delayed drop-shadow-2xl z-10">
+            <!-- Right: Framed Images -->
+            <div class="w-full md:w-1/2 relative h-[400px] md:h-[500px] mt-12 md:mt-0 flex justify-end items-start pr-4 md:pr-12">
+                <!-- Main Image -->
+                <div class="relative w-[240px] md:w-[300px] h-[340px] md:h-[420px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#1A1A1A] z-10">
+                    <img src="images/restau%20space.png" alt="Restaurant Ambiance" class="w-full h-full object-cover">
+                </div>
+                <!-- Overlapping Image -->
+                <div class="absolute bottom-0 left-4 md:left-12 w-[180px] md:w-[220px] h-[240px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-[#FDF8F3] dark:border-[#050505] z-20">
+                    <img src="images/restau%20space2.png" alt="Gourmet Dish" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STATISTICS SECTION ================= -->
+    <section class="pb-24 pt-0 px-6 max-w-5xl mx-auto relative z-20 fade-up">
+        <div class="bg-[#FDF8F3]/50 dark:bg-[#0a0a0a]/50 backdrop-blur-md rounded-2xl border border-black/5 dark:border-white/5 py-10 shadow-sm relative overflow-hidden">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 relative z-10">
+                <!-- Stat 1 -->
+                <div class="flex flex-col items-center text-center border-r border-black/5 dark:border-white/5">
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-black dark:text-white mb-1"><span class="stat-counter" data-target="10">0</span><span class="text-primary text-xl md:text-2xl align-top ml-1">+</span></h3>
+                    <p class="text-[9px] md:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] mt-1" data-i18n="stat-years">Years Experience</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="flex flex-col items-center text-center md:border-r border-black/5 dark:border-white/5">
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-black dark:text-white mb-1"><span class="stat-counter" data-target="50">0</span><span class="text-primary text-xl md:text-2xl align-top ml-1">+</span></h3>
+                    <p class="text-[9px] md:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] mt-1" data-i18n="stat-dishes">Signature Dishes</p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="flex flex-col items-center text-center border-r border-black/5 dark:border-white/5">
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-black dark:text-white mb-1"><span class="stat-counter" data-target="20">0</span><span class="text-primary text-xl md:text-2xl align-top ml-1">+</span></h3>
+                    <p class="text-[9px] md:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] mt-1" data-i18n="stat-chefs">Professional Team</p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="flex flex-col items-center text-center">
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-black dark:text-white mb-1"><span class="stat-counter" data-target="5">0</span>K<span class="text-primary text-xl md:text-2xl align-top ml-1">+</span></h3>
+                    <p class="text-[9px] md:text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] mt-1" data-i18n="stat-reviews">Positive Reviews</p>
+                </div>
             </div>
         </div>
     </section>
@@ -475,8 +543,7 @@
 
             <!-- Card 4 -->
             <div class="space-card relative rounded-3xl overflow-hidden cursor-pointer group">
-                <img src="https://images.unsplash.com/photo-1505934333218-8fe3cf9fbce6?auto=format&fit=crop&w=800&q=80"
-                    alt="Rooftop Terrace"
+                <img src="images/rooftop%20terrace.png" alt="Rooftop Terrace"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-3 border border-white/20 rounded-[20px] pointer-events-none active-content">
                 </div>
@@ -543,7 +610,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="Chicken%20Wings.png" alt="Chicken Wings"
+                    <img src="images/Chicken%20Wings.png" alt="Chicken Wings"
                         class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Chicken Wings</h3>
@@ -559,7 +626,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="Mini%20Pizza.png" alt="Mini Pizza" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/Mini%20Pizza.png" alt="Mini Pizza" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Mini Pizza</h3>
                 <p data-i18n="menu-item-desc"
@@ -574,7 +641,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="Crispy%20Fries.png" alt="Crispy Fries"
+                    <img src="images/Crispy%20Fries.png" alt="Crispy Fries"
                         class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Crispy Fries</h3>
@@ -590,7 +657,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="Crispy%20Fries.png" alt="Burrito Bite"
+                    <img src="images/Crispy%20Fries.png" alt="Burrito Bite"
                         class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Burrito Bite</h3>
@@ -607,7 +674,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="burger.png" alt="Chicken Burger" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/burger.png" alt="Chicken Burger" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Chicken Burger</h3>
                 <p data-i18n="menu-item-desc"
@@ -622,7 +689,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="pizza.png" alt="Chicken Pizza" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/pizza.png" alt="Chicken Pizza" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Chicken Pizza</h3>
                 <p data-i18n="menu-item-desc"
@@ -637,7 +704,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="Chicken%20Rice.png" alt="Chicken Rice"
+                    <img src="images/Chicken%20Rice.png" alt="Chicken Rice"
                         class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Chicken Rice</h3>
@@ -653,7 +720,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="burger.png" alt="Club Sandwich" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/burger.png" alt="Club Sandwich" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Club Sandwich</h3>
                 <p data-i18n="menu-item-desc"
@@ -669,7 +736,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="dessert.png" alt="Macarons" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/dessert.png" alt="Macarons" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Macarons</h3>
                 <p data-i18n="menu-item-desc"
@@ -684,7 +751,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="dessert2.png" alt="Special Dessert" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/dessert2.png" alt="Special Dessert" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Special Dessert</h3>
                 <p data-i18n="menu-item-desc"
@@ -699,7 +766,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="dessert.png" alt="Vanilla Cake" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/dessert.png" alt="Vanilla Cake" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Vanilla Cake</h3>
                 <p data-i18n="menu-item-desc"
@@ -714,7 +781,7 @@
                 class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
                 <div
                     class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
-                    <img src="dessert2.png" alt="Ice Cream" class="w-full h-full object-contain drop-shadow-md">
+                    <img src="images/dessert2.png" alt="Ice Cream" class="w-full h-full object-contain drop-shadow-md">
                 </div>
                 <h3 class="font-bold text-lg mb-2">Ice Cream</h3>
                 <p data-i18n="menu-item-desc"
@@ -729,7 +796,7 @@
 
         <!-- View Full Menu Link -->
         <div class="flex justify-center mt-12">
-            <a href="#" data-i18n="menu-btn"
+            <a href="menu.html" data-i18n="menu-btn"
                 class="px-8 py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/30 flex items-center gap-2">
                 View Full Menu <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -743,141 +810,148 @@
     <!-- ================= REVIEWS SECTION ================= -->
     <section id="reviews" class="py-24 bg-transparent relative z-20">
         <div class="max-w-7xl mx-auto px-6 fade-up">
-        <!-- Top header row -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
-            <div>
-                <p data-i18n="reviews-eyebrow"
-                    class="text-[10px] md:text-xs text-gray-500 tracking-[0.2em] uppercase font-bold mb-4">CE QU'ILS EN
-                    DISENT</p>
-                <div class="flex flex-col gap-1">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold">4.9 sur Google.</h2>
-                    <h2 class="font-serif text-4xl md:text-5xl italic text-primary font-normal">1 248 voix singulières.
-                    </h2>
+            <!-- Top header row -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <p data-i18n="reviews-eyebrow"
+                        class="text-[10px] md:text-xs text-gray-500 tracking-[0.2em] uppercase font-bold mb-4">CE QU'ILS
+                        EN
+                        DISENT</p>
+                    <div class="flex flex-col gap-1">
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold">4.9 sur Google.</h2>
+                        <h2 class="font-serif text-4xl md:text-5xl italic text-primary font-normal">1 248 voix
+                            singulières.
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex gap-4 mt-8 md:mt-0 flex-shrink-0">
+                    <button onclick="scrollReviews('left')"
+                        class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="chevron-left" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
+                    </button>
+                    <button onclick="scrollReviews('right')"
+                        class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="flex gap-4 mt-8 md:mt-0 flex-shrink-0">
-                <button onclick="scrollReviews('left')"
-                    class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                    <i data-lucide="chevron-left" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
-                </button>
-                <button onclick="scrollReviews('right')"
-                    class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
-                </button>
+            <!-- Reviews Scroll Container -->
+            <div id="reviews-container"
+                class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 mt-4">
+
+                <!-- Review 1 -->
+                <div
+                    class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-gradient-to-br dark:from-[#181512] dark:to-[#0a0a0a] border border-gray-300 dark:border-[#C1A58D]/20 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                                CR</div>
+                            <div>
+                                <h4 class="font-normal text-xs">Camille R.</h4>
+                                <p class="text-[10px] text-gray-400">il y a 2 semaines</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                    </div>
+                    <div class="flex text-primary gap-1 mb-3">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un dîner d'anniversaire
+                        absolument
+                        inoubliable. Le service est d'une précision millimétrique et le wagyu... une révélation."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div
+                    class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-gradient-to-br dark:from-[#181512] dark:to-[#0a0a0a] border border-gray-300 dark:border-[#C1A58D]/20 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                                MB</div>
+                            <div>
+                                <h4 class="font-normal text-xs">Mehdi B.</h4>
+                                <p class="text-[10px] text-gray-400">il y a 1 mois</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                    </div>
+                    <div class="flex text-primary gap-1 mb-3">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Le soufflé au chocolat à lui
+                        seul
+                        vaut le voyage. Une lumière douce, une carte des vins remarquable."</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div
+                    class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-gradient-to-br dark:from-[#181512] dark:to-[#0a0a0a] border border-gray-300 dark:border-[#C1A58D]/20 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                                SL</div>
+                            <div>
+                                <h4 class="font-normal text-xs">Sarah L.</h4>
+                                <p class="text-[10px] text-gray-400">il y a 3 semaines</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">TripAdvisor</span>
+                    </div>
+                    <div class="flex text-primary gap-1 mb-3">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Chaque assiette est une œuvre.
+                        Le
+                        chef est passé saluer la table — un moment rare et précieux."</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div
+                    class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-gradient-to-br dark:from-[#181512] dark:to-[#0a0a0a] border border-gray-300 dark:border-[#C1A58D]/20 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                                AL</div>
+                            <div>
+                                <h4 class="font-normal text-xs">Antoine L.</h4>
+                                <p class="text-[10px] text-gray-400">il y a 2 mois</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                    </div>
+                    <div class="flex text-primary gap-1 mb-3">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un cadre somptueux avec une
+                        équipe
+                        très à l'écoute. La décoration est sublime et les plats sont un délice du début à la fin."</p>
+                </div>
+
             </div>
         </div>
-
-        <!-- Reviews Scroll Container -->
-        <div id="reviews-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 mt-4">
-
-            <!-- Review 1 -->
-            <div
-                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                            CR</div>
-                        <div>
-                            <h4 class="font-normal text-xs">Camille R.</h4>
-                            <p class="text-[10px] text-gray-400">il y a 2 semaines</p>
-                        </div>
-                    </div>
-                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
-                </div>
-                <div class="flex text-primary gap-1 mb-3">
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un dîner d'anniversaire absolument
-                    inoubliable. Le service est d'une précision millimétrique et le wagyu... une révélation."</p>
-            </div>
-
-            <!-- Review 2 -->
-            <div
-                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                            MB</div>
-                        <div>
-                            <h4 class="font-normal text-xs">Mehdi B.</h4>
-                            <p class="text-[10px] text-gray-400">il y a 1 mois</p>
-                        </div>
-                    </div>
-                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
-                </div>
-                <div class="flex text-primary gap-1 mb-3">
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Le soufflé au chocolat à lui seul
-                    vaut le voyage. Une lumière douce, une carte des vins remarquable."</p>
-            </div>
-
-            <!-- Review 3 -->
-            <div
-                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                            SL</div>
-                        <div>
-                            <h4 class="font-normal text-xs">Sarah L.</h4>
-                            <p class="text-[10px] text-gray-400">il y a 3 semaines</p>
-                        </div>
-                    </div>
-                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">TripAdvisor</span>
-                </div>
-                <div class="flex text-primary gap-1 mb-3">
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Chaque assiette est une œuvre. Le
-                    chef est passé saluer la table — un moment rare et précieux."</p>
-            </div>
-
-            <!-- Review 4 -->
-            <div
-                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                            AL</div>
-                        <div>
-                            <h4 class="font-normal text-xs">Antoine L.</h4>
-                            <p class="text-[10px] text-gray-400">il y a 2 mois</p>
-                        </div>
-                    </div>
-                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
-                </div>
-                <div class="flex text-primary gap-1 mb-3">
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                </div>
-                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un cadre somptueux avec une équipe
-                    très à l'écoute. La décoration est sublime et les plats sont un délice du début à la fin."</p>
-            </div>
-
-        </div>
-    </div>
     </section>
 
     <!-- ================= RESERVATION SECTION ================= -->
@@ -902,9 +976,9 @@
             <form class="flex flex-col gap-6 text-left">
                 <!-- Row 1 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" data-i18n-placeholder="res-fname" placeholder="First Name"
+                    <input type="text" data-i18n-placeholder="res-fullname" placeholder="Full Name"
                         class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
-                    <input type="text" data-i18n-placeholder="res-lname" placeholder="Last Name"
+                    <input type="tel" data-i18n-placeholder="res-phone" placeholder="Phone Number"
                         class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
                 </div>
                 <!-- Row 2 -->
@@ -933,26 +1007,43 @@
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-[#FDF8F3] dark:bg-[#181613] text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+    <footer
+        class="bg-[#FDF8F3] dark:bg-[#181613] text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
                 <!-- Col 1 -->
                 <div class="flex flex-col gap-6">
                     <div>
-                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison Lumière</h2>
-                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium Restaurant</p>
+                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison
+                            Lumière</h2>
+                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium
+                            Restaurant</p>
                     </div>
                     <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 max-w-sm">
-                        Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.
+                        Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour
+                        éveiller vos sens.
                     </p>
                     <div class="flex gap-4 mt-2">
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
                             <i data-lucide="message-circle" class="w-4 h-4 text-black dark:text-gray-400"></i>
                         </a>
                     </div>
@@ -964,7 +1055,8 @@
                     <p class="text-sm font-semibold text-black dark:text-gray-200">Services :</p>
                     <p class="text-sm text-gray-700 dark:text-gray-400">Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30</p>
                     <p class="text-sm text-gray-700 dark:text-gray-400">Sam - Dim: 19h00 - 23h30</p>
-                    <p class="text-xs italic text-gray-600 dark:text-primary mt-2">Important : Réservations conseillées 24h à l'avance.</p>
+                    <p class="text-xs italic text-gray-600 dark:text-primary mt-2">Important : Réservations conseillées
+                        24h à l'avance.</p>
                 </div>
 
                 <!-- Col 3 -->
@@ -972,7 +1064,8 @@
                     <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
                     <div class="flex items-start gap-4">
                         <i data-lucide="map-pin" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0 mt-0.5"></i>
-                        <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008
+                            Paris, France</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <i data-lucide="phone" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
@@ -986,19 +1079,26 @@
             </div>
 
             <!-- Bottom Bar -->
-            <div class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+            <div
+                class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
                 <p class="text-xs text-gray-500 dark:text-gray-500">
                     © 2026 Premium Restaurant Agency. All rights reserved. Made by Salma Akajou.
                 </p>
-                <form class="flex w-full md:w-auto overflow-hidden rounded-full border border-black/20 dark:border-none bg-transparent dark:bg-[#25221e]">
-                    <input type="email" placeholder="Votre adresse e-mail" class="bg-transparent px-6 py-3 text-sm text-black dark:text-gray-200 placeholder-black/50 dark:placeholder-gray-500 focus:outline-none w-full md:w-64">
-                    <button type="button" class="bg-primary dark:bg-primary text-white dark:text-[#181613] px-6 py-3 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity">
+                <form
+                    class="flex w-full md:w-auto overflow-hidden rounded-full border border-black/20 dark:border-none bg-transparent dark:bg-[#25221e]">
+                    <input type="email" placeholder="Votre adresse e-mail"
+                        class="bg-transparent px-6 py-3 text-sm text-black dark:text-gray-200 placeholder-black/50 dark:placeholder-gray-500 focus:outline-none w-full md:w-64">
+                    <button type="button"
+                        class="bg-primary dark:bg-primary text-white dark:text-[#181613] px-6 py-3 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity">
                         S'inscrire
                     </button>
                 </form>
             </div>
         </div>
     </footer>
+
+
+
 
     <!-- Script for Navbar Scroll, Dark Mode & Translations -->
     <script>
@@ -1008,11 +1108,26 @@
         /* =================== PRELOADER =================== */
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
+
+            const triggerHeroAnimations = () => {
+                document.querySelectorAll('.hero-fade-up').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 200); // 200ms stagger between elements
+                });
+            };
+
             if (preloader) {
                 setTimeout(() => {
                     preloader.style.transform = 'translateY(-100%)';
+
+                    // Trigger hero animations as the preloader slides up
+                    setTimeout(triggerHeroAnimations, 300);
+
                     setTimeout(() => preloader.remove(), 1500);
                 }, 800); // Small delay to let the user see the opening screen
+            } else {
+                triggerHeroAnimations();
             }
         });
 
@@ -1047,14 +1162,41 @@
 
         document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
 
+        /* =================== STATS COUNTER ANIMATION =================== */
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.innerText = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { rootMargin: '0px 0px -50px 0px', threshold: 0 });
+        
+        document.querySelectorAll('.stat-counter').forEach(el => statsObserver.observe(el));
+
         /* =================== DARK MODE =================== */
         let isDark = true;
         const html = document.documentElement;
         const themeIcon = document.getElementById('theme-icon');
 
-        
 
-function toggleTheme() {
+
+        function toggleTheme() {
             isDark = !isDark;
             if (isDark) {
                 html.classList.add('dark');
@@ -1152,11 +1294,15 @@ function toggleTheme() {
                 "reviews-eyebrow": "WHAT THEY SAY",
                 "res-eyebrow": "RESERVATION",
                 "res-title": "Book Your Table",
-                "res-fname": "First Name",
-                "res-lname": "Last Name",
+                "res-fullname": "Full Name",
+                "res-phone": "Phone Number",
                 "res-persons": "Persons",
                 "res-special": "Special Request (Birthday, Anniversary...)",
                 "res-btn": "Book A Table",
+                "stat-years": "Years Experience",
+                "stat-dishes": "Signature Dishes",
+                "stat-chefs": "Professional Team",
+                "stat-reviews": "Positive Reviews",
                 "footer-newsletter-1": "Join our mailing list for updates.",
                 "footer-newsletter-2": "Get news & offers events.",
                 "footer-email": "Email",
@@ -1192,11 +1338,15 @@ function toggleTheme() {
                 "reviews-eyebrow": "CE QU'ILS EN DISENT",
                 "res-eyebrow": "RÉSERVATION",
                 "res-title": "Réservez Votre Table",
-                "res-fname": "Prénom",
-                "res-lname": "Nom",
+                "res-fullname": "Nom complet",
+                "res-phone": "Numéro de téléphone",
                 "res-persons": "Personnes",
                 "res-special": "Demande particulière (Anniversaire...)",
                 "res-btn": "Réserver une table",
+                "stat-years": "Années d'expérience",
+                "stat-dishes": "Plats Signature",
+                "stat-chefs": "Équipe de Pros",
+                "stat-reviews": "Avis Positifs",
                 "footer-newsletter-1": "Rejoignez notre liste de diffusion pour les mises à jour.",
                 "footer-newsletter-2": "Recevez des nouvelles et des offres d'événements.",
                 "footer-email": "E-mail",
