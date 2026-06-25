@@ -182,72 +182,146 @@
         <div class="absolute inset-0 z-0">
             <!-- Fade overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#FDF8F3] dark:from-[#050505] via-[#050505]/75 to-black/80 z-10 pointer-events-none transition-colors duration-300"></div>
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80" alt="Culinary Setting" class="w-full h-full object-cover hero-fade opacity-80 animate-ken-burns">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80" alt="Culinary Setting" class="w-full h-full object-cover object-[80%_center] hero-fade opacity-80 animate-ken-burns">
+        </div>
+
+        <!-- Vertical Social Icons (Left) -->
+        <div class="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="text-white/50 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="w-5 h-5">
+                    <path
+                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Vertical Line -->
+            <div class="w-px h-16 bg-white/30 mt-2"></div>
         </div>
 
         <!-- Content -->
-        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-20">
-            <!-- Eyebrow text -->
-            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4 animate-fade-in opacity-0">
-                <span data-i18n="menu-photos-eyebrow">Notre Sélection</span>
-            </div>
+        <div class="relative z-20 w-full max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between mt-20 gap-12">
+            <!-- Left block: text aligned left on md+ -->
+            <div class="w-full md:w-7/12 text-center md:text-left items-center md:items-start flex flex-col">
+                <!-- Eyebrow text -->
+                <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4 animate-fade-in opacity-0">
+                    <span data-i18n="menu-photos-eyebrow">Notre Sélection</span>
+                </div>
 
-            <!-- Title -->
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1] animate-fade-in opacity-0" data-i18n="menu-photos-title">
-                NOTRE <span class="italic text-primary">MENU</span>
-            </h1>
+                <!-- Title -->
+                <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1] animate-fade-in opacity-0" data-i18n="menu-photos-title">
+                    NOTRE <span class="italic text-primary">MENU</span>
+                </h1>
 
-            <!-- Description -->
-            <p data-i18n="menu-photos-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md animate-fade-in opacity-0">
-                Découvrez notre sélection de plats préparés avec passion et des ingrédients de qualité.
-            </p>
+                <!-- Elegant Gold Separator -->
+                <div class="flex items-center gap-4 w-32 mb-6 animate-fade-in opacity-0">
+                    <div class="h-px bg-primary/40 flex-grow"></div>
+                    <i data-lucide="x" class="w-3 h-3 text-primary"></i>
+                    <div class="h-px bg-primary/40 flex-grow"></div>
+                </div>
 
-            <!-- Switcher V1 / V2 -->
-            <div class="flex justify-center mt-6 animate-fade-in opacity-0">
-                <div class="inline-flex p-1 bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 rounded-full backdrop-blur-md">
-                    <a href="menu.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-300 hover:text-white" data-i18n="menu-toggle-categories">Catégories</a>
-                    <a href="menu-photos.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="menu-toggle-dishes">Plats</a>
+                <!-- Description -->
+                <p data-i18n="menu-photos-desc" class="text-sm md:text-base text-gray-200 mb-8 max-w-lg font-light leading-relaxed drop-shadow-md animate-fade-in opacity-0">
+                    Découvrez notre sélection de plats préparés avec passion et des ingrédients de qualité.
+                </p>
+
+                <!-- Switcher V1 / V2 -->
+                <div class="flex justify-center md:justify-start animate-fade-in opacity-0">
+                    <div class="inline-flex p-1 bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 rounded-full backdrop-blur-md">
+                        <a href="menu.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-300 hover:text-white" data-i18n="menu-toggle-categories">Catégories</a>
+                        <a href="menu-photos.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="menu-toggle-dishes">Plats</a>
+                    </div>
                 </div>
             </div>
+            <!-- Right block (empty, visual space for background food photo) -->
+            <div class="w-full md:w-5/12 hidden md:block"></div>
         </div>
     </section>
 
     <!-- ================= STICKY CATEGORIES BAR ================= -->
-    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all duration-300 ease-in-out py-4">
+    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all duration-300 ease-in-out py-6">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-start md:justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-hide py-1">
-                <a href="#category-all" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-primary text-white shadow-md whitespace-nowrap active-category" data-i18n="cat-all">
-                    <i data-lucide="layout-grid" class="w-4 h-4"></i>
-                    <span data-i18n="cat-all-text">Tout</span>
-                </a>
-                <a href="#category-breakfasts" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="coffee" class="w-4 h-4"></i>
-                    <span data-i18n="cat-breakfasts">Petit-déjeuner</span>
-                </a>
-                <a href="#category-entrées" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="salad" class="w-4 h-4"></i>
-                    <span data-i18n="cat-entrées">Entrées</span>
-                </a>
-                <a href="#category-plats" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="utensils" class="w-4 h-4"></i>
-                    <span data-i18n="cat-plats">Plats</span>
-                </a>
-                <a href="#category-fastfood" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="burger" class="w-4 h-4"></i>
-                    <span data-i18n="cat-fastfood">Fast Food</span>
-                </a>
-                <a href="#category-desserts" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="cake" class="w-4 h-4"></i>
-                    <span data-i18n="cat-desserts">Desserts</span>
-                </a>
-                <a href="#category-glaces" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="ice-cream" class="w-4 h-4"></i>
-                    <span data-i18n="cat-glaces">Glaces</span>
-                </a>
-                <a href="#category-boissons" class="category-nav-link flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap">
-                    <i data-lucide="cup-soda" class="w-4 h-4"></i>
-                    <span data-i18n="cat-boissons">Boissons</span>
-                </a>
+            <!-- Box structure -->
+            <div class="border border-primary/20 dark:border-primary/10 rounded-[2.5rem] p-4 md:p-6 bg-black/[0.02] dark:bg-white/[0.01] backdrop-blur-md">
+                <div class="flex items-center justify-start md:justify-center gap-6 md:gap-12 overflow-x-auto scrollbar-hide py-1">
+                    <!-- Breakfast -->
+                    <a href="#category-breakfasts" class="category-nav-link active-category group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="coffee" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-breakfasts">Petit-déjeuner</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                    <!-- Entrées -->
+                    <a href="#category-entrées" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="salad" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-entrées">Entrées</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                    <!-- Plats -->
+                    <a href="#category-plats" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="utensils" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-plats">Plats</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                    <!-- Fast Food -->
+                    <a href="#category-fastfood" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="burger" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-fastfood">Fast Food</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                    <!-- Délices -->
+                    <a href="#category-delices" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="cake" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-delices">Délices</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                    <!-- Boissons -->
+                    <a href="#category-boissons" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-primary/20 group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-black/5 dark:bg-white/5 group-hover:scale-105 group-[.active-category]:bg-primary/10">
+                            <i data-lucide="cup-soda" class="w-5 h-5 md:w-6 md:h-6 text-primary"></i>
+                        </div>
+                        <span class="text-[9px] md:text-[10px] font-semibold uppercase tracking-widest text-gray-500 group-hover:text-black dark:group-hover:text-white group-[.active-category]:text-black dark:group-[.active-category]:text-white transition-colors relative pb-1 whitespace-nowrap">
+                            <span data-i18n="cat-boissons">Boissons</span>
+                            <span class="absolute bottom-0 inset-x-0 mx-auto w-0 h-0.5 bg-primary transition-all duration-300 group-[.active-category]:w-full"></span>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -276,119 +350,58 @@
                 </p>
             </div>
 
-            <!-- Contextual Sub-filters -->
-            <div id="subfilters-breakfasts" class="flex justify-center items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5 opacity-0 transition-all duration-700 translate-y-2">
-                <button onclick="filterSubcategory('breakfasts', 'all')" data-sub="all" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                <button onclick="filterSubcategory('breakfasts', 'pancakes')" data-sub="pancakes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-pancakes">Pancakes</button>
-                <button onclick="filterSubcategory('breakfasts', 'crêpes')" data-sub="crêpes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-crêpes">Crêpes</button>
-                <button onclick="filterSubcategory('breakfasts', 'gaufres')" data-sub="gaufres" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-gaufres">Gaufres</button>
-                <button onclick="filterSubcategory('breakfasts', 'viennoiseries')" data-sub="viennoiseries" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-viennoiseries">Viennoiseries</button>
-            </div>
-
             <!-- Dishes Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Dish 1 (Pancakes) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                <!-- Dish 1 (Breakfast Hollandais) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=500&q=80" alt="Pancakes Sucrés-Salés" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80" alt="Breakfast Hollandais" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast4-name">Pancakes Sucrés-Salés</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">80 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast-hollandais-name">Breakfast Hollandais</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">120 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast4-desc">Pancakes moelleux, bacon croustillant, œuf au plat et sirop d'érable chaud.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast-hollandais-desc">Œufs pochés sur toasts, saumon fumé de Norvège, sauce hollandaise crémeuse et avocado frais.</p>
                     </div>
                 </div>
-                <!-- Dish 2 (Pancakes) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                <!-- Dish 2 (Breakfast Espagnol) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&q=80" alt="Berry Bliss Pancakes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1538220856186-0be0c085984d?auto=format&fit=crop&w=500&q=80" alt="Breakfast Espagnol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake1-name">Berry Bliss Pancakes</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast-espagnol-name">Breakfast Espagnol</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">95 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pancake1-desc">Pancakes moelleux servies avec compotée de fruits rouges et sirop d'érable bio.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast-espagnol-desc">Tortilla espagnole maison, pain grillé à la tomate fraîche râpée, jambon serrano et olives marinées.</p>
                     </div>
                 </div>
-                <!-- Dish 3 (Crêpes) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
+                <!-- Dish 3 (Breakfast Marocain) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=500&q=80" alt="Crêpe Chocolat Signature" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=500&q=80" alt="Breakfast Marocain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe1-name">Crêpe Chocolat Signature</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast-marocain-name">Breakfast Marocain</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">110 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe1-desc">Sauce au chocolat noir grand cru fondu et amandes effilées grillées.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast-marocain-desc">Assortiment de Msemens, Baghrirs, miel pur, fromage de chèvre, olives noires, huile d'olive et thé à la menthe.</p>
                     </div>
                 </div>
-                <!-- Dish 4 (Crêpes) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
+                <!-- Dish 4 (Breakfast Américain) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=500&q=80" alt="Crêpe Suzette Moderne" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1525804017725-055375429188?auto=format&fit=crop&w=500&q=80" alt="Breakfast Américain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe2-name">Crêpe Suzette Moderne</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">80 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast-americain-name">Breakfast Américain</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">115 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe2-desc">Flambée au Grand Marnier, zestes d'oranges confits et glace vanille Bourbon.</p>
-                    </div>
-                </div>
-                <!-- Dish 5 (Gaufres) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=500&q=80" alt="Gaufre Liégeoise" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre1-name">Gaufre Liégeoise Chocolat</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">50 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre1-desc">Gaufre croustillante perlée de sucre, nappage chocolat chaud et framboises.</p>
-                    </div>
-                </div>
-                <!-- Dish 6 (Gaufres) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1562376502-6f769499c886?auto=format&fit=crop&w=500&q=80" alt="Gaufre Fruits Rouges" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre3-name">Gaufre Fruits Rouges</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">55 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre3-desc">Gaufre croustillante nappée d'un coulis de fruits rouges et glace yaourt.</p>
-                    </div>
-                </div>
-                <!-- Dish 7 (Viennoiseries) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="viennoiseries">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Croissant aux Amandes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-croissant-name">Croissant aux Amandes</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">40 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-croissant-desc">Feuilletage pur beurre, crème d'amandes onctueuse et amandes effilées grillées.</p>
-                    </div>
-                </div>
-                <!-- Dish 8 (Viennoiseries) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="viennoiseries">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=500&q=80" alt="Pain au Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-painchoco-name">Pain au Chocolat Suprême</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">35 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-painchoco-desc">Pâte feuilletée croustillante garnie de barres de chocolat noir d'origine.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast-americain-desc">Œufs brouillés au beurre, bacon croustillant, galette de pommes de terre (hash brown), petites saucisses grillées et pain de mie toasté.</p>
                     </div>
                 </div>
             </div>
@@ -449,7 +462,7 @@
                 <!-- Starter 4 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Chèvre Chaud" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Chèvre Chaud" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
@@ -459,32 +472,17 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-starter4-desc">Chèvre chaud sur toast, jeunes pousses, noix grillées et miel.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ================= PLAT SIGNATURE 1 ================= -->
-        <section class="menu-category-section py-8">
-            <div class="fade-up relative rounded-[2rem] overflow-hidden group shadow-2xl min-h-[420px] flex flex-col lg:flex-row bg-[#0b0a09] border border-primary/20">
-                <!-- Left: Spectacular Image -->
-                <div class="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80" alt="Bénédictines au Homard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#0b0a09]/50 to-[#0b0a09] hidden lg:block"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b0a09] via-transparent to-transparent lg:hidden"></div>
-                </div>
-                <!-- Right: Content -->
-                <div class="w-full lg:w-1/2 p-8 md:p-16 flex flex-col justify-center relative z-10">
-                    <div class="flex items-center gap-2 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-primary fill-current"></i>
-                        <span data-i18n="sig-eyebrow">Plat Signature du Chef</span>
+                <!-- Starter 5 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1546069901-52463b9f12eb?auto=format&fit=crop&w=500&q=80" alt="Tartare Saumon" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
-                    <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4" data-i18n="dish-breakfast2-name">Bénédictines au Homard</h2>
-                    <div class="w-16 h-px bg-primary/40 mb-6"></div>
-                    <p class="text-sm text-gray-300 font-light mb-8 leading-relaxed max-w-md" data-i18n="dish-breakfast2-desc">
-                        Œufs pochés, homard frais, muffin anglais fait maison, sauce hollandaise truffée.
-                    </p>
-                    <div class="flex items-baseline gap-6">
-                        <span class="font-serif text-3xl font-semibold text-primary">140 DH</span>
-                        <a href="index.html#reservation" class="px-6 py-2.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all text-xs font-semibold uppercase tracking-wider" data-i18n="cta-card1-btn">Réserver</a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter5-name">Tartare Saumon & Avocat</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">115 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-starter5-desc">Saumon frais coupé au couteau, avocat, gingembre marin, jus de citron vert.</p>
                     </div>
                 </div>
             </div>
@@ -503,7 +501,41 @@
 
             <!-- Dishes Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Plat 1 -->
+                <!-- Plat 1 (Filet Mignon - Signature) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" alt="Filet Mignon" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-primary text-black dark:text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <span data-i18n="tag-signature">Signature</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main1-name">Filet Mignon aux Morilles</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">210 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-main1-desc">Filet de bœuf au grill, purée parfumée à la truffe et sauce aux morilles.</p>
+                    </div>
+                </div>
+                <!-- Plat 2 (Bénédictines Homard - Signature) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80" alt="Bénédictines Homard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-primary text-black dark:text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
+                            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                            <span data-i18n="tag-signature">Signature</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast2-name">Bénédictines au Homard</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">140 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-breakfast2-desc">Œufs pochés, homard frais, muffin anglais fait maison, sauce hollandaise truffée.</p>
+                    </div>
+                </div>
+                <!-- Plat 3 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1485921325814-a50431496cc9?auto=format&fit=crop&w=500&q=80" alt="Saumon" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -516,7 +548,7 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-main2-desc">Saumon rôti sur peau, légumes glacés au miel et beurre blanc aux agrumes.</p>
                     </div>
                 </div>
-                <!-- Plat 2 -->
+                <!-- Plat 4 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=500&q=80" alt="Risotto" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -529,7 +561,7 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-main3-desc">Risotto crémeux aux champignons sauvages de saison et parmesan croustillant.</p>
                     </div>
                 </div>
-                <!-- Plat 3 -->
+                <!-- Plat 5 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=500&q=80" alt="Agneau" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -542,7 +574,7 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-main4-desc">Cuit lentement 12h, jus infusé au romarin sauvage, légumes grillés.</p>
                     </div>
                 </div>
-                <!-- Plat 4 -->
+                <!-- Plat 6 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=500&q=80" alt="Canard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -569,10 +601,9 @@
                 </p>
             </div>
 
-            <!-- Contextual Sub-filters -->
+            <!-- Contextual Sub-filters (Burgers active by default, no All) -->
             <div id="subfilters-fastfood" class="flex justify-center items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5 opacity-0 transition-all duration-700 translate-y-2">
-                <button onclick="filterSubcategory('fastfood', 'all')" data-sub="all" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                <button onclick="filterSubcategory('fastfood', 'burgers')" data-sub="burgers" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-burgers">Burgers</button>
+                <button onclick="filterSubcategory('fastfood', 'burgers')" data-sub="burgers" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-burgers">Burgers</button>
                 <button onclick="filterSubcategory('fastfood', 'pizzas')" data-sub="pizzas" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-pizzas">Pizzas</button>
                 <button onclick="filterSubcategory('fastfood', 'tacos')" data-sub="tacos" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-tacos">Tacos</button>
                 <button onclick="filterSubcategory('fastfood', 'wraps')" data-sub="wraps" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-wraps">Wraps</button>
@@ -588,7 +619,7 @@
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger1-name">Classic Burger</h3>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger1-name">Classic Cheese Burger</h3>
                             <span class="font-sans text-sm font-semibold text-primary shrink-0">85 DH</span>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-burger1-desc">Burger de bœuf grillé, cheddar affiné, sauce Maison secrète.</p>
@@ -607,20 +638,34 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-burger2-desc">Burger de poulet croustillant au panko, mayo épicée et avocat frais.</p>
                     </div>
                 </div>
-                <!-- Pizza 1 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pizzas">
+                <!-- Burger 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="images/pizza.png" alt="Pizza Truffe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Truffle Beef Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza1-name">Pizza Truffe</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">130 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger3-name">Truffle Beef Burger</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">105 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pizza1-desc">Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-burger3-desc">Steak de bœuf Wagyu, mayonnaise à la truffe, oignons caramélisés et gruyère affiné.</p>
                     </div>
                 </div>
-                <!-- Pizza 2 -->
+                <!-- Burger 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="Gourmet Veggie Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger4-name">Gourmet Veggie Burger</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">80 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-burger4-desc">Galette quinoa & patate douce, poivrons rouges grillés, roquette et yaourt grec aux herbes.</p>
+                    </div>
+                </div>
+
+                <!-- Pizza 1 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pizzas">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="images/Mini Pizza.png" alt="Margherita Royale" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -633,6 +678,46 @@
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pizza2-desc">Sauce tomate San Marzano, mozzarella di bufala campana, basilic et huile vierge.</p>
                     </div>
                 </div>
+                <!-- Pizza 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pizzas">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="images/pizza.png" alt="Pizza Truffe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza1-name">White Truffle Pizza</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">140 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pizza1-desc">Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.</p>
+                    </div>
+                </div>
+                <!-- Pizza 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pizzas">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="Quattro Formaggi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza3-name">Quattro Formaggi D'Oro</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">110 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pizza3-desc">Mélange onctueux de gorgonzola, parmesan, mozzarella, chèvre doux et filet de miel sauvage.</p>
+                    </div>
+                </div>
+                <!-- Pizza 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pizzas">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=500&q=80" alt="Pizza Diavola" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza4-name">Pizza Diavola Piquante</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">105 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pizza4-desc">Salami calabrais piquant, oignons rouges, olives noires, mozzarella et origan frais.</p>
+                    </div>
+                </div>
+
                 <!-- Tacos 1 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="tacos">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
@@ -641,24 +726,51 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos1-name">Tacos Mixte</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">85 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos1-desc">Tacos double fromage, bœuf grillé, poulet croustillant et frites.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos1-desc">Tacos double fromage sauce fromagère maison, bœuf haché, poulet croustillant et frites.</p>
                     </div>
                 </div>
                 <!-- Tacos 2 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="tacos">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&w=500&q=80" alt="Tacos Gourmet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&w=500&q=80" alt="Tacos Poulet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos2-name">Tacos Gourmet</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">85 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos3-name">Tacos Poulet Croustillant</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos2-desc">Viande hachée fraîche de bœuf, sauce au poivre vert maison et frites.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos3-desc">Tenders de poulet croustillants, frites dorées, sauce algérienne épicée et sauce fromage.</p>
                     </div>
                 </div>
+                <!-- Tacos 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="tacos">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=500&q=80" alt="Tacos Viande Hachée" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos2-name">Tacos Viande Hachée</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">80 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos2-desc">Viande hachée fraîche de bœuf assaisonnée, frites, sauce samouraï piquante et cheddar fondant.</p>
+                    </div>
+                </div>
+                <!-- Tacos 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="tacos">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=500&q=80" alt="Tacos Cordon Bleu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos4-name">Tacos Cordon Bleu</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">85 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tacos4-desc">Morceaux de cordon bleu croustillants, sauce fromagère crémeuse maison et frites.</p>
+                    </div>
+                </div>
+
                 <!-- Wrap 1 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="wraps">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
@@ -667,11 +779,51 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-wrap-poulet-name">Wrap Poulet Croustillant</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-wrap-poulet-desc">Poulet croustillant, crudités de saison, sauce crémeuse à l'ail, tortilla moelleuse.</p>
                     </div>
                 </div>
+                <!-- Wrap 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="wraps">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Wrap Boeuf" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-wrap-boeuf-name">Gourmet Beef Wrap</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">85 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-wrap-boeuf-desc">Lamelles de bœuf saisies, cheddar fondu, poivrons et oignons grillés, sauce barbecue.</p>
+                    </div>
+                </div>
+                <!-- Wrap 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="wraps">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=500&q=80" alt="Wrap Saumon" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-wrap-saumon-name">Saumon Avocat Wrap</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">95 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-wrap-saumon-desc">Saumon fumé, cream cheese à l'aneth, avocat frais et concombre dans une tortilla.</p>
+                    </div>
+                </div>
+                <!-- Wrap 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="wraps">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Wrap Veggie" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-wrap-veggie-name">Veggie Garden Wrap</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-wrap-veggie-desc">Courgettes et aubergines grillées, feta émiettée, légumes croquants et tartinade de houmous.</p>
+                    </div>
+                </div>
+
                 <!-- Panini 1 -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="paninis">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
@@ -680,174 +832,289 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-panini-pesto-name">Panini Poulet Pesto</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-panini-pesto-desc">Filet de poulet grillé, mozzarella fondante, pesto de basilic maison, tomates fraîches.</p>
                     </div>
                 </div>
+                <!-- Panini 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="paninis">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="Panini Thon" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-panini-thon-name">Panini Thon Fondant</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-panini-thon-desc">Rillettes de thon à l'aneth, cheddar fondu, oignons rouges et fines tranches de tomates.</p>
+                    </div>
+                </div>
+                <!-- Panini 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="paninis">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=500&q=80" alt="Panini Dinde" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-panini-dinde-name">Panini Dinde Fumée</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-panini-dinde-desc">Émincé de dinde fumée, mozzarella fondante, sauce moutarde au miel sur ciabatta toasté.</p>
+                    </div>
+                </div>
+                <!-- Panini 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="paninis">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=500&q=80" alt="Panini Boeuf" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-panini-boeuf-name">Panini Viande Hachée</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">78 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-panini-boeuf-desc">Viande de bœuf hachée assaisonnée, mozzarella, oignons caramélisés et mayonnaise épicée.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ================= PLAT SIGNATURE 2 ================= -->
-        <section class="menu-category-section py-8">
-            <div class="fade-up relative rounded-[2rem] overflow-hidden group shadow-2xl min-h-[420px] flex flex-col lg:flex-row-reverse bg-[#0b0a09] border border-primary/20">
-                <!-- Right: Spectacular Image -->
-                <div class="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-full overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Filet Mignon" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-l from-transparent via-[#0b0a09]/50 to-[#0b0a09] hidden lg:block"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0b0a09] via-transparent to-transparent lg:hidden"></div>
-                </div>
-                <!-- Left: Content -->
-                <div class="w-full lg:w-1/2 p-8 md:p-16 flex flex-col justify-center relative z-10">
-                    <div class="flex items-center gap-2 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4">
-                        <i data-lucide="star" class="w-4 h-4 text-primary fill-current"></i>
-                        <span data-i18n="sig-eyebrow">Plat Signature du Chef</span>
-                    </div>
-                    <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4" data-i18n="dish-main1-name">Filet Mignon aux Morilles</h2>
-                    <div class="w-16 h-px bg-primary/40 mb-6"></div>
-                    <p class="text-sm text-gray-300 font-light mb-8 leading-relaxed max-w-md" data-i18n="dish-main1-desc">
-                        Filet de bœuf au grill, purée parfumée à la truffe et sauce aux morilles.
-                    </p>
-                    <div class="flex items-baseline gap-6">
-                        <span class="font-serif text-3xl font-semibold text-primary">210 DH</span>
-                        <a href="index.html#reservation" class="px-6 py-2.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all text-xs font-semibold uppercase tracking-wider" data-i18n="cta-card1-btn">Réserver</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= CATEGORY 5: DESSERTS ================= -->
-        <section id="category-desserts" class="menu-category-section scroll-mt-28">
-            <div class="text-center mb-12">
-                <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-desserts-eyebrow">DOUCEURS SUCRÉES</p>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-desserts-title">Les Desserts & Délices</h2>
+        <!-- ================= CATEGORY 5: DÉLICES ================= -->
+        <section id="category-delices" class="menu-category-section scroll-mt-28">
+            <div class="text-center mb-10">
+                <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-delices-eyebrow">DOUCEURS & SIGNATURES</p>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-delices-title">Les Délices & Douceurs</h2>
                 <div class="w-12 h-0.5 bg-primary/40 mx-auto mb-4"></div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl mx-auto" data-i18n="cat-desserts-desc">
-                    Une touche de finesse sucrée pour parfaire votre repas, conçue par notre chef pâtissier avec des ingrédients nobles et légers.
+                <p class="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl mx-auto" data-i18n="cat-delices-desc">
+                    Une note sucrée pour sublimer votre instant culinaire, préparée par notre chef pâtissier avec créativité et finesse.
                 </p>
+            </div>
+
+            <!-- Contextual Sub-filters (Crêpes active by default, no All) -->
+            <div id="subfilters-delices" class="flex justify-center items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5 opacity-0 transition-all duration-700 translate-y-2">
+                <button onclick="filterSubcategory('delices', 'crêpes')" data-sub="crêpes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-crêpes">Crêpes</button>
+                <button onclick="filterSubcategory('delices', 'pancakes')" data-sub="pancakes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-pancakes">Pancakes</button>
+                <button onclick="filterSubcategory('delices', 'gaufres')" data-sub="gaufres" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-gaufres">Gaufres</button>
+                <button onclick="filterSubcategory('delices', 'desserts')" data-sub="desserts" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-desserts">Desserts</button>
             </div>
 
             <!-- Dishes Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Dessert 1 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                <!-- Crêpe 1 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="images/dessert.png" alt="Fondant au Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=500&q=80" alt="Crêpe Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-fondant-name">Fondant au Chocolat</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe1-name">Crêpe Chocolat Grand Cru</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-fondant-desc">Cœur coulant au chocolat noir grand cru, servi avec une boule de glace vanille Bourbon.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe1-desc">Sauce au chocolat noir grand cru fondu et amandes effilées grillées.</p>
                     </div>
                 </div>
-                <!-- Dessert 2 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                <!-- Crêpe 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=500&q=80" alt="Crêpe Miel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe-miel-name">Crêpe Miel & Noix</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">60 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe-miel-desc">Miel sauvage biologique de l'Atlas, noix de Grenoble torréfiées et rondelles de banane.</p>
+                    </div>
+                </div>
+                <!-- Crêpe 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?auto=format&fit=crop&w=500&q=80" alt="Crêpe Nutella" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe-nutella-name">Crêpe Nutella Banane</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe-nutella-desc">Nutella onctueux, bananes fraîches tranchées, crème chantilly maison.</p>
+                    </div>
+                </div>
+                <!-- Crêpe 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="crêpes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1598214886806-c87b2a370944?auto=format&fit=crop&w=500&q=80" alt="Crêpe Fruits Rouges" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe-fruits-name">Crêpe Fruits Rouges</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-crepe-fruits-desc">Compotée maison de fruits rouges acidulée, fraises fraîches et sucre glace.</p>
+                    </div>
+                </div>
+
+                <!-- Pancake 1 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=500&q=80" alt="Pancakes Miel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake-miel-name">Pancakes Miel Classique</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pancake-miel-desc">Pancakes épais et moelleux servis avec du miel biologique de montagne et du beurre fondu.</p>
+                    </div>
+                </div>
+                <!-- Pancake 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&q=80" alt="Pancakes Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake-choc-name">Pancakes Chocolat Intense</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pancake-choc-desc">Pancakes nappés de sauce chocolat noir intense maison et noisettes torréfiées concassées.</p>
+                    </div>
+                </div>
+                <!-- Pancake 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1554520735-096b99a7e14f?auto=format&fit=crop&w=500&q=80" alt="Pancakes Nutella" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake-nutella-name">Pancakes Nutella Banane</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pancake-nutella-desc">Sauce chocolat Nutella onctueuse, rondelles de bananes et éclats de spéculoos croustillants.</p>
+                    </div>
+                </div>
+                <!-- Pancake 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="pancakes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&q=80" alt="Pancakes Fruits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake-fruits-name">Pancakes Fruits de Saison</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">80 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-pancake-fruits-desc">Servis avec fraises fraîches, myrtilles, sirop d'érable chaud et zeste de citron vert.</p>
+                    </div>
+                </div>
+
+                <!-- Gaufre 1 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=500&q=80" alt="Gaufre Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre-choc-name">Gaufre Chocolat Belge</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre-choc-desc">Gaufre croustillante de Liège perlée de sucre, sauce au chocolat belge chaud et crème.</p>
+                    </div>
+                </div>
+                <!-- Gaufre 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1562376502-6f769499c886?auto=format&fit=crop&w=500&q=80" alt="Gaufre Fruits" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre3-name">Gaufre Fruits Rouges</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre3-desc">Gaufre croustillante nappée d'un coulis de fruits rouges fait maison et fruits frais de saison.</p>
+                    </div>
+                </div>
+                <!-- Gaufre 3 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=500&q=80" alt="Gaufre Caramel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre-caramel-name">Gaufre Caramel Pécan</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">72 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre-caramel-desc">Caramel au beurre salé coulant maison, noix de pécan caramélisées et glace vanille.</p>
+                    </div>
+                </div>
+                <!-- Gaufre 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="gaufres">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=500&q=80" alt="Gaufre Speculoos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre-speculoos-name">Gaufre Spéculoos</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">68 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-gaufre-speculoos-desc">Pâte de spéculoos Lotus fondue, éclats de spéculoos croustillants et crème fouettée.</p>
+                    </div>
+                </div>
+
+                <!-- Dessert 1 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="desserts">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="images/dessert2.png" alt="Tiramisu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tiramisu-name">Tiramisu Classique</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">70 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tiramisu-desc">Mascarpone onctueuse, biscuits imbibés d'expresso de spécialité et cacao amer.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tiramisu-desc">Mascarpone onctueuse, biscuits cuillères imbibés d'un expresso de spécialité et cacao amer d'origine.</p>
+                    </div>
+                </div>
+                <!-- Dessert 2 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="desserts">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" alt="Tarte Citron" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tarte-citron-name">Tarte au Citron Meringuée</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tarte-citron-desc">Crémeux citron jaune et vert acidulé sur pâte sablée croustillante et meringue italienne dorée.</p>
                     </div>
                 </div>
                 <!-- Dessert 3 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="desserts">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?auto=format&fit=crop&w=500&q=80" alt="Crème Brûlée" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-creme-name">Crème Brûlée</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">60 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">65 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-creme-desc">Crème infusée à la véritable gousse de vanille Bourbon, caramélisée à la cassonade.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-creme-desc">Crème infusée à la véritable gousse de vanille Bourbon de Madagascar, caramélisée minute.</p>
+                    </div>
+                </div>
+                <!-- Dessert 4 -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="desserts">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="images/dessert.png" alt="Fondant au Chocolat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-fondant-name">Fondant au Chocolat</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">75 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-fondant-desc">Cœur coulant au chocolat noir grand cru, servi avec une boule de glace vanille Bourbon.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CATEGORY 6: GLACES ================= -->
-        <section id="category-glaces" class="menu-category-section scroll-mt-28">
-            <div class="text-center mb-10">
-                <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-glaces-eyebrow">DELICES SURGELÉS</p>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-glaces-title">Les Glaces & Coupes</h2>
-                <div class="w-12 h-0.5 bg-primary/40 mx-auto mb-4"></div>
-                <p class="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl mx-auto" data-i18n="cat-glaces-desc">
-                    Notre sélection de glaces artisanales faites maison et de milkshakes onctueux pour une fraîcheur absolue.
-                </p>
-            </div>
-
-            <!-- Contextual Sub-filters -->
-            <div id="subfilters-glaces" class="flex justify-center items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5 opacity-0 transition-all duration-700 translate-y-2">
-                <button onclick="filterSubcategory('glaces', 'all')" data-sub="all" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                <button onclick="filterSubcategory('glaces', 'coupes')" data-sub="coupes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-coupes">Coupes Glacées</button>
-                <button onclick="filterSubcategory('glaces', 'milkshakes')" data-sub="milkshakes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-milkshakes">Milkshakes</button>
-                <button onclick="filterSubcategory('glaces', 'artisanales')" data-sub="artisanales" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-artisanales">Glaces Artisanales</button>
-            </div>
-
-            <!-- Dishes Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Coupe 1 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="coupes">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=500&q=80" alt="Dame Blanche" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-dameblanche-name">Coupe Dame Blanche</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">55 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-dameblanche-desc">Trois boules de glace vanille, sauce chocolat chaud maison et crème chantilly.</p>
-                    </div>
-                </div>
-                <!-- Coupe 2 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="coupes">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=80" alt="Coupe Fruits Rouges" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-fruitsrouges-name">Coupe Fruits Rouges</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">60 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-fruitsrouges-desc">Glace yaourt et fraise, coulis de fruits rouges fait maison et fruits frais.</p>
-                    </div>
-                </div>
-                <!-- Milkshake 1 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="milkshakes">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=500&q=80" alt="Milkshake Vanille" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-milkshake-vanille-name">Milkshake Vanille-Pécan</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">50 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-milkshake-vanille-desc">Lait frais, glace vanille artisanale, éclats de noix de pécan caramélisées.</p>
-                    </div>
-                </div>
-                <!-- Glace Artisanale 1 -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="artisanales">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1501443710928-874280b2a97e?auto=format&fit=crop&w=500&q=80" alt="Glace Pistache" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-glace-pistache-name">Pistache d'Italie</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">45 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-glace-pistache-desc">Deux boules de notre glace artisanale à la pistache de Sicile, au goût intense.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= CATEGORY 7: BOISSONS ================= -->
+        <!-- ================= CATEGORY 6: BOISSONS ================= -->
         <section id="category-boissons" class="menu-category-section scroll-mt-28">
             <div class="text-center mb-10">
                 <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-boissons-eyebrow">RAFRAÎCHISSEMENTS & NECTARS</p>
@@ -858,16 +1125,81 @@
                 </p>
             </div>
 
-            <!-- Contextual Sub-filters -->
+            <!-- Contextual Sub-filters (Boissons Froides active by default, no All) -->
             <div id="subfilters-boissons" class="flex justify-center items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5 opacity-0 transition-all duration-700 translate-y-2">
-                <button onclick="filterSubcategory('boissons', 'all')" data-sub="all" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
+                <button onclick="filterSubcategory('boissons', 'froides')" data-sub="froides" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="sub-froides">Boissons Froides</button>
                 <button onclick="filterSubcategory('boissons', 'chaudes')" data-sub="chaudes" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-chaudes">Boissons Chaudes</button>
-                <button onclick="filterSubcategory('boissons', 'froides')" data-sub="froides" class="subcategory-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-froides">Boissons Froides</button>
             </div>
 
             <!-- Dishes Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Drink 1 (Hot) -->
+                <!-- Drink 1 (Cold) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=500&q=80" alt="Jus Banane" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-juice-banane-name">Jus de Banane Milkshake</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">55 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-juice-banane-desc">Bananes fraîches mixées avec du lait entier et une touche de gousse de vanille.</p>
+                    </div>
+                </div>
+                <!-- Drink 2 (Cold) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=500&q=80" alt="Jus Avocat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-juice-avocat-name">Jus d'Avocat & Amandes</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">60 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-juice-avocat-desc">Avocat crémeux mixé avec du lait froid, du miel pur et éclats d'amandes concassées.</p>
+                    </div>
+                </div>
+                <!-- Drink 3 (Cold) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=500&q=80" alt="Jus Fraise" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-juice-fraise-name">Jus de Fraise Frais</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">50 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-juice-fraise-desc">Fraises fraîches locales savoureuses, pressées à froid minute.</p>
+                    </div>
+                </div>
+                <!-- Drink 4 (Cold) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?auto=format&fit=crop&w=500&q=80" alt="Jus Ananas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-juice-ananas-name">Jus d'Ananas Tropical</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">55 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-juice-ananas-desc">Ananas mûri au soleil pressé minute à la commande.</p>
+                    </div>
+                </div>
+
+                <!-- Drink 5 (Hot) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="chaudes">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" alt="Thé Menthe" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline gap-4 mb-2">
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tea-menthe-name">Thé à la Menthe Marocain</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">40 DH</span>
+                        </div>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tea-menthe-desc">Thé vert de tradition, menthe fraîche cueillie et infusée à l'ancienne.</p>
+                    </div>
+                </div>
+                <!-- Drink 6 (Hot) -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="chaudes">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Espresso" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -875,12 +1207,12 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot1-name">Espresso Gold</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">25 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">35 DH</span>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-hot1-desc">Torréfaction artisanale locale pour un espresso de spécialité serré.</p>
                     </div>
                 </div>
-                <!-- Drink 2 (Hot) -->
+                <!-- Drink 7 (Hot) -->
                 <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="chaudes">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80" alt="Cappuccino" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -888,35 +1220,22 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
                             <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot2-name">Cappuccino Velours</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">35 DH</span>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">45 DH</span>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-hot2-desc">Espresso riche avec une mousse de lait veloutée et chocolat noir.</p>
                     </div>
                 </div>
-                <!-- Drink 3 (Cold) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
+                <!-- Drink 8 (Hot) -->
+                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="chaudes">
                     <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=500&q=80" alt="Mocktail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" alt="Verveine" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold1-name">Mocktail Signature</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">45 DH</span>
+                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tea-verveine-name">Infusion Verveine</h3>
+                            <span class="font-sans text-sm font-semibold text-primary shrink-0">40 DH</span>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-cold1-desc">Jasmin infusé à froid, purée de framboises fraîches, jus de citron vert et soda.</p>
-                    </div>
-                </div>
-                <!-- Drink 4 (Cold) -->
-                <div class="dish-photo-card group relative bg-[#fcfcfb] dark:bg-[#111] rounded-3xl overflow-hidden border border-black/5 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="froides">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
-                        <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=500&q=80" alt="Jus d'Orange" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-baseline gap-4 mb-2">
-                            <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold3-name">Jus d'Orange Pressé</h3>
-                            <span class="font-sans text-sm font-semibold text-primary shrink-0">30 DH</span>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-cold3-desc">Oranges locales pressées minute à la commande.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed flex-grow break-words" data-i18n="dish-tea-verveine-desc">Infusion de verveine biologique de notre jardin aromatique.</p>
                     </div>
                 </div>
             </div>
@@ -1098,7 +1417,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('#subfilters-breakfasts, #subfilters-fastfood, #subfilters-glaces, #subfilters-boissons')
+        document.querySelectorAll('#subfilters-fastfood, #subfilters-delices, #subfilters-boissons')
             .forEach(el => subfiltersObserver.observe(el));
 
         /* =================== DARK MODE =================== */
@@ -1203,12 +1522,10 @@
             });
 
             categoryLinks.forEach(link => {
-                link.classList.remove('bg-primary', 'text-white', 'shadow-md');
-                link.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'bg-black/5', 'dark:bg-white/5');
-                
                 if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('bg-primary', 'text-white', 'shadow-md');
-                    link.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'bg-black/5', 'dark:bg-white/5');
+                    link.classList.add('active-category');
+                } else {
+                    link.classList.remove('active-category');
                 }
             });
         });
@@ -1228,14 +1545,11 @@
                 "menu-photos-title": "OUR <span class=\"italic text-primary\">MENU</span>",
                 "menu-photos-desc": "Discover our selection of dishes prepared with passion and quality ingredients.",
                 
-                "cat-all": "All",
-                "cat-all-text": "All",
-                "cat-breakfasts": "Breakfast",
+                "cat-breakfasts": "Breakfasts",
                 "cat-entrées": "Starters",
                 "cat-plats": "Mains",
                 "cat-fastfood": "Fast Food",
-                "cat-desserts": "Desserts",
-                "cat-glaces": "Ice Cream",
+                "cat-delices": "Delights",
                 "cat-boissons": "Drinks",
 
                 "cat-breakfasts-eyebrow": "DELICIOUS MORNINGS",
@@ -1254,54 +1568,41 @@
                 "cat-fastfood-title": "Fast Food & Burgers",
                 "cat-fastfood-desc": "A gourmet and high-end revisit of classic street food. All our buns and pizza doughs are kneaded on-site every morning.",
 
-                "cat-desserts-eyebrow": "SWEET TEMPTATIONS",
-                "cat-desserts-title": "Desserts & Delights",
-                "cat-desserts-desc": "A touch of sweet delicacy to perfect your dining experience, crafted by our pastry chef with noble and light ingredients.",
-
-                "cat-glaces-eyebrow": "FROZEN DELIGHTS",
-                "cat-glaces-title": "Ice Creams & Sundaes",
-                "cat-glaces-desc": "Our selection of homemade artisanal ice creams and creamy milkshakes for absolute freshness.",
+                "cat-delices-eyebrow": "SWEET & SIGNATURES",
+                "cat-delices-title": "Delights & Sweets",
+                "cat-delices-desc": "A sweet note to sublimate your culinary moment, prepared by our pastry chef with creativity and finesse.",
 
                 "cat-boissons-eyebrow": "REFRESHMENTS & NECTARS",
                 "cat-boissons-title": "Drinks & Nectars",
                 "cat-boissons-desc": "A refined menu of specialty coffees, infusions and iced creations to accompany your culinary journey.",
 
-                "sub-all": "All",
-                "sub-pancakes": "Pancakes",
-                "sub-crêpes": "Crepes",
-                "sub-gaufres": "Waffles",
-                "sub-viennoiseries": "Viennoiseries",
                 "sub-burgers": "Burgers",
                 "sub-pizzas": "Pizzas",
                 "sub-tacos": "Tacos",
                 "sub-wraps": "Wraps",
                 "sub-paninis": "Paninis",
-                "sub-coupes": "Sundaes",
-                "sub-milkshakes": "Milkshakes",
-                "sub-artisanales": "Artisanal",
+                "sub-crêpes": "Crepes",
+                "sub-pancakes": "Pancakes",
+                "sub-gaufres": "Waffles",
+                "sub-desserts": "Desserts",
                 "sub-chaudes": "Hot Drinks",
                 "sub-froides": "Cold Drinks",
 
                 "sig-eyebrow": "Chef's Signature Dish",
+                "tag-signature": "Signature",
 
                 // Dishes translations
-                "dish-breakfast4-name": "Sweet & Savory Pancakes",
-                "dish-breakfast4-desc": "Fluffy pancakes, crispy bacon, fried egg and warm maple syrup.",
-                "dish-pancake1-name": "Berry Bliss Pancakes",
-                "dish-pancake1-desc": "Fluffy pancakes served with red berry compote and organic maple syrup.",
-                "dish-crepe1-name": "Signature Chocolate Crepe",
-                "dish-crepe1-desc": "Warm crepe with melted grand cru dark chocolate and toasted shaved almonds.",
-                "dish-crepe2-name": "Modern Suzette Crepe",
-                "dish-crepe2-desc": "Flambée with Grand Marnier, candied orange zest and bourbon vanilla ice cream.",
-                "dish-gaufre1-name": "Liège Chocolate Waffle",
-                "dish-gaufre1-desc": "Crispy pearl-sugar waffle topped with hot dark chocolate and fresh raspberries.",
-                "dish-gaufre3-name": "Special Red Berry Waffle",
-                "dish-gaufre3-desc": "Crispy waffle topped with a homemade red berry coulis and yogurt ice cream.",
-                "dish-croissant-name": "Almond Croissant",
-                "dish-croissant-desc": "Pure butter pastry, smooth almond cream, topped with toasted shaved almonds.",
-                "dish-painchoco-name": "Supreme Pain au Chocolat",
-                "dish-painchoco-desc": "Flaky buttery pastry filled with premium dark chocolate bars.",
+                // Breakfasts
+                "dish-breakfast-hollandais-name": "Hollandais Breakfast",
+                "dish-breakfast-hollandais-desc": "Poached eggs on toast, smoked Norwegian salmon, creamy hollandaise sauce and fresh avocado.",
+                "dish-breakfast-espagnol-name": "Spanish Breakfast",
+                "dish-breakfast-espagnol-desc": "Homemade Spanish tortilla, toasted bread with freshly grated tomato, serrano ham and marinated olives.",
+                "dish-breakfast-marocain-name": "Moroccan Breakfast",
+                "dish-breakfast-marocain-desc": "Assortment of Msemens, Baghrirs, pure honey, goat cheese, black olives, olive oil and mint tea.",
+                "dish-breakfast-americain-name": "American Breakfast",
+                "dish-breakfast-americain-desc": "Scrambled eggs with butter, crispy bacon, hash brown potato, small grilled sausages and toasted bread.",
 
+                // Starters
                 "dish-starter1-name": "Pumpkin & Truffle Soup",
                 "dish-starter1-desc": "A creamy pumpkin soup flavored with white truffle oil.",
                 "dish-starter2-name": "Burrata & Candied Tomatoes",
@@ -1310,10 +1611,14 @@
                 "dish-starter3-desc": "Thin slices of beef tenderloin, parmesan shavings, arugula and virgin olive oil.",
                 "dish-starter4-name": "Warm Goat Cheese & Honey",
                 "dish-starter4-desc": "Warm goat cheese on toast, baby greens, toasted walnuts and wild honey.",
+                "dish-starter5-name": "Salmon & Avocado Tartare",
+                "dish-starter5-desc": "Knife-cut fresh salmon, avocado, pickled ginger, lime juice and fresh dill.",
 
+                // Plats
+                "dish-main1-name": "Filet Mignon with Morels",
+                "dish-main1-desc": "Grilled beef filet mignon, fine truffle potato puree and wild morel sauce.",
                 "dish-breakfast2-name": "Lobster Benedict Eggs",
                 "dish-breakfast2-desc": "Poached eggs, fresh lobster, homemade English muffin, truffled hollandaise sauce.",
-
                 "dish-main2-name": "Roasted Salmon Pavé",
                 "dish-main2-desc": "Salmon roasted skin-on, honey-glazed root vegetables and citrus white butter sauce.",
                 "dish-main3-name": "Wild Forest Risotto",
@@ -1323,50 +1628,106 @@
                 "dish-main5-name": "Duck Breast with Honey",
                 "dish-main5-desc": "Pan-seared duck breast cooked medium-rare, lavender honey sweet & sour sauce and sweet potato puree.",
 
-                "dish-burger1-name": "Classic Burger",
+                // Fast Food
+                "dish-burger1-name": "Classic Cheese Burger",
                 "dish-burger1-desc": "Grilled beef burger, aged cheddar, secret House sauce.",
                 "dish-burger2-name": "Chicken Burger",
                 "dish-burger2-desc": "Crispy panko chicken burger, spicy mayo sauce and fresh avocado.",
+                "dish-burger3-name": "Truffle Beef Burger",
+                "dish-burger3-desc": "Wagyu beef patty, truffle mayo, caramelized onions and aged gruyere cheese.",
+                "dish-burger4-name": "Gourmet Veggie Burger",
+                "dish-burger4-desc": "Quinoa & sweet potato patty, grilled red peppers, arugula and herbed Greek yogurt.",
+                
+                "dish-pizza2-name": "Margherita Royale",
+                "dish-pizza2-desc": "San Marzano tomato sauce, mozzarella di bufala campana, fresh basil.",
                 "dish-pizza1-name": "White Truffle Pizza",
                 "dish-pizza1-desc": "White truffle cream, mozzarella, fresh button mushrooms and truffle oil.",
-                "dish-pizza2-name": "Margherita Royale",
-                "dish-pizza2-desc": "San Marzano tomato sauce, mozzarella di bufala campana, fresh basil and virgin olive oil.",
+                "dish-pizza3-name": "Four Cheese Golden Pizza",
+                "dish-pizza3-desc": "Smooth blend of gorgonzola, parmesan, mozzarella, sweet goat cheese and a drizzle of wild honey.",
+                "dish-pizza4-name": "Spicy Diavola Pizza",
+                "dish-pizza4-desc": "Spicy Calabrian salami, red onions, black olives, mozzarella and fresh oregano.",
+
                 "dish-tacos1-name": "Mixed Tacos",
-                "dish-tacos1-desc": "Double cheese tacos, grilled beef, crispy chicken and french fries.",
-                "dish-tacos2-name": "Gourmet Tacos",
-                "dish-tacos2-desc": "Freshly ground beef, homemade green pepper sauce and crispy fries.",
+                "dish-tacos1-desc": "Double cheese tacos with homemade cheese sauce, ground beef, crispy chicken and french fries.",
+                "dish-tacos3-name": "Crispy Chicken Tacos",
+                "dish-tacos3-desc": "Crispy chicken tenders, golden fries, spicy Algerian sauce and cheese sauce.",
+                "dish-tacos2-name": "Ground Beef Tacos",
+                "dish-tacos2-desc": "Seasoned fresh ground beef, fries, spicy samurai sauce and melted cheddar.",
+                "dish-tacos4-name": "Cordon Bleu Tacos",
+                "dish-tacos4-desc": "Crispy cordon bleu pieces, homemade creamy cheese sauce and fries.",
+
                 "dish-wrap-poulet-name": "Crispy Chicken Wrap",
                 "dish-wrap-poulet-desc": "Crispy chicken, seasonal veggies, creamy garlic sauce, inside a soft flour tortilla.",
+                "dish-wrap-boeuf-name": "Gourmet Beef Wrap",
+                "dish-wrap-boeuf-desc": "Seared beef strips, melted cheddar, grilled peppers and onions, barbecue sauce.",
+                "dish-wrap-saumon-name": "Salmon Avocado Wrap",
+                "dish-wrap-saumon-desc": "Smoked salmon, dill cream cheese, fresh avocado and cucumber in a tortilla.",
+                "dish-wrap-veggie-name": "Veggie Garden Wrap",
+                "dish-wrap-veggie-desc": "Grilled zucchini and eggplant, crumbled feta, crunchy vegetables and hummus spread.",
+
                 "dish-panini-pesto-name": "Chicken Pesto Panini",
                 "dish-panini-pesto-desc": "Grilled chicken breast, melted mozzarella, homemade basil pesto, fresh tomatoes.",
+                "dish-panini-thon-name": "Tuna Melt Panini",
+                "dish-panini-thon-desc": "Tuna salad with dill, melted cheddar, red onions and thin tomato slices.",
+                "dish-panini-dinde-name": "Smoked Turkey Panini",
+                "dish-panini-dinde-desc": "Sliced smoked turkey, melted mozzarella, honey mustard sauce on toasted ciabatta.",
+                "dish-panini-boeuf-name": "Ground Beef Panini",
+                "dish-panini-boeuf-desc": "Seasoned ground beef, mozzarella, caramelized onions and spicy mayo.",
 
-                "dish-main1-name": "Filet Mignon with Morels",
-                "dish-main1-desc": "Grilled beef filet mignon, fine truffle potato puree and wild morel sauce.",
+                // Délices
+                "dish-crepe1-name": "Signature Chocolate Crepe",
+                "dish-crepe1-desc": "Warm crepe with melted grand cru dark chocolate and toasted shaved almonds.",
+                "dish-crepe-miel-name": "Honey & Walnut Crepe",
+                "dish-crepe-miel-desc": "Wild organic Atlas honey, toasted walnuts and banana slices.",
+                "dish-crepe-nutella-name": "Nutella Banana Crepe",
+                "dish-crepe-nutella-desc": "Creamy Nutella, sliced fresh bananas, homemade whipped cream.",
+                "dish-crepe-fruits-name": "Red Berry Crepe",
+                "dish-crepe-fruits-desc": "Tangy homemade red berry compote, fresh strawberries and powdered sugar.",
 
-                "dish-fondant-name": "Chocolate Lava Cake",
-                "dish-fondant-desc": "Warm grand cru dark chocolate lava cake, served with a scoop of bourbon vanilla ice cream.",
+                "dish-pancake-miel-name": "Classic Honey Pancakes",
+                "dish-pancake-miel-desc": "Thick fluffy pancakes served with organic mountain honey and melted butter.",
+                "dish-pancake-choc-name": "Intense Chocolate Pancakes",
+                "dish-pancake-choc-desc": "Pancakes drizzled with homemade dark chocolate sauce and toasted hazelnuts.",
+                "dish-pancake-nutella-name": "Nutella Banana Pancakes",
+                "dish-pancake-nutella-desc": "Creamy Nutella chocolate sauce, banana slices and crunchy speculoos bits.",
+                "dish-pancake-fruits-name": "Seasonal Fruit Pancakes",
+                "dish-pancake-fruits-desc": "Served with fresh strawberries, blueberries, warm maple syrup and lime zest.",
+
+                "dish-gaufre-choc-name": "Belgian Chocolate Waffle",
+                "dish-gaufre-choc-desc": "Crispy pearl-sugar Liège waffle, hot Belgian chocolate sauce and whipped cream.",
+                "dish-gaufre3-name": "Red Berry Waffle",
+                "dish-gaufre3-desc": "Crispy waffle topped with homemade red berry coulis and fresh seasonal fruit.",
+                "dish-gaufre-caramel-name": "Pecan Caramel Waffle",
+                "dish-gaufre-caramel-desc": "Homemade warm salted butter caramel, caramelized pecans and vanilla ice cream.",
+                "dish-gaufre-speculoos-name": "Lotus Speculoos Waffle",
+                "dish-gaufre-speculoos-desc": "Melted Lotus speculoos spread, crunchy speculoos bits and whipped cream.",
+
                 "dish-tiramisu-name": "Classic Tiramisu",
                 "dish-tiramisu-desc": "Creamy mascarpone, ladyfingers soaked in specialty espresso and dark cocoa dust.",
+                "dish-tarte-citron-name": "Lemon Meringue Tart",
+                "dish-tarte-citron-desc": "Tangy yellow and lime curd on crispy shortcrust pastry, topped with golden Italian meringue.",
                 "dish-creme-name": "Crème Brûlée",
-                "dish-creme-desc": "Cream infused with real Bourbon vanilla beans, caramelized with brown sugar.",
+                "dish-creme-desc": "Cream infused with real Bourbon vanilla beans, caramelized to order.",
+                "dish-fondant-name": "Chocolate Lava Cake",
+                "dish-fondant-desc": "Warm grand cru dark chocolate lava cake, served with a scoop of bourbon vanilla ice cream.",
 
-                "dish-dameblanche-name": "Dame Blanche Sundae",
-                "dish-dameblanche-desc": "Three scoops of vanilla ice cream, hot chocolate sauce and whipped cream.",
-                "dish-fruitsrouges-name": "Red Berry Sundae",
-                "dish-fruitsrouges-desc": "Yogurt and strawberry ice cream, homemade red berry coulis and fresh berries.",
-                "dish-milkshake-vanille-name": "Vanilla-Pecan Milkshake",
-                "dish-milkshake-vanille-desc": "Fresh milk, artisanal vanilla ice cream, and caramelized pecan pieces.",
-                "dish-glace-pistache-name": "Italian Pistachio Glace",
-                "dish-glace-pistache-desc": "Two scoops of our homemade Sicilian pistachio ice cream, intense flavor.",
-
+                // Boissons
+                "dish-juice-banane-name": "Banana Milkshake Juice",
+                "dish-juice-banane-desc": "Fresh bananas blended with whole milk and a touch of vanilla bean.",
+                "dish-juice-avocat-name": "Avocado & Almond Juice",
+                "dish-juice-avocat-desc": "Creamy avocado blended with cold milk, pure honey and crushed almond pieces.",
+                "dish-juice-fraise-name": "Fresh Strawberry Juice",
+                "dish-juice-fraise-desc": "Tasty fresh local strawberries, cold-pressed to order.",
+                "dish-juice-ananas-name": "Tropical Pineapple Juice",
+                "dish-juice-ananas-desc": "Sun-ripened pineapple pressed to order.",
+                "dish-tea-menthe-name": "Moroccan Mint Tea",
+                "dish-tea-menthe-desc": "Traditional green tea, fresh mint picked and brewed in the ancient way.",
                 "dish-hot1-name": "Gold Espresso",
                 "dish-hot1-desc": "Specialty coffee beans, micro-roasted locally for a tight espresso.",
                 "dish-hot2-name": "Velvet Cappuccino",
                 "dish-hot2-desc": "Rich espresso, velvety milk foam, sprinkled with premium dark cocoa.",
-                "dish-cold1-name": "Mocktail Signature",
-                "dish-cold1-desc": "Cold-brewed jasmine tea, fresh raspberry puree, lime and soda.",
-                "dish-cold3-name": "Fresh Squeezed Orange Juice",
-                "dish-cold3-desc": "Sun-ripened local oranges, squeezed to order.",
+                "dish-tea-verveine-name": "Infusion Verveine",
+                "dish-tea-verveine-desc": "Infusion of organic verbena from our aromatic garden.",
 
                 // CTA
                 "cta-eyebrow": "TASTING & DELIVERIES",
@@ -1405,14 +1766,11 @@
                 "menu-photos-title": "NOTRE <span class=\"italic text-primary\">MENU</span>",
                 "menu-photos-desc": "Découvrez notre sélection de plats préparés avec passion et des ingrédients de qualité.",
                 
-                "cat-all": "Tout",
-                "cat-all-text": "Tout",
                 "cat-breakfasts": "Petit-déjeuner",
                 "cat-entrées": "Entrées",
                 "cat-plats": "Plats",
                 "cat-fastfood": "Fast Food",
-                "cat-desserts": "Desserts",
-                "cat-glaces": "Glaces",
+                "cat-delices": "Délices",
                 "cat-boissons": "Boissons",
 
                 "cat-breakfasts-eyebrow": "MATINÉES GOURMANDES",
@@ -1431,54 +1789,41 @@
                 "cat-fastfood-title": "Fast Food & Burgers",
                 "cat-fastfood-desc": "Une relecture gourmande et haut de gamme de la street food. Tous nos pains et pâtes sont pétris sur place chaque matin.",
 
-                "cat-desserts-eyebrow": "DOUCEURS SUCRÉES",
-                "cat-desserts-title": "Les Desserts & Délices",
-                "cat-desserts-desc": "Une touche de finesse sucrée pour parfaire votre repas, conçue par notre chef pâtissier avec des ingrédients nobles et légers.",
-
-                "cat-glaces-eyebrow": "DELICES SURGELÉS",
-                "cat-glaces-title": "Les Glaces & Coupes",
-                "cat-glaces-desc": "Notre sélection de glaces artisanales faites maison et de milkshakes onctueux pour une fraîcheur absolue.",
+                "cat-delices-eyebrow": "DOUCEURS & SIGNATURES",
+                "cat-delices-title": "Les Délices & Douceurs",
+                "cat-delices-desc": "Une note sucrée pour sublimer votre instant culinaire, préparée par notre chef pâtissier avec créativité et finesse.",
 
                 "cat-boissons-eyebrow": "RAFRAÎCHISSEMENTS & NECTARS",
                 "cat-boissons-title": "Les Boissons & Nectars",
                 "cat-boissons-desc": "Une carte raffinée de cafés de spécialité, d'infusions et de créations glacées pour accompagner chacun de vos instants culinaires.",
 
-                "sub-all": "Tout",
-                "sub-pancakes": "Pancakes",
-                "sub-crêpes": "Crêpes",
-                "sub-gaufres": "Gaufres",
-                "sub-viennoiseries": "Viennoiseries",
                 "sub-burgers": "Burgers",
                 "sub-pizzas": "Pizzas",
                 "sub-tacos": "Tacos",
                 "sub-wraps": "Wraps",
                 "sub-paninis": "Paninis",
-                "sub-coupes": "Coupes",
-                "sub-milkshakes": "Milkshakes",
-                "sub-artisanales": "Artisanal",
+                "sub-crêpes": "Crêpes",
+                "sub-pancakes": "Pancakes",
+                "sub-gaufres": "Gaufres",
+                "sub-desserts": "Desserts",
                 "sub-chaudes": "Chaudes",
                 "sub-froides": "Froides",
 
                 "sig-eyebrow": "Plat Signature du Chef",
+                "tag-signature": "Signature",
 
                 // Dishes translations
-                "dish-breakfast4-name": "Pancakes Sucrés-Salés",
-                "dish-breakfast4-desc": "Pancakes moelleux, bacon croustillant, œuf au plat et sirop d'érable chaud.",
-                "dish-pancake1-name": "Berry Bliss Pancakes",
-                "dish-pancake1-desc": "Pancakes moelleux servies avec compotée de fruits rouges et sirop d'érable bio.",
-                "dish-crepe1-name": "Crêpe Chocolat Signature",
-                "dish-crepe1-desc": "Sauce au chocolat noir grand cru fondu et amandes effilées grillées.",
-                "dish-crepe2-name": "Crêpe Suzette Moderne",
-                "dish-crepe2-desc": "Flambée au Grand Marnier, zestes d'oranges confits et glace vanille Bourbon.",
-                "dish-gaufre1-name": "Gaufre Liégeoise Chocolat",
-                "dish-gaufre1-desc": "Gaufre croustillante perlée de sucre, nappage chocolat chaud et framboises.",
-                "dish-gaufre3-name": "Gaufre Fruits Rouges",
-                "dish-gaufre3-desc": "Gaufre croustillante nappée d'un coulis de fruits rouges et glace yaourt.",
-                "dish-croissant-name": "Croissant aux Amandes",
-                "dish-croissant-desc": "Feuilletage pur beurre, crème d'amandes onctueuse et amandes effilées grillées.",
-                "dish-painchoco-name": "Pain au Chocolat Suprême",
-                "dish-painchoco-desc": "Pâte feuilletée croustillante garnie de barres de chocolat noir d'origine.",
+                // Breakfasts
+                "dish-breakfast-hollandais-name": "Breakfast Hollandais",
+                "dish-breakfast-hollandais-desc": "Œufs pochés sur toasts, saumon fumé de Norvège, sauce hollandaise crémeuse et avocado frais.",
+                "dish-breakfast-espagnol-name": "Breakfast Espagnol",
+                "dish-breakfast-espagnol-desc": "Tortilla espagnole maison, pain grillé à la tomate fraîche râpée, jambon serrano et olives marinées.",
+                "dish-breakfast-marocain-name": "Breakfast Marocain",
+                "dish-breakfast-marocain-desc": "Assortiment de Msemens, Baghrirs, miel pur, fromage de chèvre, olives noires, huile d'olive et thé à la menthe.",
+                "dish-breakfast-americain-name": "Breakfast Américain",
+                "dish-breakfast-americain-desc": "Œufs brouillés au beurre, bacon croustillant, galette de pommes de terre (hash brown), petites saucisses grillées et pain de mie toasté.",
 
+                // Starters
                 "dish-starter1-name": "Velouté Potiron & Truffe",
                 "dish-starter1-desc": "Un velouté onctueux de potiron parfumé à l'huile de truffe blanche.",
                 "dish-starter2-name": "Burrata & Tomates Confites",
@@ -1487,10 +1832,14 @@
                 "dish-starter3-desc": "Fines tranches de bœuf, copeaux de parmesan, roquette et huile d'olive.",
                 "dish-starter4-name": "Chèvre Chaud au Miel",
                 "dish-starter4-desc": "Chèvre chaud sur toast, jeunes pousses, noix grillées et miel.",
+                "dish-starter5-name": "Tartare Saumon & Avocat",
+                "dish-starter5-desc": "Saumon frais coupé au couteau, avocat, gingembre marin, jus de citron vert.",
 
+                // Plats
+                "dish-main1-name": "Filet Mignon aux Morilles",
+                "dish-main1-desc": "Filet de bœuf au grill, purée parfumée à la truffe et sauce aux morilles.",
                 "dish-breakfast2-name": "Bénédictines au Homard",
                 "dish-breakfast2-desc": "Œufs pochés, homard frais, muffin anglais fait maison, sauce hollandaise truffée.",
-
                 "dish-main2-name": "Pavé de Saumon Rôti",
                 "dish-main2-desc": "Saumon rôti sur peau, légumes glacés au miel et beurre blanc aux agrumes.",
                 "dish-main3-name": "Risotto des Bois",
@@ -1500,50 +1849,106 @@
                 "dish-main5-name": "Magret de Canard au Miel",
                 "dish-main5-desc": "Magret poêlé rosé, sauce aigre-douce au miel de lavande et purée de patates douces.",
 
-                "dish-burger1-name": "Classic Burger",
+                // Fast Food
+                "dish-burger1-name": "Classic Cheese Burger",
                 "dish-burger1-desc": "Burger de bœuf grillé, cheddar affiné, sauce Maison secrète.",
                 "dish-burger2-name": "Chicken Burger",
                 "dish-burger2-desc": "Burger de poulet croustillant au panko, mayo épicée et avocat frais.",
+                "dish-burger3-name": "Truffle Beef Burger",
+                "dish-burger3-desc": "Steak de bœuf Wagyu, mayonnaise à la truffe, oignons caramélisés et gruyère affiné.",
+                "dish-burger4-name": "Gourmet Veggie Burger",
+                "dish-burger4-desc": "Galette quinoa & patate douce, poivrons rouges grillés, roquette et yaourt grec aux herbes.",
+                
+                "dish-pizza2-name": "Margherita Royale",
+                "dish-pizza2-desc": "Sauce tomate San Marzano, mozzarella di bufala campana, basilic et huile vierge.",
                 "dish-pizza1-name": "Pizza Truffe",
                 "dish-pizza1-desc": "Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.",
-                "dish-pizza2-name": "Margherita Royale",
-                "dish-pizza2-desc": "Sauce tomate San Marzano, mozzarella di bufala campasi, basilic et huile vierge.",
+                "dish-pizza3-name": "Quattro Formaggi D'Oro",
+                "dish-pizza3-desc": "Mélange onctueux de gorgonzola, parmesan, mozzarella, chèvre doux et filet de miel sauvage.",
+                "dish-pizza4-name": "Pizza Diavola Piquante",
+                "dish-pizza4-desc": "Salami calabrais piquant, oignons rouges, olives noires, mozzarella et origan frais.",
+
                 "dish-tacos1-name": "Tacos Mixte",
                 "dish-tacos1-desc": "Tacos double fromage, bœuf grillé, poulet croustillant et frites.",
-                "dish-tacos2-name": "Tacos Gourmet",
-                "dish-tacos2-desc": "Viande hachée fraîche de bœuf, sauce au poivre vert maison et frites.",
+                "dish-tacos3-name": "Tacos Poulet Croustillant",
+                "dish-tacos3-desc": "Tenders de poulet croustillants, frites dorées, sauce algérienne épicée et sauce fromage.",
+                "dish-tacos2-name": "Tacos Viande Hachée",
+                "dish-tacos2-desc": "Viande hachée fraîche de bœuf assaisonnée, frites, sauce samouraï piquante et cheddar fondant.",
+                "dish-tacos4-name": "Tacos Cordon Bleu",
+                "dish-tacos4-desc": "Morceaux de cordon bleu croustillants, sauce fromagère crémeuse maison et frites.",
+
                 "dish-wrap-poulet-name": "Wrap Poulet Croustillant",
                 "dish-wrap-poulet-desc": "Poulet croustillant, crudités de saison, sauce crémeuse à l'ail, tortilla moelleuse.",
+                "dish-wrap-boeuf-name": "Gourmet Beef Wrap",
+                "dish-wrap-boeuf-desc": "Lamelles de bœuf saisies, cheddar fondu, poivrons et oignons grillés, sauce barbecue.",
+                "dish-wrap-saumon-name": "Saumon Avocat Wrap",
+                "dish-wrap-saumon-desc": "Saumon fumé, cream cheese à l'aneth, avocat frais et concombre dans une tortilla.",
+                "dish-wrap-veggie-name": "Veggie Garden Wrap",
+                "dish-wrap-veggie-desc": "Courgettes et aubergines grillées, feta émiettée, légumes croquants et tartinade de houmous.",
+
                 "dish-panini-pesto-name": "Panini Poulet Pesto",
                 "dish-panini-pesto-desc": "Filet de poulet grillé, mozzarella fondante, pesto de basilic maison, tomates fraîches.",
+                "dish-panini-thon-name": "Panini Thon Fondant",
+                "dish-panini-thon-desc": "Rillettes de thon à l'aneth, cheddar fondu, oignons rouges et fines tranches de tomates.",
+                "dish-panini-dinde-name": "Panini Dinde Fumée",
+                "dish-panini-dinde-desc": "Émincé de dinde fumée, mozzarella fondante, sauce moutarde au miel sur ciabatta toasté.",
+                "dish-panini-boeuf-name": "Panini Viande Hachée",
+                "dish-panini-boeuf-desc": "Viande de bœuf hachée assaisonnée, mozzarella, oignons caramélisés et mayonnaise épicée.",
 
-                "dish-main1-name": "Filet Mignon aux Morilles",
-                "dish-main1-desc": "Filet de bœuf au grill, purée parfumée à la truffe et sauce aux morilles.",
+                // Délices
+                "dish-crepe1-name": "Crêpe Chocolat Grand Cru",
+                "dish-crepe1-desc": "Sauce au chocolat noir grand cru fondu et amandes effilées grillées.",
+                "dish-crepe-miel-name": "Crêpe Miel & Noix",
+                "dish-crepe-miel-desc": "Miel sauvage biologique de l'Atlas, noix de Grenoble torréfiées et rondelles de banane.",
+                "dish-crepe-nutella-name": "Crêpe Nutella Banane",
+                "dish-crepe-nutella-desc": "Nutella onctueux, bananes fraîches tranchées, crème chantilly maison.",
+                "dish-crepe-fruits-name": "Crêpe Fruits Rouges",
+                "dish-crepe-fruits-desc": "Compotée maison de fruits rouges acidulée, fraises fraîches et sucre glace.",
 
+                "dish-pancake-miel-name": "Pancakes Miel Classique",
+                "dish-pancake-miel-desc": "Pancakes épais et moelleux servis avec du miel biologique de montagne et du beurre fondu.",
+                "dish-pancake-choc-name": "Pancakes Chocolat Intense",
+                "dish-pancake-choc-desc": "Pancakes nappés de sauce chocolat noir intense maison et noisettes torréfiées concassées.",
+                "dish-pancake-nutella-name": "Pancakes Nutella Banane",
+                "dish-pancake-nutella-desc": "Sauce chocolat Nutella onctueuse, rondelles de bananes et éclats de spéculoos croustillants.",
+                "dish-pancake-fruits-name": "Pancakes Fruits de Saison",
+                "dish-pancake-fruits-desc": "Servis avec fraises fraîches, myrtilles, sirop d'érable chaud et zeste de citron vert.",
+
+                "dish-gaufre-choc-name": "Gaufre Chocolat Belge",
+                "dish-gaufre-choc-desc": "Gaufre croustillante de Liège perlée de sucre, sauce au chocolat belge chaud et crème.",
+                "dish-gaufre3-name": "Gaufre Fruits Rouges",
+                "dish-gaufre3-desc": "Gaufre croustillante nappée d'un coulis de fruits rouges fait maison et fruits frais de saison.",
+                "dish-gaufre-caramel-name": "Gaufre Caramel Pécan",
+                "dish-gaufre-caramel-desc": "Caramel au beurre salé coulant maison, noix de pécan caramélisées et glace vanille.",
+                "dish-gaufre-speculoos-name": "Gaufre Spéculoos",
+                "dish-gaufre-speculoos-desc": "Pâte de spéculoos Lotus fondue, éclats de spéculoos croustillants et crème fouettée.",
+
+                "dish-tiramisu-name": "Tiramisu Classique",
+                "dish-tiramisu-desc": "Mascarpone onctueuse, biscuits cuillères imbibés d'un expresso de spécialité et cacao amer d'origine.",
+                "dish-tarte-citron-name": "Tarte au Citron Meringuée",
+                "dish-tarte-citron-desc": "Crémeux citron jaune et vert acidulé sur pâte sablée croustillante et meringue italienne dorée.",
+                "dish-creme-name": "Crème Brûlée",
+                "dish-creme-desc": "Crème infusée à la véritable gousse de vanille Bourbon de Madagascar, caramélisée minute.",
                 "dish-fondant-name": "Fondant au Chocolat",
                 "dish-fondant-desc": "Cœur coulant au chocolat noir grand cru, servi avec une boule de glace vanille Bourbon.",
-                "dish-tiramisu-name": "Tiramisu Classique",
-                "dish-tiramisu-desc": "Mascarpone onctueuse, biscuits imbibés d'expresso de spécialité et cacao amer.",
-                "dish-creme-name": "Crème Brûlée",
-                "dish-creme-desc": "Crème infusée à la véritable gousse de vanille Bourbon, caramélisée à la cassonade.",
 
-                "dish-dameblanche-name": "Coupe Dame Blanche",
-                "dish-dameblanche-desc": "Trois boules de glace vanille, sauce chocolat chaud maison et crème chantilly.",
-                "dish-fruitsrouges-name": "Coupe Fruits Rouges",
-                "dish-fruitsrouges-desc": "Glace yaourt et fraise, coulis de fruits rouges fait maison et fruits frais.",
-                "dish-milkshake-vanille-name": "Milkshake Vanille-Pécan",
-                "dish-milkshake-vanille-desc": "Lait frais, glace vanille artisanale, éclats de noix de pécan caramélisées.",
-                "dish-glace-pistache-name": "Pistache d'Italie",
-                "dish-glace-pistache-desc": "Deux boules de notre glace artisanale à la pistache de Sicile, au goût intense.",
-
+                // Boissons
+                "dish-juice-banane-name": "Jus de Banane Milkshake",
+                "dish-juice-banane-desc": "Bananes fraîches mixées avec du lait entier et une touche de gousse de vanille.",
+                "dish-juice-avocat-name": "Jus d'Avocat & Amandes",
+                "dish-juice-avocat-desc": "Avocat crémeux mixé avec du lait froid, du miel pur et éclats d'amandes concassées.",
+                "dish-juice-fraise-name": "Jus de Fraise Frais",
+                "dish-juice-fraise-desc": "Fraises fraîches locales savoureuses, pressées à froid minute.",
+                "dish-juice-ananas-name": "Jus d'Ananas Tropical",
+                "dish-juice-ananas-desc": "Ananas mûri au soleil pressé minute à la commande.",
+                "dish-tea-menthe-name": "Thé à la Menthe Marocain",
+                "dish-tea-menthe-desc": "Thé vert de tradition, menthe fraîche cueillie et infusée à l'ancienne.",
                 "dish-hot1-name": "Espresso Gold",
                 "dish-hot1-desc": "Torréfaction artisanale locale pour un espresso de spécialité serré.",
                 "dish-hot2-name": "Cappuccino Velours",
                 "dish-hot2-desc": "Espresso riche avec une mousse de lait veloutée et chocolat noir.",
-                "dish-cold1-name": "Mocktail Signature",
-                "dish-cold1-desc": "Jasmin infusé à froid, purée de framboises fraîches, jus de citron vert et soda.",
-                "dish-cold3-name": "Jus d'Orange Pressé",
-                "dish-cold3-desc": "Oranges locales pressées minute à la commande.",
+                "dish-tea-verveine-name": "Infusion Verveine",
+                "dish-tea-verveine-desc": "Infusion de verveine biologique de notre jardin aromatique.",
 
                 // CTA
                 "cta-eyebrow": "DÉGUSTATION & COMMANDES",
@@ -1608,13 +2013,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             updatePageTranslations();
 
-            // Set initial subcategory filters
-            filterSubcategory('breakfasts', 'all');
-            filterSubcategory('fastfood', 'all');
-            filterSubcategory('glaces', 'all');
-            filterSubcategory('boissons', 'all');
+            // Set initial subcategory filters for sections with tabs
+            filterSubcategory('fastfood', 'burgers');
+            filterSubcategory('delices', 'crêpes');
+            filterSubcategory('boissons', 'froides');
         });
     </script>
 </body>
 
 </html>
+
