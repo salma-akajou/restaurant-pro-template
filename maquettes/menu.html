@@ -114,6 +114,27 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Staggered Delays */
+        .animation-delay-200 {
+            animation-delay: 200ms !important;
+        }
+
+        .animation-delay-500 {
+            animation-delay: 500ms !important;
+        }
+
+        .animation-delay-800 {
+            animation-delay: 800ms !important;
+        }
+
+        .transition-delay-150 {
+            transition-delay: 150ms !important;
+        }
+
+        .transition-delay-300 {
+            transition-delay: 300ms !important;
+        }
     </style>
 </head>
 
@@ -165,24 +186,24 @@
         <!-- Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-20">
             <!-- Eyebrow text -->
-            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4 animate-fade-in opacity-0" style="animation-delay: 200ms;">
+            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4 animate-fade-in animation-delay-200 opacity-0">
                 <span data-i18n="menu-hero-eyebrow">SAVOIR-FAIRE & EXCELLENCE</span>
             </div>
 
             <!-- Title -->
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1] animate-fade-in opacity-0" style="animation-delay: 550ms;" data-i18n="menu-hero-title">
+            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1] animate-fade-in animation-delay-500 opacity-0" data-i18n="menu-hero-title">
                 Notre <span class="italic text-primary">Carte</span>
             </h1>
 
             <!-- Description -->
-            <p data-i18n="menu-hero-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md animate-fade-in opacity-0" style="animation-delay: 900ms;">
+            <p data-i18n="menu-hero-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md animate-fade-in animation-delay-800 opacity-0">
                 Un voyage sensoriel dessiné par les saisons, où chaque plat est une création originale mariant la noblesse des produits locaux et la finesse de notre art.
             </p>
         </div>
     </section>
 
     <!-- ================= STICKY CATEGORIES BAR ================= -->
-    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all py-4">
+    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all duration-300 ease-in-out py-4">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-start md:justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-hide py-1">
                 <a href="#category-breakfasts" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-breakfasts">Petit-déjeuner</a>
@@ -215,7 +236,7 @@
                 <div class="w-full lg:w-5/12 relative group">
                     <div class="absolute inset-0 border border-primary/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
                     <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
-                        <img id="img-breakfasts" src="https://images.unsplash.com/photo-1496042399014-dc73c4f2bde1?auto=format&fit=crop&w=1000&q=80" alt="Breakfasts" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                        <img id="img-breakfasts" src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1000&q=80" alt="Breakfasts" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                 </div>
 
@@ -936,7 +957,7 @@
 
     <!-- ================= PREMIUM CALL TO ACTION SECTION ================= -->
     <section class="py-24 bg-black/5 dark:bg-white/5 relative z-20">
-        <div class="max-w-7xl mx-auto px-6 fade-up">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <p class="text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-3" data-i18n="cta-eyebrow">DÉGUSTATION & COMMANDES</p>
                 <h2 class="font-serif text-3xl md:text-4xl font-bold" data-i18n="cta-title">Vivre l'Expérience</h2>
@@ -946,7 +967,7 @@
             <!-- CTA Grid: 3 Premium Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1: Table Reservation -->
-                <div class="relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
+                <div class="fade-up relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
                     <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Reserve Table" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
@@ -961,7 +982,7 @@
                 </div>
 
                 <!-- Card 2: WhatsApp Order -->
-                <div class="relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
+                <div class="fade-up transition-delay-150 relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="WhatsApp Order" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
@@ -976,7 +997,7 @@
                 </div>
 
                 <!-- Card 3: Glovo Order -->
-                <div class="relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
+                <div class="fade-up transition-delay-300 relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
                     <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80" alt="Glovo Order" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
@@ -1111,13 +1132,44 @@
             updateNavbar();
         }
 
-        /* =================== NAVBAR SCROLL =================== */
+        /* =================== NAVBAR SCROLL & SMART STICKY BAR =================== */
         const navbar = document.getElementById('navbar');
+        const stickyBar = document.getElementById('sticky-category-bar');
         let isScrolled = false;
+        let lastScrollY = window.scrollY;
 
         window.addEventListener('scroll', () => {
-            isScrolled = window.scrollY > 50;
+            const currentScrollY = window.scrollY;
+            isScrolled = currentScrollY > 50;
             updateNavbar();
+
+            // Smart Sticky scroll direction detection
+            if (currentScrollY > 150) { // Only hide navbar after scrolling down a bit
+                if (currentScrollY > lastScrollY) {
+                    // Scrolling DOWN: hide navbar, stick category bar at top: 0
+                    navbar.classList.add('transform', '-translate-y-full');
+                    if (stickyBar) {
+                        stickyBar.classList.remove('top-[68px]', 'md:top-[76px]');
+                        stickyBar.classList.add('top-0');
+                    }
+                } else {
+                    // Scrolling UP: show navbar, category bar slides down below it
+                    navbar.classList.remove('-translate-y-full');
+                    if (stickyBar) {
+                        stickyBar.classList.remove('top-0');
+                        stickyBar.classList.add('top-[68px]', 'md:top-[76px]');
+                    }
+                }
+            } else {
+                // Near the top of the page: show navbar and put category bar in its standard place
+                navbar.classList.remove('-translate-y-full');
+                if (stickyBar) {
+                    stickyBar.classList.remove('top-0');
+                    stickyBar.classList.add('top-[68px]', 'md:top-[76px]');
+                }
+            }
+
+            lastScrollY = currentScrollY;
         });
 
         function updateNavbar() {
@@ -1149,7 +1201,7 @@
             desserts: {
                 crêpes: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=1000&q=80",
                 pancakes: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1000&q=80",
-                gaufres: "https://images.unsplash.com/photo-1562376502-6f769499c886?auto=format&fit=crop&w=1000&q=80"
+                gaufres: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1000&q=80"
             },
             boissons: {
                 chaudes: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1000&q=80",
@@ -1614,6 +1666,9 @@
 
             // Update indicators
             document.getElementById('lang-indicator').innerText = translations[currentLang]["lang-indicator"];
+
+            // Update document title
+            document.title = currentLang === 'en' ? 'Maison Lumière - The Menu' : 'Maison Lumière - La Carte';
         }
 
         // Initialize with default language and category filters
