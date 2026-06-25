@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -20,7 +23,7 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#FF6B00',
+                        primary: '#C1A58D',
                         bgblack: '#050505',
                     },
                     fontFamily: {
@@ -35,48 +38,179 @@
     <style>
         /* Hero Image Gradient Fade */
         .hero-fade {
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
         }
 
         /* Edge fade for contact images */
         .fade-right {
-            mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
         }
+
         .fade-left {
-            mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
         }
+
         .fade-all {
-            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
-            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%);
+            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
         }
 
         /* Floating Animation for PNGs */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
+
         .animate-float {
-            animation: float 4s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite;
         }
+
         .animate-float-delayed {
-            animation: float 4s ease-in-out infinite;
-            animation-delay: 2s;
+            animation: float 6s ease-in-out 3s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        /* Spaces Accordion */
+        .space-card {
+            flex: 1;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child,
+        .space-card:hover {
+            flex: 4;
+        }
+
+        .space-card .vertical-title {
+            opacity: 1;
+            transition: opacity 0.3s;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (min-width: 768px) {
+            .space-card .vertical-title h3 {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child .vertical-title,
+        .space-card:hover .vertical-title {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .space-card .active-content {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease 0.2s;
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child .active-content,
+        .space-card:hover .active-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         /* Form placeholder fix */
         .form-input::placeholder {
             color: #9ca3af;
         }
+
+        /* Custom Cursor */
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #C1A58D;
+            /* Primary color */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, opacity 0.2s;
+        }
+
+        .custom-cursor.active {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 0.5;
+        }
+
+        /* Scroll Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="font-sans antialiased overflow-x-hidden bg-white text-black dark:bg-[#050505] dark:text-white transition-colors duration-300">
 
+<body
+    class="font-sans antialiased overflow-x-hidden bg-[#FDF8F3] text-black dark:bg-[#050505] dark:text-white transition-colors duration-300">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader"
+        class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span class="text-primary italic">Lumière</span></h1>
+            <div class="w-16 h-px bg-white/20 mt-4 relative">
+                <div class="absolute inset-0 bg-primary animate-pulse"></div>
+            </div>
+        </div>
+    </div>
     <!-- ================= NAVIGATION ================= -->
-    <nav id="navbar" class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white">
+    <nav id="navbar"
+        class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" class="font-serif text-2xl font-bold tracking-wide">
@@ -85,20 +219,30 @@
 
             <!-- Menu -->
             <div class="hidden md:flex items-center gap-8">
-                <a href="#" class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-home">Home</a>
-                <a href="#about" class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-about">About</a>
-                <a href="#space" class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-space">Space</a>
-                <a href="#menu" class="text-sm font-medium hover:text-primary transition-colors" data-i18n="nav-menu">Menu</a>
+                <a href="#"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-home">Home</a>
+                <a href="#about"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-about">About</a>
+                <a href="#space"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-space">Space</a>
+                <a href="#menu"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-menu">Menu</a>
             </div>
 
             <!-- Icons (Right) -->
             <div class="flex items-center gap-4">
-                <div onclick="toggleLanguage()" class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
-                    <i data-lucide="globe" class="w-4 h-4"></i>
-                    <span id="lang-indicator">FR | EN</span>
+                <div onclick="toggleLanguage()"
+                    class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
+                    <i data-lucide="globe" class="w-4 h-4" stroke-width="1.25"></i>
+                    <span id="lang-indicator" class="font-light">FR</span>
                 </div>
                 <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
-                    <i id="theme-icon" data-lucide="sun" class="w-5 h-5"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
                 </button>
             </div>
         </div>
@@ -109,20 +253,35 @@
         <!-- Background Hero Video -->
         <div class="absolute inset-0 z-0">
             <!-- Fade overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-black via-transparent to-transparent z-10 pointer-events-none transition-colors duration-300"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-[#FDF8F3] dark:from-[#050505] via-transparent to-transparent z-10 pointer-events-none transition-colors duration-300">
+            </div>
             <!-- The hero video with bottom fade -->
-            <video 
-                autoplay loop muted playsinline
-                class="w-full h-full object-cover hero-fade opacity-100"
-            >
+            <video autoplay loop muted playsinline class="w-full h-full object-cover hero-fade opacity-100">
                 <source src="../video/IMG_9646.MP4" type="video/mp4">
             </video>
         </div>
+            <!-- Vertical Social Icons (Left) -->
+            <div class="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
+                <a href="#" class="text-white/50 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="#" class="text-white/50 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" class="text-white/50 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                </a>
+                <!-- Vertical Line -->
+                <div class="w-px h-16 bg-white/30 mt-2"></div>
+            </div>
+
 
         <!-- Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-12">
             <!-- Eyebrow text -->
-            <div class="flex items-center gap-3 text-[9px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
+            <div
+                class="flex items-center gap-3 text-[9px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
                 <span data-i18n="hero-eyebrow">CASABLANCA • SINCE 2014</span>
                 <span>•</span>
                 <span class="flex gap-1 text-white">
@@ -136,21 +295,25 @@
 
             <!-- Title -->
             <h1 class="font-serif text-6xl md:text-[5.5rem] text-white mb-6 drop-shadow-2xl leading-[1.1]">
-                Maison<br>
+                Maison
                 <span class="italic">Lumière</span>
             </h1>
 
             <!-- Description -->
-            <p data-i18n="hero-desc" class="text-sm md:text-lg text-gray-100 mb-10 max-w-2xl font-light leading-relaxed drop-shadow-md">
+            <p data-i18n="hero-desc"
+                class="text-sm md:text-lg text-gray-100 mb-10 max-w-2xl font-light leading-relaxed drop-shadow-md">
                 Where light meets cuisine. Signature dishes, lively ingredients, seamless service.
             </p>
 
             <!-- Buttons -->
             <div class="flex flex-col sm:flex-row items-center gap-4">
-                <a href="#menu" class="flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-colors shadow-lg">
-                    <span data-i18n="hero-btn-explore">Explore Menu</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <a href="#menu"
+                    class="flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-sm transition-all shadow-lg">
+                    <span data-i18n="hero-btn-explore">Explore Menu</span> <i data-lucide="arrow-right"
+                        class="w-4 h-4"></i>
                 </a>
-                <a href="#reservations" class="px-8 py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
+                <a href="#reservations"
+                    class="px-8 py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
                     <span data-i18n="hero-btn-book">Book a table</span>
                 </a>
             </div>
@@ -158,204 +321,750 @@
     </section>
 
     <!-- ================= ABOUT US SECTION ================= -->
-    <section id="about" class="relative py-24 px-6 max-w-6xl mx-auto z-20">
+    <section id="about" class="relative py-24 px-6 max-w-6xl mx-auto z-20 fade-up">
         <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-            
+
             <!-- Left: Text -->
             <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                <h2 data-i18n="about-title" class="font-serif text-4xl font-bold mb-4">About Us</h2>
-                <p data-i18n="about-desc" class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-md transition-colors duration-300">
-                    Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to provide a warm and welcoming atmosphere for our customers. Our chefs are passionate about creating dishes that are not only delicious but also visually appealing.
+                <p data-i18n="about-eyebrow"
+                    class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Notre Héritage
                 </p>
-                <a href="#" data-i18n="about-btn" class="px-6 py-2 rounded-full bg-primary text-white font-medium text-xs hover:bg-orange-600 transition-colors shadow-lg shadow-primary/30">
+                <h2 data-i18n="about-title" class="font-serif text-4xl md:text-5xl font-bold mb-4">La Passion du Goût &
+                    de l'Élégance</h2>
+                <div class="w-16 h-0.5 bg-primary/30 mb-6 mx-auto md:mx-0"></div>
+                <p data-i18n="about-desc"
+                    class="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                    Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to
+                    provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about
+                    creating dishes that are not only delicious but also visually appealing. Every ingredient is
+                    carefully selected to guarantee an unforgettable culinary experience.
+                </p>
+                <a href="#" data-i18n="about-btn"
+                    class="px-8 py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/30">
                     Learn More
                 </a>
             </div>
 
             <!-- Right: Floating PNG Images -->
-            <div class="w-full md:w-1/2 relative h-[400px] flex items-center justify-center">
-                <!-- Burger PNG (No background) -->
-                <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png/800px-McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png" 
-                    alt="Burger" 
-                    class="w-64 md:w-80 object-contain animate-float drop-shadow-2xl z-20 relative"
-                >
-                <!-- Faded background element (ingredients) -->
-                <img 
-                    src="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?auto=format&fit=crop&w=800&q=80" 
-                    alt="Ingredients" 
-                    class="absolute bottom-[-50px] right-[-50px] w-64 opacity-50 fade-all animate-float-delayed z-10"
-                >
+            <div class="w-full md:w-1/2 relative h-[300px] md:h-[400px] flex items-center justify-center mt-12 md:mt-0">
+                <!-- Burger PNG -->
+                <img src="burger.png" alt="Burger"
+                    class="absolute top-0 md:top-12 right-6 md:right-16 w-40 md:w-56 object-contain animate-float drop-shadow-2xl z-20">
+                <!-- Pizza PNG -->
+                <img src="pizza.png" alt="Pizza"
+                    class="absolute bottom-0 md:bottom-12 left-6 md:left-16 w-36 md:w-48 object-contain animate-float-delayed drop-shadow-2xl z-10">
             </div>
         </div>
     </section>
 
-    <!-- ================= OUR MENU SECTION ================= -->
-    <section id="menu" class="py-24 px-6 max-w-6xl mx-auto relative z-20">
+    <!-- ================= SPACES SECTION ================= -->
+    <section id="spaces" class="py-24 px-6 max-w-7xl mx-auto relative z-20 fade-up">
+        <!-- Titles -->
         <div class="text-center mb-16">
-            <h2 data-i18n="menu-title" class="font-serif text-4xl font-bold mb-2">Our Menu</h2>
-            <p data-i18n="menu-desc" class="text-xs text-gray-600 dark:text-gray-400 transition-colors duration-300">Delicious dishes made with love</p>
+            <p data-i18n="spaces-eyebrow"
+                class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">The Atmosphere</p>
+            <h2 data-i18n="spaces-title" class="font-serif text-4xl md:text-5xl font-bold mb-4">Exceptional Spaces</h2>
+            <div class="w-16 h-0.5 bg-primary/30 mx-auto mb-6"></div>
+            <p data-i18n="spaces-desc"
+                class="text-sm md:text-base text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
+                Immerse yourself in our distinct atmospheres, custom designed for every moment of your day.
+            </p>
         </div>
 
-        <!-- 3-Column Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-8">
-            
-            <!-- Item 1: Burger -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png/800px-McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png" alt="Burger" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+        <!-- Accordion Container -->
+        <div class="flex flex-col md:flex-row h-[800px] md:h-[600px] gap-4" id="spaces-accordion">
+
+            <!-- Card 1 -->
+            <div class="space-card relative rounded-3xl overflow-hidden cursor-pointer group">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+                    alt="Main Dining Hall"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <!-- Inner Border -->
+                <div class="absolute inset-3 border border-white/20 rounded-[20px] pointer-events-none active-content">
                 </div>
-                <h3 class="font-serif text-xl font-bold mb-1">Burger</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$12</span>
+                <!-- Vertical Title -->
+                <div
+                    class="vertical-title absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-500">
+                    <h3 class="font-serif text-2xl text-white tracking-widest whitespace-nowrap drop-shadow-md">Main
+                        Dining Hall</h3>
+                </div>
+                <!-- Content -->
+                <div
+                    class="active-content absolute bottom-0 left-0 p-8 md:p-12 text-white w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                    <div class="flex gap-3 mb-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">60
+                            Guests</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">Vibrant</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">Main Dining Hall</h3>
+                    <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">Experience the vibrant
+                        energy of our main room, featuring high ceilings, warm lighting, and a front-row view of our
+                        culinary theatre.</p>
+                    <a href="#"
+                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        A TABLE</a>
+                </div>
             </div>
 
-            <!-- Item 2: Fries -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fries_2.png/800px-Fries_2.png" alt="Crispy Fries" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+            <!-- Card 2 -->
+            <div class="space-card relative rounded-3xl overflow-hidden cursor-pointer group">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80"
+                    alt="Private Lounge"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-3 border border-white/20 rounded-[20px] pointer-events-none active-content">
                 </div>
-                <h3 data-i18n="menu-item-2-title" class="font-serif text-xl font-bold mb-1">Crispy Fries</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$15</span>
+                <div
+                    class="vertical-title absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-500">
+                    <h3
+                        class="font-serif text-xl md:text-2xl text-white tracking-widest whitespace-nowrap drop-shadow-md">
+                        Private Lounge</h3>
+                </div>
+                <div
+                    class="active-content absolute bottom-0 left-0 p-8 md:p-12 text-white w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                    <div class="flex gap-3 mb-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">20
+                            Guests</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">Confidential</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">Private Lounge</h3>
+                    <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">An exceptional
+                        confidential and discreet space, ideal for your private meetings or small celebrations.</p>
+                    <a href="#"
+                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        A TABLE</a>
+                </div>
             </div>
 
-            <!-- Item 3: Burrito -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Burrito_-_Baja_Fresh.png/800px-Burrito_-_Baja_Fresh.png" alt="Burrito" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+            <!-- Card 3 -->
+            <div class="space-card relative rounded-3xl overflow-hidden cursor-pointer group">
+                <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80"
+                    alt="The Chef's Table"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-3 border border-white/20 rounded-[20px] pointer-events-none active-content">
                 </div>
-                <h3 class="font-serif text-xl font-bold mb-1">Burrito</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$10</span>
+                <div
+                    class="vertical-title absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-500">
+                    <h3
+                        class="font-serif text-xl md:text-2xl text-white tracking-widest whitespace-nowrap drop-shadow-md">
+                        The Chef's Table</h3>
+                </div>
+                <div
+                    class="active-content absolute bottom-0 left-0 p-8 md:p-12 text-white w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                    <div class="flex gap-3 mb-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">8
+                            Guests</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">Gastronomic</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">The Chef's Table</h3>
+                    <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">Live an immersive
+                        experience closest to culinary creation. Facing our open kitchen, taste a unique blind menu.</p>
+                    <a href="#"
+                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        A TABLE</a>
+                </div>
             </div>
 
-            <!-- Item 4: Combo -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png/800px-McDonald%27s_Quarter_Pounder_with_Cheese%2C_United_States.png" alt="Combo" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+            <!-- Card 4 -->
+            <div class="space-card relative rounded-3xl overflow-hidden cursor-pointer group">
+                <img src="https://images.unsplash.com/photo-1505934333218-8fe3cf9fbce6?auto=format&fit=crop&w=800&q=80"
+                    alt="Rooftop Terrace"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-3 border border-white/20 rounded-[20px] pointer-events-none active-content">
                 </div>
-                <h3 data-i18n="menu-item-4-title" class="font-serif text-xl font-bold mb-1">Burger & Fries Combo</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$14</span>
+                <div
+                    class="vertical-title absolute inset-0 flex items-center justify-center bg-black/20 transition-colors duration-500">
+                    <h3
+                        class="font-serif text-xl md:text-2xl text-white tracking-widest whitespace-nowrap drop-shadow-md">
+                        Rooftop Terrace</h3>
+                </div>
+                <div
+                    class="active-content absolute bottom-0 left-0 p-8 md:p-12 text-white w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                    <div class="flex gap-3 mb-4">
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">40
+                            Guests</span>
+                        <span
+                            class="text-[9px] uppercase tracking-wider font-semibold bg-black/50 px-3 py-1 rounded-full backdrop-blur-sm border border-white/10">Panoramic</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">Rooftop Terrace</h3>
+                    <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">Enjoy stunning
+                        panoramic views of the city skyline while savoring our exquisite dishes under the open sky.</p>
+                    <a href="#"
+                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        A TABLE</a>
+                </div>
             </div>
 
-            <!-- Item 5: Sandwich -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/McDonald%27s_McChicken.png/800px-McDonald%27s_McChicken.png" alt="Sandwich" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+        </div>
+    </section>
+
+    <!-- ================= OUR MENU SECTION ================= -->
+    <section id="menu" class="py-24 px-6 max-w-7xl mx-auto relative z-20 fade-up">
+        <!-- Titles -->
+        <div class="text-center mb-12">
+            <p data-i18n="menu-eyebrow"
+                class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Seasonal Creations
+            </p>
+            <h2 data-i18n="menu-title" class="font-serif text-4xl md:text-5xl font-bold mb-4">The Chef's Selection</h2>
+            <div class="w-16 h-0.5 bg-primary/30 mx-auto mb-6"></div>
+            <p data-i18n="menu-desc"
+                class="text-sm md:text-base text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
+                An initiation of culinary journey through our most refined signature dishes.
+            </p>
+        </div>
+
+        <!-- Filter -->
+        <div class="flex justify-center mb-20">
+            <div class="inline-flex items-center p-1 bg-gray-50 dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm transition-colors"
+                id="menu-filters">
+                <button onclick="filterMenu('starters')" data-filter="starters" data-i18n="filter-starters"
+                    class="menu-filter-btn px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-colors">Starters</button>
+                <button onclick="filterMenu('mains')" data-filter="mains" data-i18n="filter-mains"
+                    class="menu-filter-btn px-6 py-2 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider shadow-md transition-colors active-filter">Mains</button>
+                <button onclick="filterMenu('desserts')" data-filter="desserts" data-i18n="filter-desserts"
+                    class="menu-filter-btn px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-colors">Desserts</button>
+            </div>
+        </div>
+
+        <!-- 4-Column Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-6 pt-8" id="menu-grid">
+
+            <!-- Card 1 (Starters) -->
+            <div data-category="starters"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="Chicken%20Wings.png" alt="Chicken Wings"
+                        class="w-full h-full object-contain drop-shadow-md">
                 </div>
-                <h3 class="font-serif text-xl font-bold mb-1">Club-Sandwich</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$16</span>
+                <h3 class="font-bold text-lg mb-2">Chicken Wings</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $8.50</div>
+            </div>
+            <!-- Card 2 (Starters) -->
+            <div data-category="starters"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="Mini%20Pizza.png" alt="Mini Pizza" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Mini Pizza</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $9.00</div>
+            </div>
+            <!-- Card 3 (Starters) -->
+            <div data-category="starters"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="Crispy%20Fries.png" alt="Crispy Fries"
+                        class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Crispy Fries</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $6.50</div>
+            </div>
+            <!-- Card 4 (Starters) -->
+            <div data-category="starters"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="Crispy%20Fries.png" alt="Burrito Bite"
+                        class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Burrito Bite</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $7.00</div>
             </div>
 
-            <!-- Item 6: Chicken -->
-            <div class="flex flex-col items-center text-center group">
-                <div class="h-32 flex items-center justify-center mb-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/KFC_Original_Recipe_chicken.png/800px-KFC_Original_Recipe_chicken.png" alt="Chicken" class="h-full object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
+            <!-- Card 5 (Mains) -->
+            <div data-category="mains"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="burger.png" alt="Chicken Burger" class="w-full h-full object-contain drop-shadow-md">
                 </div>
-                <h3 data-i18n="menu-item-6-title" class="font-serif text-xl font-bold mb-1">Crispy Drumsticks</h3>
-                <p data-i18n="menu-item-desc" class="text-[10px] text-gray-500 mb-2 transition-colors duration-300">Short description of the dish.</p>
-                <span class="text-primary font-bold text-sm">$13</span>
+                <h3 class="font-bold text-lg mb-2">Chicken Burger</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $12.50</div>
+            </div>
+            <!-- Card 6 (Mains) -->
+            <div data-category="mains"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="pizza.png" alt="Chicken Pizza" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Chicken Pizza</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $15.60</div>
+            </div>
+            <!-- Card 7 (Mains) -->
+            <div data-category="mains"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="Chicken%20Rice.png" alt="Chicken Rice"
+                        class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Chicken Rice</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $14.50</div>
+            </div>
+            <!-- Card 8 (Mains) -->
+            <div data-category="mains"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="burger.png" alt="Club Sandwich" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Club Sandwich</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $16.00</div>
+            </div>
+
+            <!-- Card 9 (Desserts) -->
+            <div data-category="desserts"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="dessert.png" alt="Macarons" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Macarons</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $7.50</div>
+            </div>
+            <!-- Card 10 (Desserts) -->
+            <div data-category="desserts"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="dessert2.png" alt="Special Dessert" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Special Dessert</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $8.50</div>
+            </div>
+            <!-- Card 11 (Desserts) -->
+            <div data-category="desserts"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="dessert.png" alt="Vanilla Cake" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Vanilla Cake</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $6.50</div>
+            </div>
+            <!-- Card 12 (Desserts) -->
+            <div data-category="desserts"
+                class="menu-item-card bg-[#fcfcfb] dark:bg-[#111] rounded-3xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.3)] flex flex-col items-center text-center transition-colors border border-gray-300 dark:border-gray-800 hidden">
+                <div
+                    class="w-32 h-32 rounded-full border-4 border-primary p-2 mb-4 -mt-16 bg-white dark:bg-[#111] transition-colors flex items-center justify-center shadow-md">
+                    <img src="dessert2.png" alt="Ice Cream" class="w-full h-full object-contain drop-shadow-md">
+                </div>
+                <h3 class="font-bold text-lg mb-2">Ice Cream</h3>
+                <p data-i18n="menu-item-desc"
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mb-6 flex-grow leading-relaxed">This is an
+                    excellent dish that is very healthy.</p>
+                <div
+                    class="px-5 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 font-semibold text-sm text-black dark:text-white transition-colors">
+                    $5.00</div>
             </div>
 
         </div>
 
-        <!-- Full Menu Button -->
+        <!-- View Full Menu Link -->
         <div class="flex justify-center mt-12">
-            <a href="#" data-i18n="menu-btn" class="px-8 py-2 rounded-full bg-primary text-white font-medium text-xs hover:bg-orange-600 transition-colors shadow-lg shadow-primary/30">
-                Full Menu
+            <a href="#" data-i18n="menu-btn"
+                class="px-8 py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/30 flex items-center gap-2">
+                View Full Menu <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>
     </section>
 
 
+
+
     <!-- ================= CONTACT SECTION ================= -->
-    <section id="contact" class="relative py-24 w-full flex justify-center items-center overflow-hidden min-h-[500px]">
-        
-        <!-- Left faded image (Pizza) -->
-        <img 
-            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" 
-            alt="Pizza background" 
-            class="absolute left-0 top-0 bottom-0 h-full w-1/4 md:w-1/3 object-cover fade-right opacity-40 dark:opacity-60 z-0 transition-opacity duration-300"
-        >
-
-        <!-- Right faded image (Pasta/Ingredients) -->
-        <img 
-            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" 
-            alt="Pasta background" 
-            class="absolute right-0 top-0 bottom-0 h-full w-1/4 md:w-1/3 object-cover fade-left opacity-40 dark:opacity-60 z-0 transition-opacity duration-300"
-        >
-
-        <!-- Center Form Area -->
-        <div class="relative z-10 bg-gray-100/90 dark:bg-black/80 backdrop-blur-md border border-gray-200 dark:border-white/10 p-8 md:p-12 rounded-xl w-full max-w-lg mx-4 transition-colors duration-300">
-            <div class="text-center mb-8">
-                <h2 data-i18n="contact-title" class="font-serif text-3xl font-bold mb-2">Contact Us</h2>
-                <p data-i18n="contact-desc" class="text-[10px] text-gray-600 dark:text-gray-400">Get in touch with us for reservations or inquiries.</p>
+    <!-- ================= REVIEWS SECTION ================= -->
+    <section id="reviews" class="py-24 bg-transparent relative z-20">
+        <div class="max-w-7xl mx-auto px-6 fade-up">
+        <!-- Top header row -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div>
+                <p data-i18n="reviews-eyebrow"
+                    class="text-[10px] md:text-xs text-gray-500 tracking-[0.2em] uppercase font-bold mb-4">CE QU'ILS EN
+                    DISENT</p>
+                <div class="flex flex-col gap-1">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold">4.9 sur Google.</h2>
+                    <h2 class="font-serif text-4xl md:text-5xl italic text-primary font-normal">1 248 voix singulières.
+                    </h2>
+                </div>
             </div>
 
-            <form class="flex flex-col space-y-4">
-                <input 
-                    type="text" 
-                    placeholder="Name" 
-                    data-i18n-placeholder="contact-name"
-                    required 
-                    class="form-input w-full px-4 py-3 rounded-md bg-white text-black text-xs font-medium border border-gray-300 dark:border-transparent focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                >
-                <input 
-                    type="email" 
-                    placeholder="Email" 
-                    data-i18n-placeholder="contact-email"
-                    required 
-                    class="form-input w-full px-4 py-3 rounded-md bg-white text-black text-xs font-medium border border-gray-300 dark:border-transparent focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                >
-                <textarea 
-                    placeholder="Message" 
-                    data-i18n-placeholder="contact-msg"
-                    rows="4" 
-                    required 
-                    class="form-input w-full px-4 py-3 rounded-md bg-white text-black text-xs font-medium border border-gray-300 dark:border-transparent focus:outline-none focus:ring-2 focus:ring-primary resize-none transition-colors"
-                ></textarea>
-                
-                <button 
-                    type="submit" 
-                    data-i18n="contact-btn"
-                    class="w-full py-3 mt-2 rounded-full bg-primary text-white font-semibold text-xs hover:bg-orange-600 transition-colors shadow-lg shadow-primary/30"
-                >
-                    Send Message
+            <!-- Navigation Buttons -->
+            <div class="flex gap-4 mt-8 md:mt-0 flex-shrink-0">
+                <button onclick="scrollReviews('left')"
+                    class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <i data-lucide="chevron-left" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
                 </button>
+                <button onclick="scrollReviews('right')"
+                    class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 dark:text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Reviews Scroll Container -->
+        <div id="reviews-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 mt-4">
+
+            <!-- Review 1 -->
+            <div
+                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                            CR</div>
+                        <div>
+                            <h4 class="font-normal text-xs">Camille R.</h4>
+                            <p class="text-[10px] text-gray-400">il y a 2 semaines</p>
+                        </div>
+                    </div>
+                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                </div>
+                <div class="flex text-primary gap-1 mb-3">
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un dîner d'anniversaire absolument
+                    inoubliable. Le service est d'une précision millimétrique et le wagyu... une révélation."</p>
+            </div>
+
+            <!-- Review 2 -->
+            <div
+                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                            MB</div>
+                        <div>
+                            <h4 class="font-normal text-xs">Mehdi B.</h4>
+                            <p class="text-[10px] text-gray-400">il y a 1 mois</p>
+                        </div>
+                    </div>
+                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                </div>
+                <div class="flex text-primary gap-1 mb-3">
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Le soufflé au chocolat à lui seul
+                    vaut le voyage. Une lumière douce, une carte des vins remarquable."</p>
+            </div>
+
+            <!-- Review 3 -->
+            <div
+                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                            SL</div>
+                        <div>
+                            <h4 class="font-normal text-xs">Sarah L.</h4>
+                            <p class="text-[10px] text-gray-400">il y a 3 semaines</p>
+                        </div>
+                    </div>
+                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">TripAdvisor</span>
+                </div>
+                <div class="flex text-primary gap-1 mb-3">
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Chaque assiette est une œuvre. Le
+                    chef est passé saluer la table — un moment rare et précieux."</p>
+            </div>
+
+            <!-- Review 4 -->
+            <div
+                class="w-[85vw] md:w-[calc(33.333333%-16px)] flex-shrink-0 bg-[#fcfcfb] dark:bg-[#0a0a0a] border border-gray-300 dark:border-white/10 rounded-2xl p-6 snap-start transition-shadow duration-300">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                            AL</div>
+                        <div>
+                            <h4 class="font-normal text-xs">Antoine L.</h4>
+                            <p class="text-[10px] text-gray-400">il y a 2 mois</p>
+                        </div>
+                    </div>
+                    <span class="text-[9px] text-gray-400 font-light tracking-wider uppercase">Google</span>
+                </div>
+                <div class="flex text-primary gap-1 mb-3">
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 text-xs leading-relaxed">"Un cadre somptueux avec une équipe
+                    très à l'écoute. La décoration est sublime et les plats sont un délice du début à la fin."</p>
+            </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- ================= RESERVATION SECTION ================= -->
+    <section id="reservation" class="relative py-24 md:py-32 flex items-center justify-center fade-up">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1920&q=80"
+                alt="Restaurant Interior" class="w-full h-full object-cover">
+            <!-- Overlay always dark as requested -->
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-[#050505] transition-colors duration-300">
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 w-full px-6 max-w-3xl mx-auto text-center">
+            <p data-i18n="res-eyebrow" class="text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">
+                RESERVATION</p>
+            <h2 data-i18n="res-title" class="font-serif text-4xl md:text-5xl text-white font-bold mb-12">Book Your Table
+            </h2>
+
+            <form class="flex flex-col gap-6 text-left">
+                <!-- Row 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" data-i18n-placeholder="res-fname" placeholder="First Name"
+                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                    <input type="text" data-i18n-placeholder="res-lname" placeholder="Last Name"
+                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                </div>
+                <!-- Row 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <input type="date"
+                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+                    <input type="time"
+                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+                    <input type="number" data-i18n-placeholder="res-persons" placeholder="Persons" min="1"
+                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                </div>
+                <!-- Row 3 -->
+                <textarea data-i18n-placeholder="res-special" placeholder="Special Request (Birthday, Anniversary...)"
+                    rows="3"
+                    class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full resize-none"></textarea>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center mt-6">
+                    <button type="button" data-i18n="res-btn"
+                        class="px-10 py-4 rounded-full border border-white text-white hover:bg-primary hover:border-primary font-semibold tracking-wide transition-all duration-300">
+                        Book A Table
+                    </button>
+                </div>
             </form>
         </div>
     </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#FDF8F3] dark:bg-[#181613] text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+                <!-- Col 1 -->
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison Lumière</h2>
+                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium Restaurant</p>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 max-w-sm">
+                        Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.
+                    </p>
+                    <div class="flex gap-4 mt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-black dark:text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Horaires</h3>
+                    <p class="text-sm font-semibold text-black dark:text-gray-200">Services :</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Sam - Dim: 19h00 - 23h30</p>
+                    <p class="text-xs italic text-gray-600 dark:text-primary mt-2">Important : Réservations conseillées 24h à l'avance.</p>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0 mt-0.5"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="phone" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">+33 1 00 00 00 00</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="mail" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">contact@maisonlumiere.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-gray-500 dark:text-gray-500">
+                    © 2026 Premium Restaurant Agency. All rights reserved. Made by Salma Akajou.
+                </p>
+                <form class="flex w-full md:w-auto overflow-hidden rounded-full border border-black/20 dark:border-none bg-transparent dark:bg-[#25221e]">
+                    <input type="email" placeholder="Votre adresse e-mail" class="bg-transparent px-6 py-3 text-sm text-black dark:text-gray-200 placeholder-black/50 dark:placeholder-gray-500 focus:outline-none w-full md:w-64">
+                    <button type="button" class="bg-primary dark:bg-primary text-white dark:text-[#181613] px-6 py-3 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity">
+                        S'inscrire
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
 
     <!-- Script for Navbar Scroll, Dark Mode & Translations -->
     <script>
         // Initialize Icons
         lucide.createIcons();
 
+        /* =================== PRELOADER =================== */
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.transform = 'translateY(-100%)';
+                    setTimeout(() => preloader.remove(), 1500);
+                }, 800); // Small delay to let the user see the opening screen
+            }
+        });
+
+        /* =================== CUSTOM CURSOR =================== */
+        const cursor = document.getElementById('custom-cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+            // Add hover effects on clickable elements
+            document.querySelectorAll('a, button, input, textarea, .cursor-pointer').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+            });
+        }
+
+        /* =================== SCROLL ANIMATIONS =================== */
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
         /* =================== DARK MODE =================== */
-        let isDark = true; 
+        let isDark = true;
         const html = document.documentElement;
         const themeIcon = document.getElementById('theme-icon');
+
         
-        function toggleTheme() {
+
+function toggleTheme() {
             isDark = !isDark;
-            if(isDark) {
+            if (isDark) {
                 html.classList.add('dark');
-                themeIcon.setAttribute('data-lucide', 'sun');
             } else {
                 html.classList.remove('dark');
-                themeIcon.setAttribute('data-lucide', 'moon');
             }
-            lucide.createIcons();
             updateNavbar();
         }
 
         /* =================== NAVBAR SCROLL =================== */
         const navbar = document.getElementById('navbar');
         let isScrolled = false;
-        
+
         window.addEventListener('scroll', () => {
             isScrolled = window.scrollY > 50;
             updateNavbar();
@@ -364,21 +1073,51 @@
         function updateNavbar() {
             if (isScrolled) {
                 navbar.classList.remove('bg-transparent', 'py-6');
-                if(isDark) {
+                if (isDark) {
                     navbar.classList.add('bg-black/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
-                    navbar.classList.remove('bg-white/90', 'border-black/10', 'text-black');
+                    navbar.classList.remove('bg-[#FDF8F3]/95', 'border-black/10', 'text-black');
                     navbar.classList.add('text-white');
                 } else {
-                    navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/10');
+                    navbar.classList.add('bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/10');
                     navbar.classList.remove('bg-black/90', 'border-white/10', 'text-white');
                     navbar.classList.add('text-black');
                 }
             } else {
                 // Top of page over video is always white text
-                navbar.classList.add('bg-transparent', 'py-6', 'text-white'); 
-                navbar.classList.remove('bg-black/90', 'bg-white/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10', 'border-black/10', 'text-black');
+                navbar.classList.add('bg-transparent', 'py-6', 'text-white');
+                navbar.classList.remove('bg-black/90', 'bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10', 'border-black/10', 'text-black');
             }
         }
+
+        /* =================== SCROLL SPY NAVBAR =================== */
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navItems.forEach(item => {
+                item.classList.remove('border-current');
+                item.classList.add('border-transparent');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.remove('border-transparent');
+                    item.classList.add('border-current');
+                }
+            });
+            if (scrollY < 100) {
+                // If top, activate Home (first item)
+                navItems.forEach(item => { item.classList.remove('border-current'); item.classList.add('border-transparent'); });
+                if (navItems[0]) {
+                    navItems[0].classList.remove('border-transparent');
+                    navItems[0].classList.add('border-current');
+                }
+            }
+        });
 
         /* =================== TRANSLATIONS =================== */
         const translations = {
@@ -391,23 +1130,35 @@
                 "hero-desc": "Where light meets cuisine. Signature dishes, lively ingredients, seamless service.",
                 "hero-btn-explore": "Explore Menu",
                 "hero-btn-book": "Book a table",
-                "about-title": "About Us",
-                "about-desc": "Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to provide a warm and welcoming atmosphere for our customers. Our chefs are passionate about creating dishes that are not only delicious but also visually appealing.",
+                "about-eyebrow": "OUR HERITAGE",
+                "about-title": "The Passion of Taste & Elegance",
+                "about-desc": "Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about creating dishes that are not only delicious but also visually appealing. Every ingredient is carefully selected to guarantee an unforgettable culinary experience.",
                 "about-btn": "Learn More",
-                "menu-title": "Our Menu",
-                "menu-desc": "Delicious dishes made with love",
-                "menu-item-2-title": "Crispy Fries",
-                "menu-item-4-title": "Burger & Fries Combo",
-                "menu-item-6-title": "Crispy Drumsticks",
-                "menu-item-desc": "Short description of the dish.",
-                "menu-btn": "Full Menu",
-                "contact-title": "Contact Us",
-                "contact-desc": "Get in touch with us for reservations or inquiries.",
-                "contact-name": "Name",
-                "contact-email": "Email",
-                "contact-msg": "Message",
-                "contact-btn": "Send Message",
-                "lang-indicator": "FR | EN"
+                "menu-eyebrow": "SEASONAL CREATIONS",
+                "menu-title": "The Chef's Selection",
+                "menu-desc": "An initiation of culinary journey through our most refined signature dishes.",
+                "filter-starters": "STARTERS",
+                "filter-mains": "MAINS",
+                "filter-desserts": "DESSERTS",
+                "menu-item-desc": "This is an excellent dish that is very healthy.",
+                "menu-btn": "View Full Menu",
+                "spaces-eyebrow": "THE ATMOSPHERE",
+                "spaces-title": "Exceptional Spaces",
+                "spaces-desc": "Immerse yourself in our distinct atmospheres, custom designed for every moment of your day.",
+                "reviews-eyebrow": "WHAT THEY SAY",
+                "res-eyebrow": "RESERVATION",
+                "res-title": "Book Your Table",
+                "res-fname": "First Name",
+                "res-lname": "Last Name",
+                "res-persons": "Persons",
+                "res-special": "Special Request (Birthday, Anniversary...)",
+                "res-btn": "Book A Table",
+                "footer-newsletter-1": "Join our mailing list for updates.",
+                "footer-newsletter-2": "Get news & offers events.",
+                "footer-email": "Email",
+                "footer-subscribe": "Subscribe",
+                "footer-contacts": "Contacts",
+                "lang-indicator": "FR"
             },
             fr: {
                 "nav-home": "Accueil",
@@ -418,43 +1169,109 @@
                 "hero-desc": "Où la lumière rencontre la cuisine. Une cuisine d'auteur, des produits vivants, un service qui sait se faire oublier.",
                 "hero-btn-explore": "Explorer le menu",
                 "hero-btn-book": "Réserver une table",
-                "about-title": "À Propos",
-                "about-desc": "Maison Lumière est un restaurant qui sert des plats délicieux dans une ambiance chaleureuse. Notre mission est d'offrir une atmosphère accueillante à nos clients. Nos chefs sont passionnés par la création de plats non seulement délicieux mais aussi visuellement attrayants.",
+                "about-eyebrow": "NOTRE HÉRITAGE",
+                "about-title": "La Passion du Goût & de l'Élégance",
+                "about-desc": "Maison Lumière est un restaurant qui sert des plats délicieux dans une ambiance chaleureuse. Notre mission est d'offrir une atmosphère accueillante à nos clients.<br><br>Nos chefs sont passionnés par la création de plats non seulement délicieux mais aussi visuellement attrayants. Chaque ingrédient est soigneusement sélectionné pour garantir une expérience culinaire inoubliable.",
                 "about-btn": "En savoir plus",
-                "menu-title": "Notre Menu",
-                "menu-desc": "Des plats délicieux préparés avec amour",
-                "menu-item-2-title": "Frites Croustillantes",
-                "menu-item-4-title": "Menu Burger & Frites",
-                "menu-item-6-title": "Pilons Croustillants",
-                "menu-item-desc": "Brève description du plat.",
-                "menu-btn": "Menu Complet",
-                "contact-title": "Contactez-Nous",
-                "contact-desc": "Contactez-nous pour des réservations ou des demandes de renseignements.",
-                "contact-name": "Nom",
-                "contact-email": "Email",
-                "contact-msg": "Message",
-                "contact-btn": "Envoyer le Message",
-                "lang-indicator": "EN | FR"
+                "menu-eyebrow": "CRÉATIONS SAISONNIÈRES",
+                "menu-title": "La Sélection du Chef",
+                "menu-desc": "Une initiation au voyage culinaire à travers nos plats signature les plus raffinés.",
+                "filter-starters": "ENTRÉES",
+                "filter-mains": "PLATS",
+                "filter-desserts": "DESSERTS",
+                "menu-item-desc": "C'est un excellent plat qui est très sain.",
+                "menu-btn": "Voir tout le menu",
+                "spaces-eyebrow": "L'ATMOSPHÈRE",
+                "spaces-title": "Espaces Exceptionnels",
+                "spaces-desc": "Plongez dans nos atmosphères distinctes, conçues sur mesure pour chaque moment de votre journée.",
+                "reviews-eyebrow": "CE QU'ILS EN DISENT",
+                "res-eyebrow": "RÉSERVATION",
+                "res-title": "Réservez Votre Table",
+                "res-fname": "Prénom",
+                "res-lname": "Nom",
+                "res-persons": "Personnes",
+                "res-special": "Demande particulière (Anniversaire...)",
+                "res-btn": "Réserver une table",
+                "footer-newsletter-1": "Rejoignez notre liste de diffusion pour les mises à jour.",
+                "footer-newsletter-2": "Recevez des nouvelles et des offres d'événements.",
+                "footer-email": "E-mail",
+                "footer-subscribe": "S'abonner",
+                "footer-contacts": "Contacts",
+                "lang-indicator": "EN"
             }
         };
 
         let currentLang = 'en';
 
+        // Filtering Logic
+        function filterMenu(category) {
+            // Update filter buttons appearance
+            document.querySelectorAll('.menu-filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('bg-primary', 'text-white', 'shadow-md', 'active-filter');
+                    btn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-md', 'active-filter');
+                    btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white');
+                }
+            });
+
+            // Show or hide menu cards with animation
+            document.querySelectorAll('.menu-item-card').forEach(card => {
+                if (card.dataset.category === category) {
+                    card.style.display = 'flex';
+                    // Trigger fade-in animation
+                    card.classList.remove('animate-fade-in');
+                    void card.offsetWidth; // Force reflow to restart animation
+                    card.classList.add('animate-fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Reviews Scroll Logic
+        let autoScrollInterval = setInterval(() => { scrollReviews('right', true); }, 4000);
+
+        function scrollReviews(direction, isAuto = false) {
+            const container = document.getElementById('reviews-container');
+            const card = container.querySelector('div');
+            const scrollAmount = card.offsetWidth + 24; // Card width + gap (gap-6 is 24px)
+
+            if (!isAuto) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = setInterval(() => { scrollReviews('right', true); }, 4000);
+            }
+
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                // If we're at the end, scroll back to start
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                    container.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
+
+
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'fr' : 'en';
-            
+
             // Update normal texts
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if(translations[currentLang][key]) {
-                    el.innerText = translations[currentLang][key];
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
                 }
             });
 
             // Update placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if(translations[currentLang][key]) {
+                if (translations[currentLang][key]) {
                     el.placeholder = translations[currentLang][key];
                 }
             });
@@ -464,4 +1281,5 @@
         }
     </script>
 </body>
+
 </html>
