@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Lumière - Premium Restaurant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C1A58D',
+                        bgblack: '#050505',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Hero Image Gradient Fade */
+        .hero-fade {
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 95%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        /* Edge fade for contact images */
+        .fade-right {
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .fade-left {
+            mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .fade-all {
+            mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        /* Floating Animation for PNGs */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 6s ease-in-out 3s infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        /* Spaces Accordion */
+        .space-card {
+            flex: 1;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child,
+        .space-card:hover {
+            flex: 4;
+        }
+
+        .space-card .vertical-title {
+            opacity: 1;
+            transition: opacity 0.3s;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (min-width: 768px) {
+            .space-card .vertical-title h3 {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child .vertical-title,
+        .space-card:hover .vertical-title {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .space-card .active-content {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease 0.2s;
+        }
+
+        #spaces-accordion:not(:hover) .space-card:first-child .active-content,
+        .space-card:hover .active-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Form placeholder fix */
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        /* Custom Cursor */
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #C1A58D;
+            /* Primary color */
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, opacity 0.2s;
+        }
+
+        .custom-cursor.active {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 0.5;
+        }
+
+        /* Scroll Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        /* Menu Specific Styles */
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .paper-texture {
+            position: relative;
+        }
+        .paper-texture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.08%22/%3E%3C/svg%3E');
+            opacity: 0.4;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        .sommelier-drawer {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transform: translateY(-10px);
+        }
+
+        .dish-card:hover .sommelier-drawer {
+            max-height: 100px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .food-image {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .dish-card:hover .food-image {
+            transform: scale(1.05) translateY(-5px);
+        }
+    
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased overflow-x-hidden bg-[#FDF8F3] text-black dark:bg-[#050505] dark:text-white transition-colors duration-300">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader"
+        class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span class="text-primary italic">Lumière</span></h1>
+            <div class="w-16 h-px bg-white/20 mt-4 relative">
+                <div class="absolute inset-0 bg-primary animate-pulse"></div>
+            </div>
+        </div>
+    </div>
+    <!-- ================= NAVIGATION ================= -->
+    <nav id="navbar"
+        class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="font-serif text-2xl font-bold tracking-wide">
+                Maison Lumière
+            </a>
+
+            <!-- Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-home">Home</a>
+                <a href="#about"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-about">About</a>
+                <a href="#space"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-space">Space</a>
+                <a href="#menu"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-menu">Menu</a>
+                <a href="#reservation"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-reservation">Reservation</a>
+            </div>
+
+            <!-- Icons (Right) -->
+            <div class="flex items-center gap-4">
+                <div onclick="toggleLanguage()"
+                    class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
+                    <i data-lucide="globe" class="w-4 h-4" stroke-width="1.25"></i>
+                    <span id="lang-indicator" class="font-light">FR</span>
+                </div>
+                <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- ================= MENU HERO (CHAMBER OF FLAVORS) ================= -->
+    <main class="bg-[#0D0D0D] min-h-screen text-white pt-24 overflow-hidden relative">
+        <!-- Floating category selector -->
+        <div class="sticky top-24 z-40 flex justify-center mb-12 fade-up">
+            <div class="glass-pill rounded-full p-1.5 flex items-center gap-2">
+                <button class="px-6 py-2.5 rounded-full bg-[#D4AF37] text-black text-xs font-bold tracking-[0.2em] uppercase transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">Breakfast</button>
+                <button class="px-6 py-2.5 rounded-full text-white/50 hover:text-white text-xs font-bold tracking-[0.2em] uppercase transition-colors">Toasts</button>
+            </div>
+        </div>
+
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <!-- Split Screen Header -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 relative">
+                <!-- Left: Typography -->
+                <div class="w-full md:w-1/2 z-10 fade-up">
+                    <p class="text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase mb-4">La Sélection Classique</p>
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-[1.1] mb-6">Le Petit-Déjeuner</h1>
+                    <p class="text-white/60 max-w-md text-sm leading-relaxed font-sans font-light">
+                        Une sélection de petits-déjeuners équilibrés et gourmands, servis avec des produits frais. L'art de commencer la journée.
+                    </p>
+                </div>
+                
+                <!-- Right: 3D floating dish & flare -->
+                <div class="w-full md:w-1/2 relative h-[400px] mt-12 md:mt-0 fade-up">
+                    <!-- Cinematic Flare -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#D4AF37]/20 blur-[100px] rounded-full"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-white/10 blur-[50px] rounded-full"></div>
+                    
+                    <!-- Floating Dish Image (Placeholder for luxurious signature dish) -->
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Signature Breakfast" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] object-cover rounded-full shadow-2xl border-4 border-white/5 animate-float">
+                </div>
+            </div>
+
+            <!-- Asymmetric 2-Column Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12 relative z-10">
+                
+                <!-- Dish Card 1 (Maghriby) -->
+                <div class="dish-card group relative mt-0 md:mt-12 fade-up">
+                    <div class="bg-[#F5F2EB] paper-texture rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-2xl relative z-10">
+                        <div class="p-8 sm:w-1/2 flex flex-col justify-center border-r border-black/5">
+                            <h3 class="font-serif text-2xl text-[#0D0D0D] font-bold mb-2">Maghriby</h3>
+                            <p class="text-[#D4AF37] font-sans font-medium mb-4 tracking-wider">54 Dh</p>
+                            <p class="text-[#0D0D0D]/70 text-xs leading-relaxed font-sans">
+                                Msemen, harcha, pain, baguir, beurre, amlou et miel et confiture.
+                            </p>
+                        </div>
+                        <div class="sm:w-1/2 h-48 sm:h-auto bg-[#e5e2db] relative overflow-hidden flex items-center justify-center p-4">
+                            <!-- In a real scenario, use cutout PNGs like the screenshots. Using a luxurious placeholder image here -->
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Maghriby" class="food-image w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    <!-- Sommelier's Shadow Drawer -->
+                    <div class="sommelier-drawer bg-[#1A1A1A] border border-[#D4AF37]/30 border-t-0 rounded-b-2xl mx-4 px-6 py-4 relative -mt-2 pt-6">
+                        <p class="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-bold mb-1">Pairing Suggéré</p>
+                        <p class="text-white/80 text-xs font-sans">Thé à la menthe traditionnel & Jus d'orange pressé.</p>
+                    </div>
+                </div>
+
+                <!-- Dish Card 2 (Espagnol) -->
+                <div class="dish-card group relative fade-up">
+                    <div class="bg-[#F5F2EB] paper-texture rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-2xl relative z-10">
+                        <div class="p-8 sm:w-1/2 flex flex-col justify-center border-r border-black/5">
+                            <h3 class="font-serif text-2xl text-[#0D0D0D] font-bold mb-2">Espagnol</h3>
+                            <p class="text-[#D4AF37] font-sans font-medium mb-4 tracking-wider">39 Dh</p>
+                            <p class="text-[#0D0D0D]/70 text-xs leading-relaxed font-sans">
+                                Pain aux céréales, fromage manchego, tomate râpée, tapenade, huile d'olive vierge extra, laitue.
+                            </p>
+                        </div>
+                        <div class="sm:w-1/2 h-48 sm:h-auto bg-[#e5e2db] relative overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80" alt="Espagnol" class="food-image w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    <div class="sommelier-drawer bg-[#1A1A1A] border border-[#D4AF37]/30 border-t-0 rounded-b-2xl mx-4 px-6 py-4 relative -mt-2 pt-6">
+                        <p class="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-bold mb-1">Pairing Suggéré</p>
+                        <p class="text-white/80 text-xs font-sans">Café Cortado & Eau pétillante au citron.</p>
+                    </div>
+                </div>
+
+                <!-- Dish Card 3 (Chamaly) -->
+                <div class="dish-card group relative mt-0 md:mt-12 fade-up">
+                    <div class="bg-[#F5F2EB] paper-texture rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-2xl relative z-10">
+                        <div class="p-8 sm:w-1/2 flex flex-col justify-center border-r border-black/5">
+                            <h3 class="font-serif text-2xl text-[#0D0D0D] font-bold mb-2">Chamaly</h3>
+                            <p class="text-[#D4AF37] font-sans font-medium mb-4 tracking-wider">59 Dh</p>
+                            <p class="text-[#0D0D0D]/70 text-xs leading-relaxed font-sans">
+                                2 Œufs, khlii. Tradition et richesse des saveurs nordiques.
+                            </p>
+                        </div>
+                        <div class="sm:w-1/2 h-48 sm:h-auto bg-[#e5e2db] relative overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?auto=format&fit=crop&w=600&q=80" alt="Chamaly" class="food-image w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    <div class="sommelier-drawer bg-[#1A1A1A] border border-[#D4AF37]/30 border-t-0 rounded-b-2xl mx-4 px-6 py-4 relative -mt-2 pt-6">
+                        <p class="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-bold mb-1">Pairing Suggéré</p>
+                        <p class="text-white/80 text-xs font-sans">Thé noir corsé & Jus de grenade.</p>
+                    </div>
+                </div>
+
+                <!-- Dish Card 4 (Grilled Chicken) -->
+                <div class="dish-card group relative fade-up">
+                    <div class="bg-[#F5F2EB] paper-texture rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-2xl relative z-10">
+                        <div class="p-8 sm:w-1/2 flex flex-col justify-center border-r border-black/5">
+                            <h3 class="font-serif text-2xl text-[#0D0D0D] font-bold mb-2">Grilled Chicken</h3>
+                            <p class="text-[#D4AF37] font-sans font-medium mb-4 tracking-wider">59 Dh</p>
+                            <p class="text-[#0D0D0D]/70 text-xs leading-relaxed font-sans">
+                                Tenders marinés, œufs, salade brunch, pain, salade.
+                            </p>
+                        </div>
+                        <div class="sm:w-1/2 h-48 sm:h-auto bg-[#e5e2db] relative overflow-hidden flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Grilled Chicken" class="food-image w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    <div class="sommelier-drawer bg-[#1A1A1A] border border-[#D4AF37]/30 border-t-0 rounded-b-2xl mx-4 px-6 py-4 relative -mt-2 pt-6">
+                        <p class="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-bold mb-1">Pairing Suggéré</p>
+                        <p class="text-white/80 text-xs font-sans">Smoothie Vert Détox ou Limonade Maison.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-16 fade-up">
+                <p class="text-white/40 text-xs italic">*Tout les Petits-déjeuners servis sans boisson.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#FDF8F3] dark:bg-[#181613] text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+                <!-- Col 1 -->
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison Lumière</h2>
+                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium Restaurant</p>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 max-w-sm">
+                        Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.
+                    </p>
+                    <div class="flex gap-4 mt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-black dark:text-gray-400"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-black dark:text-gray-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Horaires</h3>
+                    <p class="text-sm font-semibold text-black dark:text-gray-200">Services :</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Sam - Dim: 19h00 - 23h30</p>
+                    <p class="text-xs italic text-gray-600 dark:text-primary mt-2">Important : Réservations conseillées 24h à l'avance.</p>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0 mt-0.5"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008 Paris, France</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="phone" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">+33 1 00 00 00 00</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="mail" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">contact@maisonlumiere.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-gray-500 dark:text-gray-500">
+                    © 2026 Premium Restaurant Agency. All rights reserved. Made by Salma Akajou.
+                </p>
+                <form class="flex w-full md:w-auto overflow-hidden rounded-full border border-black/20 dark:border-none bg-transparent dark:bg-[#25221e]">
+                    <input type="email" placeholder="Votre adresse e-mail" class="bg-transparent px-6 py-3 text-sm text-black dark:text-gray-200 placeholder-black/50 dark:placeholder-gray-500 focus:outline-none w-full md:w-64">
+                    <button type="button" class="bg-primary dark:bg-primary text-white dark:text-[#181613] px-6 py-3 text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity">
+                        S'inscrire
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Navbar Scroll, Dark Mode & Translations -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        /* =================== PRELOADER =================== */
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.transform = 'translateY(-100%)';
+                    setTimeout(() => preloader.remove(), 1500);
+                }, 800); // Small delay to let the user see the opening screen
+            }
+        });
+
+        /* =================== CUSTOM CURSOR =================== */
+        const cursor = document.getElementById('custom-cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+            // Add hover effects on clickable elements
+            document.querySelectorAll('a, button, input, textarea, .cursor-pointer').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+            });
+        }
+
+        /* =================== SCROLL ANIMATIONS =================== */
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -150px 0px',
+            threshold: 0
+        };
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+        /* =================== DARK MODE =================== */
+        let isDark = true;
+        const html = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+
+        
+
+function toggleTheme() {
+            isDark = !isDark;
+            if (isDark) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            updateNavbar();
+        }
+
+        /* =================== NAVBAR SCROLL =================== */
+        const navbar = document.getElementById('navbar');
+        let isScrolled = false;
+
+        window.addEventListener('scroll', () => {
+            isScrolled = window.scrollY > 50;
+            updateNavbar();
+        });
+
+        function updateNavbar() {
+            if (isScrolled) {
+                navbar.classList.remove('bg-transparent', 'py-6');
+                if (isDark) {
+                    navbar.classList.add('bg-black/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                    navbar.classList.remove('bg-[#FDF8F3]/95', 'border-black/10', 'text-black');
+                    navbar.classList.add('text-white');
+                } else {
+                    navbar.classList.add('bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/10');
+                    navbar.classList.remove('bg-black/90', 'border-white/10', 'text-white');
+                    navbar.classList.add('text-black');
+                }
+            } else {
+                // Top of page over video is always white text
+                navbar.classList.add('bg-transparent', 'py-6', 'text-white');
+                navbar.classList.remove('bg-black/90', 'bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10', 'border-black/10', 'text-black');
+            }
+        }
+
+        /* =================== SCROLL SPY NAVBAR =================== */
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navItems.forEach(item => {
+                item.classList.remove('border-current');
+                item.classList.add('border-transparent');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.remove('border-transparent');
+                    item.classList.add('border-current');
+                }
+            });
+            if (scrollY < 100) {
+                // If top, activate Home (first item)
+                navItems.forEach(item => { item.classList.remove('border-current'); item.classList.add('border-transparent'); });
+                if (navItems[0]) {
+                    navItems[0].classList.remove('border-transparent');
+                    navItems[0].classList.add('border-current');
+                }
+            }
+        });
+
+        /* =================== TRANSLATIONS =================== */
+        const translations = {
+            en: {
+                "nav-home": "Home",
+                "nav-about": "About",
+                "nav-space": "Space",
+                "nav-menu": "Menu",
+                "nav-reservation": "Reservation",
+                "hero-eyebrow": "CASABLANCA • SINCE 2014",
+                "hero-desc": "Where light meets cuisine. Signature dishes, lively ingredients, seamless service.",
+                "hero-btn-explore": "Explore Menu",
+                "hero-btn-book": "Book a table",
+                "about-eyebrow": "OUR HERITAGE",
+                "about-title": "The Passion of Taste & Elegance",
+                "about-desc": "Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about creating dishes that are not only delicious but also visually appealing. Every ingredient is carefully selected to guarantee an unforgettable culinary experience.",
+                "about-btn": "Learn More",
+                "menu-eyebrow": "SEASONAL CREATIONS",
+                "menu-title": "The Chef's Selection",
+                "menu-desc": "An initiation of culinary journey through our most refined signature dishes.",
+                "filter-starters": "STARTERS",
+                "filter-mains": "MAINS",
+                "filter-desserts": "DESSERTS",
+                "menu-item-desc": "This is an excellent dish that is very healthy.",
+                "menu-btn": "View Full Menu",
+                "spaces-eyebrow": "THE ATMOSPHERE",
+                "spaces-title": "Exceptional Spaces",
+                "spaces-desc": "Immerse yourself in our distinct atmospheres, custom designed for every moment of your day.",
+                "reviews-eyebrow": "WHAT THEY SAY",
+                "res-eyebrow": "RESERVATION",
+                "res-title": "Book Your Table",
+                "res-fname": "First Name",
+                "res-lname": "Last Name",
+                "res-persons": "Persons",
+                "res-special": "Special Request (Birthday, Anniversary...)",
+                "res-btn": "Book A Table",
+                "footer-newsletter-1": "Join our mailing list for updates.",
+                "footer-newsletter-2": "Get news & offers events.",
+                "footer-email": "Email",
+                "footer-subscribe": "Subscribe",
+                "footer-contacts": "Contacts",
+                "lang-indicator": "FR"
+            },
+            fr: {
+                "nav-home": "Accueil",
+                "nav-about": "À propos",
+                "nav-space": "Espace",
+                "nav-menu": "Menu",
+                "nav-reservation": "Réservation",
+                "hero-eyebrow": "CASABLANCA • DEPUIS 2014",
+                "hero-desc": "Où la lumière rencontre la cuisine. Une cuisine d'auteur, des produits vivants, un service qui sait se faire oublier.",
+                "hero-btn-explore": "Explorer le menu",
+                "hero-btn-book": "Réserver une table",
+                "about-eyebrow": "NOTRE HÉRITAGE",
+                "about-title": "La Passion du Goût & de l'Élégance",
+                "about-desc": "Maison Lumière est un restaurant qui sert des plats délicieux dans une ambiance chaleureuse. Notre mission est d'offrir une atmosphère accueillante à nos clients.<br><br>Nos chefs sont passionnés par la création de plats non seulement délicieux mais aussi visuellement attrayants. Chaque ingrédient est soigneusement sélectionné pour garantir une expérience culinaire inoubliable.",
+                "about-btn": "En savoir plus",
+                "menu-eyebrow": "CRÉATIONS SAISONNIÈRES",
+                "menu-title": "La Sélection du Chef",
+                "menu-desc": "Une initiation au voyage culinaire à travers nos plats signature les plus raffinés.",
+                "filter-starters": "ENTRÉES",
+                "filter-mains": "PLATS",
+                "filter-desserts": "DESSERTS",
+                "menu-item-desc": "C'est un excellent plat qui est très sain.",
+                "menu-btn": "Voir tout le menu",
+                "spaces-eyebrow": "L'ATMOSPHÈRE",
+                "spaces-title": "Espaces Exceptionnels",
+                "spaces-desc": "Plongez dans nos atmosphères distinctes, conçues sur mesure pour chaque moment de votre journée.",
+                "reviews-eyebrow": "CE QU'ILS EN DISENT",
+                "res-eyebrow": "RÉSERVATION",
+                "res-title": "Réservez Votre Table",
+                "res-fname": "Prénom",
+                "res-lname": "Nom",
+                "res-persons": "Personnes",
+                "res-special": "Demande particulière (Anniversaire...)",
+                "res-btn": "Réserver une table",
+                "footer-newsletter-1": "Rejoignez notre liste de diffusion pour les mises à jour.",
+                "footer-newsletter-2": "Recevez des nouvelles et des offres d'événements.",
+                "footer-email": "E-mail",
+                "footer-subscribe": "S'abonner",
+                "footer-contacts": "Contacts",
+                "lang-indicator": "EN"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Filtering Logic
+        function filterMenu(category) {
+            // Update filter buttons appearance
+            document.querySelectorAll('.menu-filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('bg-primary', 'text-white', 'shadow-md', 'active-filter');
+                    btn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white', 'shadow-md', 'active-filter');
+                    btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white');
+                }
+            });
+
+            // Show or hide menu cards with animation
+            document.querySelectorAll('.menu-item-card').forEach(card => {
+                if (card.dataset.category === category) {
+                    card.style.display = 'flex';
+                    // Trigger fade-in animation
+                    card.classList.remove('animate-fade-in');
+                    void card.offsetWidth; // Force reflow to restart animation
+                    card.classList.add('animate-fade-in');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Reviews Scroll Logic
+        let autoScrollInterval = setInterval(() => { scrollReviews('right', true); }, 4000);
+
+        function scrollReviews(direction, isAuto = false) {
+            const container = document.getElementById('reviews-container');
+            const card = container.querySelector('div');
+            const scrollAmount = card.offsetWidth + 24; // Card width + gap (gap-6 is 24px)
+
+            if (!isAuto) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = setInterval(() => { scrollReviews('right', true); }, 4000);
+            }
+
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                // If we're at the end, scroll back to start
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                    container.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
+
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+
+            // Update normal texts
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
+                }
+            });
+
+            // Update indicator
+            document.getElementById('lang-indicator').innerText = translations[currentLang]["lang-indicator"];
+        }
+    </script>
+</body>
+
+</html>
