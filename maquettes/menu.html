@@ -67,7 +67,7 @@
         }
 
         .animate-fade-in {
-            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .scrollbar-hide::-webkit-scrollbar {
@@ -114,15 +114,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .category-img-container::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, transparent 60%, rgba(5,5,5,0.4) 100%);
-            pointer-events: none;
-            transition: opacity 0.5s;
-        }
     </style>
 </head>
 
@@ -130,16 +121,6 @@
 
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="custom-cursor"></div>
-
-    <!-- ================= PRELOADER ================= -->
-    <div id="preloader" class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
-        <div class="flex flex-col items-center gap-4">
-            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span class="text-primary italic">Lumière</span></h1>
-            <div class="w-16 h-px bg-white/20 mt-4 relative">
-                <div class="absolute inset-0 bg-primary animate-pulse"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- ================= NAVIGATION ================= -->
     <nav id="navbar" class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
@@ -173,37 +154,38 @@
     </nav>
 
     <!-- ================= HERO SECTION ================= -->
-    <section class="relative min-h-[60vh] flex flex-col items-center justify-center pt-0 bg-black">
+    <section class="relative min-h-[55vh] flex flex-col items-center justify-center pt-0 bg-black">
         <!-- Background Hero Image -->
         <div class="absolute inset-0 z-0">
             <!-- Fade overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-[#FDF8F3] dark:from-[#050505] via-[#050505]/75 to-black/80 z-10 pointer-events-none transition-colors duration-300"></div>
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80" alt="Culinary Setting" class="w-full h-full object-cover hero-fade opacity-85">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80" alt="Culinary Setting" class="w-full h-full object-cover hero-fade opacity-80">
         </div>
 
         <!-- Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-20">
             <!-- Eyebrow text -->
-            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4">
+            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-4 animate-fade-in opacity-0" style="animation-delay: 200ms;">
                 <span data-i18n="menu-hero-eyebrow">SAVOIR-FAIRE & EXCELLENCE</span>
             </div>
 
             <!-- Title -->
-            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1]">
+            <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 drop-shadow-2xl leading-[1.1] animate-fade-in opacity-0" style="animation-delay: 550ms;" data-i18n="menu-hero-title">
                 Notre <span class="italic text-primary">Carte</span>
             </h1>
 
             <!-- Description -->
-            <p data-i18n="menu-hero-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md">
+            <p data-i18n="menu-hero-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md animate-fade-in opacity-0" style="animation-delay: 900ms;">
                 Un voyage sensoriel dessiné par les saisons, où chaque plat est une création originale mariant la noblesse des produits locaux et la finesse de notre art.
             </p>
         </div>
     </section>
 
     <!-- ================= STICKY CATEGORIES BAR ================= -->
-    <div id="sticky-category-bar" class="sticky top-0 z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all py-4">
+    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all py-4">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-start md:justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-hide py-1">
+                <a href="#category-breakfasts" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-breakfasts">Petit-déjeuner</a>
                 <a href="#category-entrées" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-entrées">Entrées</a>
                 <a href="#category-plats" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-plats">Plats</a>
                 <a href="#category-fastfood" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-fastfood">Fast Food</a>
@@ -215,28 +197,115 @@
 
     <!-- ================= DECORATIVE FLOATING PNGS ================= -->
     <div class="absolute inset-x-0 overflow-hidden pointer-events-none z-0">
-        <!-- Floating Pizza (left near fast food) -->
-        <img src="pizza.png" alt="" class="absolute left-6 w-36 md:w-48 opacity-10 dark:opacity-[0.08] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 1900px;">
-        <!-- Floating Burger (right near fast food) -->
-        <img src="burger.png" alt="" class="absolute right-6 w-40 md:w-52 opacity-10 dark:opacity-[0.08] animate-float-delayed hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 2500px;">
-        <!-- Floating Dessert (left near desserts) -->
-        <img src="dessert.png" alt="" class="absolute left-10 w-36 md:w-44 opacity-10 dark:opacity-[0.08] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 3400px;">
+        <!-- Floating Pizza -->
+        <img src="pizza.png" alt="" class="absolute left-6 w-36 md:w-48 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 2500px;">
+        <!-- Floating Burger -->
+        <img src="burger.png" alt="" class="absolute right-6 w-40 md:w-52 opacity-[0.07] dark:opacity-[0.06] animate-float-delayed hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 3200px;">
+        <!-- Floating Dessert -->
+        <img src="dessert.png" alt="" class="absolute left-10 w-36 md:w-44 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 4100px;">
     </div>
 
     <!-- ================= MENU SECTIONS CONTAINER ================= -->
     <div class="max-w-7xl mx-auto px-6 py-24 flex flex-col gap-32 relative z-10">
 
-        <!-- ================= CATEGORY 1: ENTRÉES (Photo Left, Content Right) ================= -->
-        <section id="category-entrées" class="menu-category-section fade-up">
+        <!-- ================= CATEGORY 1: BREAKFASTS (Photo Left, Content Right) ================= -->
+        <section id="category-breakfasts" class="menu-category-section fade-up">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                <!-- Left: Premium Photo -->
-                <div class="w-full lg:w-5/12 relative aspect-[4/5] rounded-3xl overflow-hidden group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=80" alt="Entrées" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/25 z-10 transition-opacity group-hover:bg-black/10"></div>
+                <!-- Left: Premium Photo with offset gold border -->
+                <div class="w-full lg:w-5/12 relative group">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-breakfasts" src="https://images.unsplash.com/photo-1496042399014-dc73c4f2bde1?auto=format&fit=crop&w=1000&q=80" alt="Breakfasts" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                    </div>
                 </div>
 
                 <!-- Right: Content -->
                 <div class="w-full lg:w-7/12">
+                    <div class="mb-10 text-left">
+                        <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-breakfasts-eyebrow">MATINÉES GOURMANDES</p>
+                        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-breakfasts-title">Les Petits-Déjeuners</h2>
+                        <div class="w-12 h-0.5 bg-primary/40 mb-4"></div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl" data-i18n="cat-breakfasts-desc">
+                            Pour commencer la journée sous le signe de l'excellence, découvrez notre sélection salée et sucrée préparée minute.
+                        </p>
+                    </div>
+
+                    <!-- Dishes List (2x2 Grid) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Dish 1 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast1-name">Avocado Toast Impérial</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-breakfast1-desc">Pain de campagne au levain, avocat écrasé, œuf poché, saumon fumé et graines de sésame.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">85 DH</span></div>
+                        </div>
+                        <!-- Dish 2 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast2-name">Bénédictines au Homard</h3>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-breakfast2-desc">Œufs pochés, homard frais, muffin anglais fait maison, sauce hollandaise truffée.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">140 DH</span></div>
+                        </div>
+                        <!-- Dish 3 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast3-name">Shakshuka Traditionnelle</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-breakfast3-desc">Œufs mijotés dans une sauce tomate épicée, poivrons, féta crémeuse et coriandre fraîche.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">70 DH</span></div>
+                        </div>
+                        <!-- Dish 4 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast4-name">Pancakes Sucrés-Salés</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-breakfast4-desc">Pancakes moelleux, bacon croustillant, œuf au plat et sirop d'érable chaud.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">80 DH</span></div>
+                        </div>
+                        <!-- Dish 5 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast5-name">Granola Bowl Maison</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-breakfast5-desc">Yaourt grec crémeux, granola maison croustillant, fruits de saison frais et filet de miel.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">65 DH</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CATEGORY 2: ENTRÉES (Photo Right, Content Left) ================= -->
+        <section id="category-entrées" class="menu-category-section fade-up">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                <!-- Left: Content (Order 2 on mobile, 1 on large screens) -->
+                <div class="w-full lg:w-7/12 order-2 lg:order-1">
                     <div class="mb-10 text-left">
                         <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-entrées-eyebrow">POUR DÉBUTER</p>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-entrées-title">Les Entrées</h2>
@@ -249,57 +318,92 @@
                     <!-- Dishes List (2x2 Grid) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Dish 1 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter1-name">Velouté Potiron & Truffe</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">75 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter1-name">Velouté Potiron & Truffe</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-starter1-desc">Un velouté onctueux de potiron parfumé à l'huile de truffe blanche.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-starter1-desc">Un velouté onctueux de potiron parfumé à l'huile de truffe blanche.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">75 DH</span></div>
                         </div>
                         <!-- Dish 2 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter2-name">Burrata & Tomates Confites</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter2-name">Burrata & Tomates Confites</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">110 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-starter2-desc">Burrata extra fraîche servie avec tomates confites et pesto de basilic maison.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-starter2-desc">Burrata extra fraîche servie avec tomates confites et pesto de basilic maison.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">110 DH</span></div>
                         </div>
                         <!-- Dish 3 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter3-name">Carpaccio de Bœuf</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">125 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter3-name">Carpaccio de Bœuf</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-starter3-desc">Fines tranches de bœuf, copeaux de parmesan, roquette et huile d'olive.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-starter3-desc">Fines tranches de bœuf, copeaux de parmesan, roquette et huile d'olive.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">125 DH</span></div>
                         </div>
                         <!-- Dish 4 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter4-name">Chèvre Chaud au Miel</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter4-name">Chèvre Chaud au Miel</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">90 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-starter4-desc">Chèvre chaud sur toast, jeunes pousses, noix grillées et miel.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-starter4-desc">Chèvre chaud sur toast, jeunes pousses, noix grillées et miel.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">90 DH</span></div>
                         </div>
+                        <!-- Dish 5 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-starter5-name">Tartare Saumon & Avocat</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-starter5-desc">Saumon frais coupé au couteau, avocat, gingembre marin, jus de citron vert.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">115 DH</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Image with offset gold border (Order 1 on mobile, 2 on large screens) -->
+                <div class="w-full lg:w-5/12 relative group order-1 lg:order-2">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl -translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-entrées" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1000&q=80" alt="Entrées" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CATEGORY 2: PLATS (Content Left, Photo Right) ================= -->
+        <!-- ================= CATEGORY 3: PLATS (Photo Left, Content Right) ================= -->
         <section id="category-plats" class="menu-category-section fade-up">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                <!-- Left: Content (Order 2 on mobile, Order 1 on large screens) -->
-                <div class="w-full lg:w-7/12 order-2 lg:order-1">
+                <!-- Left: Image with offset gold border -->
+                <div class="w-full lg:w-5/12 relative group">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-plats" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Plats" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="w-full lg:w-7/12">
                     <div class="mb-10 text-left">
                         <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-plats-eyebrow">L'ESSENTIEL</p>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-plats-title">Les Plats Signatures</h2>
@@ -312,69 +416,76 @@
                     <!-- Dishes List (2x2 Grid) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Dish 1 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main1-name">Filet Mignon aux Morilles</h3>
-                                    <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main1-name">Filet Mignon aux Morilles</h3>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">210 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-main1-desc">Filet de bœuf au grill, purée parfumée à la truffe et sauce aux morilles.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-main1-desc">Filet de bœuf grillé, purée à la truffe et sauce parfumée aux morilles.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">210 DH</span></div>
                         </div>
                         <!-- Dish 2 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main2-name">Pavé de Saumon Rôti</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">185 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main2-name">Pavé de Saumon Rôti</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-main2-desc">Saumon rôti sur peau, légumes glacés au miel et beurre blanc aux agrumes.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-main2-desc">Saumon rôti sur peau, légumes glacés au miel et beurre blanc aux agrumes.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">185 DH</span></div>
                         </div>
                         <!-- Dish 3 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main3-name">Risotto des Bois</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main3-name">Risotto des Bois</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">150 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-main3-desc">Risotto crémeux aux champignons sauvages de saison et parmesan croustillant.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-main3-desc">Risotto crémeux aux champignons sauvages sauvages de saison et parmesan.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">150 DH</span></div>
                         </div>
                         <!-- Dish 4 -->
-                        <div class="flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main4-name">Épaule d'Agneau Confite</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">230 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main4-name">Épaule d'Agneau Confite</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-main4-desc">Cuit lentement 12h, jus infusé au romarin sauvage, légumes grillés.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-main4-desc">Cuit lentement 12h, jus infusé au romarin sauvage, légumes grillés.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">230 DH</span></div>
+                        </div>
+                        <!-- Dish 5 -->
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-main5-name">Magret de Canard au Miel</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-main5-desc">Magret poêlé rosé, sauce aigre-douce au miel de lavande et purée de patates douces.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">205 DH</span></div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Right: Premium Photo (Order 1 on mobile, Order 2 on large screens) -->
-                <div class="w-full lg:w-5/12 aspect-[4/5] relative rounded-3xl overflow-hidden group shadow-xl order-1 lg:order-2">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80" alt="Plats" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/25 z-10 transition-opacity group-hover:bg-black/10"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CATEGORY 3: FAST FOOD (Photo Left, Filtered Content Right) ================= -->
+        <!-- ================= CATEGORY 4: FAST FOOD (Photo Right, Filtered Content Left) ================= -->
         <section id="category-fastfood" class="menu-category-section fade-up">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                <!-- Left: Premium Photo -->
-                <div class="w-full lg:w-5/12 relative aspect-[4/5] rounded-3xl overflow-hidden group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=80" alt="Fast Food" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/25 z-10 transition-opacity group-hover:bg-black/10"></div>
-                </div>
-
-                <!-- Right: Content with Filters -->
-                <div class="w-full lg:w-7/12">
+                <!-- Left: Content with Filters (Order 2 on mobile, 1 on large screens) -->
+                <div class="w-full lg:w-7/12 order-2 lg:order-1">
                     <div class="mb-6 text-left">
                         <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-fastfood-eyebrow">STREET FOOD CHIC</p>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-fastfood-title">Fast Food & Burgers</h2>
@@ -386,8 +497,7 @@
 
                     <!-- Inner Sub-category filter pills -->
                     <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5">
-                        <button onclick="filterSubcategory('fastfood', 'all')" data-sub="all" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                        <button onclick="filterSubcategory('fastfood', 'burgers')" data-sub="burgers" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-burgers">Burgers</button>
+                        <button onclick="filterSubcategory('fastfood', 'burgers')" data-sub="burgers" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-burgers">Burgers</button>
                         <button onclick="filterSubcategory('fastfood', 'tacos')" data-sub="tacos" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-tacos">Tacos</button>
                         <button onclick="filterSubcategory('fastfood', 'pizzas')" data-sub="pizzas" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-pizzas">Pizzas</button>
                     </div>
@@ -395,93 +505,181 @@
                     <!-- Dishes List (Filtered) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Burgers -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger1-name">Classic Burger</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">85 DH</span>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-burger1-desc">Burger de bœuf grillé, cheddar affiné, sauce Maison secrète.</p>
-                        </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger2-name">Chicken Burger</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">90 DH</span>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-burger2-desc">Burger de poulet croustillant au panko, mayo épicée et avocat frais.</p>
-                        </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger3-name">Veggie Burger</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger1-name">Classic Burger</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">80 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-burger1-desc">Burger de bœuf grillé, cheddar affiné, sauce Maison secrète.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-burger3-desc">Galette maison quinoa & patate douce, roquette, sauce yaourt aux herbes.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">85 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger2-name">Chicken Burger</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-burger2-desc">Burger de poulet croustillant au panko, mayo épicée et avocat frais.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">90 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger3-name">Veggie Burger</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-burger3-desc">Galette maison quinoa & patate douce, roquette, sauce yaourt aux herbes.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">80 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger4-name">Double Truffle Burger</h3>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-burger4-desc">Double steak de bœuf Angus, oignons caramélisés et mayonnaise à la truffe.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">115 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger5-name">BBQ Bacon Burger</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-burger5-desc">Steak de bœuf, bacon croustillant, cheddar fondu, oignons frits et sauce BBQ.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">100 DH</span></div>
                         </div>
 
                         <!-- Tacos -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos1-name">Tacos Mixte</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">75 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos1-name">Tacos Mixte</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-tacos1-desc">Tacos double fromage, bœuf grillé, poulet croustillant et frites.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-tacos1-desc">Tacos double fromage, bœuf grillé, poulet croustillant et frites.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">75 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos2-name">Tacos Gourmet</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">85 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos2-name">Tacos Gourmet</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-tacos2-desc">Viande hachée fraîche de bœuf, sauce au poivre vert maison et frites.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-tacos2-desc">Viande hachée fraîche de bœuf, sauce au poivre vert maison et frites.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">85 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos3-name">Tacos Cordon Bleu</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-tacos3-desc">Cordon bleu fait maison croustillant, frites dorées et sauce fromagère Maison.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">80 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="tacos">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-tacos4-name">Tacos Spicy Crispy</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-tacos4-desc">Poulet croustillant mariné aux épices, frites croustillantes et sauce algérienne.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">80 DH</span></div>
                         </div>
 
                         <!-- Pizzas -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza1-name">Pizza Truffe</h3>
-                                    <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza1-name">Pizza Truffe</h3>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">120 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pizza1-desc">Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-pizza1-desc">Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">120 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza2-name">Margherita Royale</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza2-name">Margherita Royale</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">95 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pizza2-desc">Sauce tomate San Marzano, mozzarella di bufala campana, basilic et huile vierge.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-pizza2-desc">Sauce tomate San Marzano, mozzarella di bufala campana, basilic et huile vierge.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">95 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza3-name">Pizza Bresaola & Burrata</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">135 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza3-name">Pizza Bresaola & Burrata</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pizza3-desc">Bresaola de bœuf premium, roquette fraîche, burrata crémeuse et copeaux de parmesan.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-pizza3-desc">Bresaola de bœuf premium, roquette fraîche, burrata crémeuse et copeaux de parmesan.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">135 DH</span></div>
                         </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pizzas">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pizza4-name">Pizza Quatre Fromages Or</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pizza4-desc">Mozzarella, gorgonzola dolcelatte, mozzarella de bufala, parmesan et miel de thym.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">110 DH</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Image with offset gold border (Order 1 on mobile, 2 on large screens) -->
+                <div class="w-full lg:w-5/12 relative group order-1 lg:order-2">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl -translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-fastfood" src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?auto=format&fit=crop&w=1000&q=80" alt="Fast Food" class="w-full h-full object-cover transition-opacity duration-300">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CATEGORY 4: DESSERTS (Content Left, Photo Right) ================= -->
+        <!-- ================= CATEGORY 5: DESSERTS (Photo Left, Filtered Content Right) ================= -->
         <section id="category-desserts" class="menu-category-section fade-up">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                <!-- Left: Content with Filters (Order 2 on mobile, 1 on large screens) -->
-                <div class="w-full lg:w-7/12 order-2 lg:order-1">
+                <!-- Left: Image with offset gold border -->
+                <div class="w-full lg:w-5/12 relative group">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-desserts" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1000&q=80" alt="Desserts" class="w-full h-full object-cover transition-opacity duration-300">
+                    </div>
+                </div>
+
+                <!-- Right: Content with Filters -->
+                <div class="w-full lg:w-7/12">
                     <div class="mb-6 text-left">
                         <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-desserts-eyebrow">DOUCEURS SUCRÉES</p>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-desserts-title">Les Desserts & Délices</h2>
@@ -493,8 +691,7 @@
 
                     <!-- Inner Sub-category filter pills -->
                     <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5">
-                        <button onclick="filterSubcategory('desserts', 'all')" data-sub="all" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                        <button onclick="filterSubcategory('desserts', 'crêpes')" data-sub="crêpes" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-crêpes">Crêpes</button>
+                        <button onclick="filterSubcategory('desserts', 'crêpes')" data-sub="crêpes" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-crêpes">Crêpes</button>
                         <button onclick="filterSubcategory('desserts', 'pancakes')" data-sub="pancakes" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-pancakes">Pancakes</button>
                         <button onclick="filterSubcategory('desserts', 'gaufres')" data-sub="gaufres" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-gaufres">Gaufres</button>
                     </div>
@@ -502,155 +699,234 @@
                     <!-- Dishes List (Filtered) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Crêpes -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="crêpes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe1-name">Crêpe Chocolat Signature</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">45 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="crêpes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe1-name">Crêpe Chocolat Signature</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-crepe1-desc">Sauce au chocolat noir grand cru fondu et éclats d'amandes grillées.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-crepe1-desc">Sauce au chocolat noir grand cru fondu et éclats d'amandes grillées.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">45 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="crêpes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe2-name">Crêpe Suzette Moderne</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">55 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="crêpes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe2-name">Crêpe Suzette Moderne</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-crepe2-desc">Flambée au Grand Marnier, zestes d'oranges confits et glace vanille Bourbon.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-crepe2-desc">Flambée au Grand Marnier, zestes d'oranges confits et glace vanille Bourbon.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">55 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="crêpes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-crepe3-name">Crêpe Spéculoos & Banane</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-crepe3-desc">Crêpe artisanale avec biscuits Spéculoos émiettés, bananes et chocolat chaud.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">50 DH</span></div>
                         </div>
 
                         <!-- Pancakes -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pancakes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake1-name">Berry Bliss Pancakes</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">60 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pancakes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake1-name">Berry Bliss Pancakes</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pancake1-desc">Pancakes moelleux, compotée de fruits rouges et sirop d'érable bio.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-pancake1-desc">Pancakes moelleux, compotée de fruits rouges et sirop d'érable bio.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">60 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pancakes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake2-name">Caramel Pecan Pancakes</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">65 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pancakes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake2-name">Caramel Pecan Pancakes</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pancake2-desc">Caramel au beurre salé chaud fait maison et éclats de noix de pécan.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-pancake2-desc">Caramel au beurre salé chaud fait maison et éclats de noix de pécan.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">65 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="pancakes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-pancake3-name">Nutella & Strawberries</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-pancake3-desc">Pancakes moelleux nappés de Nutella chaud, fraises fraîches et chantilly.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">65 DH</span></div>
                         </div>
 
                         <!-- Gaufres -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="gaufres">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre1-name">Gaufre Liégeoise Chocolat</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">50 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="gaufres">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre1-name">Gaufre Liégeoise Chocolat</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-gaufre1-desc">Gaufre croustillante perlée de sucre, nappage chocolat chaud et framboises.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-gaufre1-desc">Gaufre croustillante perlée de sucre, nappage chocolat chaud et framboises.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">50 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="gaufres">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre2-name">Gaufre Banane & Coco</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">55 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="gaufres">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre2-name">Gaufre Banane & Coco</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-gaufre2-desc">Rondelles de bananes, sauce chocolat noir et glace à la noix de coco.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-gaufre2-desc">Rondelles de bananes, sauce chocolat noir et glace à la noix de coco.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">55 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="gaufres">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-gaufre3-name">Gaufre Fruits Rouges</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-gaufre3-desc">Gaufre croustillante nappée d'un coulis de fruits rouges et glace yaourt.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">55 DH</span></div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Right: Premium Photo (Order 1 on mobile, 2 on large screens) -->
-                <div class="w-full lg:w-5/12 aspect-[4/5] relative rounded-3xl overflow-hidden group shadow-xl order-1 lg:order-2">
-                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1000&q=80" alt="Desserts" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/25 z-10 transition-opacity group-hover:bg-black/10"></div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CATEGORY 5: BOISSONS (Photo Left, Filtered Content Right) ================= -->
+        <!-- ================= CATEGORY 6: BOISSONS (Photo Right, Filtered Content Left) ================= -->
         <section id="category-boissons" class="menu-category-section fade-up">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-                <!-- Left: Premium Photo -->
-                <div class="w-full lg:w-5/12 relative aspect-[4/5] rounded-3xl overflow-hidden group shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=80" alt="Boissons" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/25 z-10 transition-opacity group-hover:bg-black/10"></div>
-                </div>
-
-                <!-- Right: Content with Filters -->
-                <div class="w-full lg:w-7/12">
+                <!-- Left: Content with Filters (Order 2 on mobile, 1 on large screens) -->
+                <div class="w-full lg:w-7/12 order-2 lg:order-1">
                     <div class="mb-6 text-left">
                         <p class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-3" data-i18n="cat-boissons-eyebrow">RAFRAÎCHISSEMENTS & NECTARS</p>
                         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4" data-i18n="cat-boissons-title">Les Boissons & Nectars</h2>
                         <div class="w-12 h-0.5 bg-primary/40 mb-4"></div>
                         <p class="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed max-w-xl" data-i18n="cat-boissons-desc">
-                            Une carte raffineé de cafés de spécialité, d'infusions et de créations glacées pour accompagner chacun de vos instants culinaires.
+                            Une carte raffinée de cafés de spécialité, d'infusions et de créations glacées pour accompagner chacun de vos instants culinaires.
                         </p>
                     </div>
 
                     <!-- Inner Sub-category filter pills -->
                     <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide py-3 mb-8 border-b border-black/5 dark:border-white/5">
-                        <button onclick="filterSubcategory('boissons', 'all')" data-sub="all" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-all">Tout</button>
-                        <button onclick="filterSubcategory('boissons', 'chaudes')" data-sub="chaudes" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-chaudes">Boissons Chaudes</button>
+                        <button onclick="filterSubcategory('boissons', 'chaudes')" data-sub="chaudes" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all bg-primary text-white shadow-md" data-i18n="sub-chaudes">Boissons Chaudes</button>
                         <button onclick="filterSubcategory('boissons', 'froides')" data-sub="froides" class="subcategory-btn px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all text-gray-500 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5" data-i18n="sub-froides">Boissons Froides</button>
                     </div>
 
                     <!-- Dishes List (Filtered) -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Hot Drinks -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot1-name">Espresso Gold</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">25 DH</span>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-hot1-desc">Sélection de grains arabica premium torréfiés localement.</p>
-                        </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot2-name">Cappuccino Velours</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">35 DH</span>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-hot2-desc">Espresso riche avec une mousse de lait veloutée et éclats de chocolat noir.</p>
-                        </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot3-name">Matcha Latte Cérémoniel</h3>
-                                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot1-name">Espresso Gold</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">40 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-hot1-desc">Sélection de grains arabica de spécialité, torréfiés localement.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-hot3-desc">Matcha cérémoniel du Japon, lait d'amande crémeux et miel d'acacia.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">25 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot2-name">Cappuccino Velours</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-hot2-desc">Espresso riche avec une mousse de lait veloutée et chocolat noir.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">35 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot3-name">Matcha Latte Cérémoniel</h3>
+                                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-500 shrink-0" stroke-width="2"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-hot3-desc">Matcha cérémoniel du Japon, lait d'amande crémeux et miel d'acacia.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">40 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot4-name">Latte Macchiato Caramel</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-hot4-desc">Lait chaud mousseux, expresso de spécialité et caramel doré.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">38 DH</span></div>
+                        </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="chaudes">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-hot5-name">Chocolat Chaud Grand Cru</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-hot5-desc">Chocolat noir fondu de Madagascar, lait crémeux et mousse de lait.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">42 DH</span></div>
                         </div>
 
                         <!-- Cold Drinks -->
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <div class="flex items-center gap-1.5">
-                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold1-name">Mocktail Signature Lumière</h3>
-                                    <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <div class="flex items-center gap-1.5 min-w-0">
+                                        <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold1-name">Mocktail Signature</h3>
+                                        <i data-lucide="star" class="w-3.5 h-3.5 text-primary shrink-0 fill-current"></i>
+                                    </div>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
                                 </div>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">45 DH</span>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-cold1-desc">Jasmin infusé à froid, purée de framboises fraîches, jus de citron vert et soda.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-cold1-desc">Jasmin infusé à froid, purée de framboises fraîches, jus de citron vert et soda.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">45 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold2-name">Thé Glacé Hibiscus-Pêche</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">35 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold2-name">Thé Glacé Hibiscus-Pêche</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-cold2-desc">Infusion froide maison aux fleurs d'hibiscus et sirop de pêche blanche.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-cold2-desc">Infusion froide maison aux fleurs d'hibiscus et sirop de pêche blanche.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">35 DH</span></div>
                         </div>
-                        <div class="dish-item-card flex flex-col gap-2 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
-                            <div class="flex items-baseline justify-between gap-2">
-                                <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold3-name">Jus d'Orange Pressé Minute</h3>
-                                <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
-                                <span class="font-sans text-sm font-semibold text-primary">30 DH</span>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold3-name">Jus d'Orange Pressé</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-cold3-desc">Oranges locales pressées minute à la commande.</p>
                             </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light" data-i18n="dish-cold3-desc">Oranges locales gorgées de soleil, pressées à la commande.</p>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">30 DH</span></div>
                         </div>
+                        <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="froides">
+                            <div class="flex-grow flex flex-col min-w-0">
+                                <div class="flex items-baseline w-full">
+                                    <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-cold4-name">Limonade Basilic-Concombre</h3>
+                                    <div class="flex-grow border-b border-dotted border-black/20 dark:border-white/10 group-hover:border-primary/40 transition-colors duration-300 mx-2"></div>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light mt-1 pr-12 break-words" data-i18n="dish-cold4-desc">Eau gazeuse, jus de citron vert frais, basilic et tranches de concombre.</p>
+                            </div>
+                            <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">38 DH</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Image with offset gold border (Order 1 on mobile, 2 on large screens) -->
+                <div class="w-full lg:w-5/12 relative group order-1 lg:order-2">
+                    <div class="absolute inset-0 border border-primary/30 rounded-3xl -translate-x-3 translate-y-3 pointer-events-none transition-transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                        <img id="img-boissons" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=80" alt="Boissons" class="w-full h-full object-cover transition-opacity duration-300">
                     </div>
                 </div>
             </div>
@@ -790,17 +1066,6 @@
         // Initialize Icons
         lucide.createIcons();
 
-        /* =================== PRELOADER =================== */
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                setTimeout(() => {
-                    preloader.style.transform = 'translateY(-100%)';
-                    setTimeout(() => preloader.remove(), 1500);
-                }, 800);
-            }
-        });
-
         /* =================== CUSTOM CURSOR =================== */
         const cursor = document.getElementById('custom-cursor');
         if (cursor) {
@@ -874,6 +1139,24 @@
             }
         }
 
+        /* =================== DYNAMIC CATEGORY IMAGES DICTIONARY =================== */
+        const categoryImages = {
+            fastfood: {
+                burgers: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=80",
+                tacos: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1000&q=80",
+                pizzas: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80"
+            },
+            desserts: {
+                crêpes: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=1000&q=80",
+                pancakes: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=1000&q=80",
+                gaufres: "https://images.unsplash.com/photo-1562376502-6f769499c886?auto=format&fit=crop&w=1000&q=80"
+            },
+            boissons: {
+                chaudes: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1000&q=80",
+                froides: "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=1000&q=80"
+            }
+        };
+
         /* =================== SUB-CATEGORY FILTERING =================== */
         function filterSubcategory(categoryKey, subcategory) {
             const section = document.getElementById(`category-${categoryKey}`);
@@ -892,15 +1175,28 @@
 
             // Show or hide menu card items
             section.querySelectorAll('.dish-item-card').forEach(card => {
-                if (subcategory === 'all' || card.dataset.sub === subcategory) {
+                if (card.dataset.sub === subcategory) {
                     card.style.display = 'flex';
                     card.classList.remove('animate-fade-in');
-                    void card.offsetWidth; // Force reflow to restart animation
+                    void card.offsetWidth; // Force reflow
                     card.classList.add('animate-fade-in');
                 } else {
                     card.style.display = 'none';
                 }
             });
+
+            // Update category image dynamically with transition
+            const img = document.getElementById(`img-${categoryKey}`);
+            if (img && categoryImages[categoryKey] && categoryImages[categoryKey][subcategory]) {
+                img.style.opacity = '0.2';
+                img.style.transition = 'opacity 0.2s ease-in-out';
+                setTimeout(() => {
+                    img.src = categoryImages[categoryKey][subcategory];
+                    img.onload = () => {
+                        img.style.opacity = '1';
+                    };
+                }, 150);
+            }
         }
 
         /* =================== STICKY SCROLLSPY BAR =================== */
@@ -912,7 +1208,7 @@
             categorySections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 // Offset triggers when header is inside viewport
-                if (window.scrollY >= sectionTop - 220) {
+                if (window.scrollY >= sectionTop - 250) {
                     current = section.getAttribute('id');
                 }
             });
@@ -938,13 +1234,19 @@
                 "nav-reservation": "Reservation",
                 
                 "menu-hero-eyebrow": "KNOW-HOW & EXCELLENCE",
+                "menu-hero-title": "Our <span class=\"italic text-primary\">Menu</span>",
                 "menu-hero-desc": "A sensory journey designed by seasons, where each dish is an original creation pairing local noble products and our fine culinary art.",
                 
+                "cat-breakfasts": "Breakfasts",
                 "cat-entrées": "Starters",
                 "cat-plats": "Mains",
                 "cat-fastfood": "Fast Food",
                 "cat-desserts": "Desserts",
                 "cat-boissons": "Drinks",
+
+                "cat-breakfasts-eyebrow": "DELICIOUS MORNINGS",
+                "cat-breakfasts-title": "The Breakfasts",
+                "cat-breakfasts-desc": "To start your day on a high note, discover our hot and savory selection prepared to order.",
 
                 "cat-entrées-eyebrow": "TO BEGIN",
                 "cat-entrées-title": "The Starters",
@@ -966,7 +1268,6 @@
                 "cat-boissons-title": "Drinks & Nectars",
                 "cat-boissons-desc": "A refined menu of specialty coffees, infusions and iced creations to accompany your culinary journey.",
 
-                "sub-all": "All",
                 "sub-burgers": "Burgers",
                 "sub-tacos": "Tacos",
                 "sub-pizzas": "Pizzas",
@@ -975,6 +1276,18 @@
                 "sub-gaufres": "Waffles",
                 "sub-chaudes": "Hot Drinks",
                 "sub-froides": "Cold Drinks",
+
+                // Dishes Breakfast
+                "dish-breakfast1-name": "Imperial Avocado Toast",
+                "dish-breakfast1-desc": "Sourdough bread, smashed avocado, poached egg, smoked salmon and sesame seeds.",
+                "dish-breakfast2-name": "Lobster Benedict Eggs",
+                "dish-breakfast2-desc": "Poached eggs, fresh lobster, homemade English muffin, truffled hollandaise sauce.",
+                "dish-breakfast3-name": "Traditional Shakshuka",
+                "dish-breakfast3-desc": "Eggs simmered in a spicy tomato sauce, bell peppers, creamy feta and fresh cilantro.",
+                "dish-breakfast4-name": "Sweet & Savory Pancakes",
+                "dish-breakfast4-desc": "Fluffy pancakes, crispy bacon, fried egg and warm maple syrup.",
+                "dish-breakfast5-name": "Homemade Granola Bowl",
+                "dish-breakfast5-desc": "Creamy Greek yogurt, crunchy homemade granola, fresh seasonal fruits and a drizzle of flower honey.",
 
                 // Dishes Starters
                 "dish-starter1-name": "Pumpkin & Truffle Soup",
@@ -985,6 +1298,8 @@
                 "dish-starter3-desc": "Thin slices of beef tenderloin, parmesan shavings, arugula and virgin olive oil.",
                 "dish-starter4-name": "Warm Goat Cheese & Honey",
                 "dish-starter4-desc": "Warm goat cheese on toast, baby greens, toasted walnuts and wild honey.",
+                "dish-starter5-name": "Salmon & Avocado Tartare",
+                "dish-starter5-desc": "Fresh knife-cut salmon, avocado, ginger, lime juice and fresh dill.",
 
                 // Dishes Mains
                 "dish-main1-name": "Filet Mignon with Morels",
@@ -995,6 +1310,8 @@
                 "dish-main3-desc": "Creamy risotto with seasonal wild forest mushrooms and parmesan tuile.",
                 "dish-main4-name": "Confit Lamb Shoulder",
                 "dish-main4-desc": "12-hour slow-cooked lamb shoulder, rosemary jus, and roasted seasonal vegetables.",
+                "dish-main5-name": "Duck Breast with Honey",
+                "dish-main5-desc": "Pan-seared duck breast cooked medium-rare, lavender honey sweet & sour sauce and sweet potato puree.",
 
                 // Dishes Fast Food
                 "dish-burger1-name": "Classic Burger",
@@ -1003,30 +1320,46 @@
                 "dish-burger2-desc": "Crispy panko chicken burger, spicy mayo sauce and fresh avocado.",
                 "dish-burger3-name": "Veggie Burger",
                 "dish-burger3-desc": "Homemade quinoa & sweet potato patty, arugula, herb yogurt sauce.",
+                "dish-burger4-name": "Double Truffle Burger",
+                "dish-burger4-desc": "Double Angus beef patty, aged cheddar, caramelized onions and white truffle mayonnaise.",
+                "dish-burger5-name": "BBQ Bacon Burger",
+                "dish-burger5-desc": "Beef steak, crispy bacon, melted cheddar, crispy onion rings and smoky BBQ sauce.",
                 "dish-tacos1-name": "Mixed Tacos",
                 "dish-tacos1-desc": "Double cheese tacos, grilled beef, crispy chicken and french fries.",
                 "dish-tacos2-name": "Gourmet Tacos",
                 "dish-tacos2-desc": "Freshly ground beef, homemade green pepper sauce and crispy fries.",
+                "dish-tacos3-name": "Cordon Bleu Tacos",
+                "dish-tacos3-desc": "Homemade crispy cordon bleu, golden fries and secret House cheese sauce.",
+                "dish-tacos4-name": "Spicy Crispy Chicken Tacos",
+                "dish-tacos4-desc": "Crispy chicken marinated in sweet spices, crispy fries and spicy Algerian sauce.",
                 "dish-pizza1-name": "White Truffle Pizza",
                 "dish-pizza1-desc": "White truffle cream, mozzarella, fresh button mushrooms and truffle oil.",
                 "dish-pizza2-name": "Margherita Royale",
                 "dish-pizza2-desc": "San Marzano tomato sauce, mozzarella di bufala campana, fresh basil.",
                 "dish-pizza3-name": "Bresaola & Burrata Pizza",
                 "dish-pizza3-desc": "Premium beef bresaola, fresh arugula, whole creamy burrata, parmesan shavings.",
+                "dish-pizza4-name": "Golden Four Cheese Pizza",
+                "dish-pizza4-desc": "White sauce, gorgonzola dolcelatte, mozzarella di bufala campana, parmesan and thyme honey drizzle.",
 
                 // Dishes Desserts
                 "dish-crepe1-name": "Signature Chocolate Crepe",
                 "dish-crepe1-desc": "Warm crepe with melted grand cru dark chocolate and toasted shaved almonds.",
                 "dish-crepe2-name": "Modern Suzette Crepe",
                 "dish-crepe2-desc": "Flambée with Grand Marnier, candied orange zest and bourbon vanilla ice cream.",
+                "dish-crepe3-name": "Speculoos & Banana Crepe",
+                "dish-crepe3-desc": "Artisanal crepe topped with crushed Speculoos cookies, caramelized bananas and a warm milk chocolate drizzle.",
                 "dish-pancake1-name": "Berry Bliss Pancakes",
                 "dish-pancake1-desc": "Fluffy pancakes served with red berry compote and organic maple syrup.",
                 "dish-pancake2-name": "Caramel Pecan Pancakes",
                 "dish-pancake2-desc": "Warm homemade salted caramel and crunchy toasted pecan pieces.",
+                "dish-pancake3-name": "Nutella & Strawberries",
+                "dish-pancake3-desc": "Stack of fluffy pancakes drizzled with warm Nutella, fresh seasonal strawberries and whipped cream.",
                 "dish-gaufre1-name": "Liège Chocolate Waffle",
                 "dish-gaufre1-desc": "Crispy pearl-sugar waffle topped with hot dark chocolate and fresh raspberries.",
                 "dish-gaufre2-name": "Banana & Coco Waffle",
                 "dish-gaufre2-desc": "Sliced fresh bananas, dark chocolate sauce and coconut ice cream.",
+                "dish-gaufre3-name": "Special Red Berry Waffle",
+                "dish-gaufre3-desc": "Crispy waffle topped with a homemade red berry coulis and yogurt ice cream.",
 
                 // Dishes Drinks
                 "dish-hot1-name": "Gold Espresso",
@@ -1035,12 +1368,18 @@
                 "dish-hot2-desc": "Rich espresso, velvety milk foam, sprinkled with premium dark cocoa.",
                 "dish-hot3-name": "Ceremonial Matcha Latte",
                 "dish-hot3-desc": "Japanese ceremonial matcha tea, creamy almond milk and acacia honey.",
-                "dish-cold1-name": "Lumière Signature Mocktail",
+                "dish-hot4-name": "Caramel Latte Macchiato",
+                "dish-hot4-desc": "Frothed hot milk, specialty espresso and golden caramel drizzle.",
+                "dish-hot5-name": "Grand Cru Hot Chocolate",
+                "dish-hot5-desc": "Melted dark chocolate from Madagascar, creamy whole milk and light milk foam.",
+                "dish-cold1-name": "Mocktail Signature",
                 "dish-cold1-desc": "Cold-brewed jasmine tea, fresh raspberry puree, lime and soda.",
                 "dish-cold2-name": "Hibiscus-Peach Iced Tea",
                 "dish-cold2-desc": "Homemade hibiscus flower cold infusion, white peach syrup.",
                 "dish-cold3-name": "Fresh Squeezed Orange Juice",
                 "dish-cold3-desc": "Sun-ripened local oranges, squeezed to order.",
+                "dish-cold4-name": "Basil-Cucumber Lemonade",
+                "dish-cold4-desc": "Sparkling mineral water, fresh lime juice, basil and cucumber slices.",
 
                 // CTA
                 "cta-eyebrow": "TASTING & DELIVERIES",
@@ -1074,13 +1413,19 @@
                 "nav-reservation": "Réservation",
                 
                 "menu-hero-eyebrow": "SAVOIR-FAIRE & EXCELLENCE",
+                "menu-hero-title": "Notre <span class=\"italic text-primary\">Carte</span>",
                 "menu-hero-desc": "Un voyage sensoriel dessiné par les saisons, où chaque plat est une création originale mariant la noblesse des produits locaux et la finesse de notre art.",
                 
+                "cat-breakfasts": "Petit-déjeuner",
                 "cat-entrées": "Entrées",
                 "cat-plats": "Plats",
                 "cat-fastfood": "Fast Food",
                 "cat-desserts": "Desserts",
                 "cat-boissons": "Boissons",
+
+                "cat-breakfasts-eyebrow": "MATINÉES GOURMANDES",
+                "cat-breakfasts-title": "Les Petits-Déjeuners",
+                "cat-breakfasts-desc": "Pour commencer la journée sous le signe de l'excellence, découvrez notre sélection salée et sucrée préparée minute.",
 
                 "cat-entrées-eyebrow": "POUR DÉBUTER",
                 "cat-entrées-title": "Les Entrées",
@@ -1102,7 +1447,6 @@
                 "cat-boissons-title": "Les Boissons & Nectars",
                 "cat-boissons-desc": "Une carte raffinée de cafés de spécialité, d'infusions et de créations glacées pour accompagner chacun de vos instants culinaires.",
 
-                "sub-all": "Tout",
                 "sub-burgers": "Burgers",
                 "sub-tacos": "Tacos",
                 "sub-pizzas": "Pizzas",
@@ -1111,6 +1455,18 @@
                 "sub-gaufres": "Gaufres",
                 "sub-chaudes": "Boissons Chaudes",
                 "sub-froides": "Boissons Froides",
+
+                // Dishes Breakfast
+                "dish-breakfast1-name": "Avocado Toast Impérial",
+                "dish-breakfast1-desc": "Pain de campagne au levain, avocat écrasé, œuf poché, saumon fumé et graines de sésame.",
+                "dish-breakfast2-name": "Bénédictines au Homard",
+                "dish-breakfast2-desc": "Œufs pochés, homard frais, muffin anglais fait maison, sauce hollandaise truffée.",
+                "dish-breakfast3-name": "Shakshuka Traditionnelle",
+                "dish-breakfast3-desc": "Œufs mijotés dans une sauce tomate épicée, poivrons, féta crémeuse et coriandre fraîche.",
+                "dish-breakfast4-name": "Pancakes Sucrés-Salés",
+                "dish-breakfast4-desc": "Pancakes moelleux, bacon croustillant, œuf au plat et sirop d'érable chaud.",
+                "dish-breakfast5-name": "Granola Bowl Maison",
+                "dish-breakfast5-desc": "Yaourt grec crémeux, granola maison croustillant, fruits de saison frais et filet de miel.",
 
                 // Dishes Starters
                 "dish-starter1-name": "Velouté Potiron & Truffe",
@@ -1121,6 +1477,8 @@
                 "dish-starter3-desc": "Fines tranches de bœuf, copeaux de parmesan, roquette et huile d'olive.",
                 "dish-starter4-name": "Chèvre Chaud au Miel",
                 "dish-starter4-desc": "Chèvre chaud sur toast, jeunes pousses, noix grillées et miel.",
+                "dish-starter5-name": "Tartare Saumon & Avocat",
+                "dish-starter5-desc": "Saumon frais coupé au couteau, avocat, gingembre marin, jus de citron vert.",
 
                 // Dishes Mains
                 "dish-main1-name": "Filet Mignon aux Morilles",
@@ -1131,6 +1489,8 @@
                 "dish-main3-desc": "Risotto crémeux aux champignons sauvages de saison et parmesan croustillant.",
                 "dish-main4-name": "Épaule d'Agneau Confite",
                 "dish-main4-desc": "Cuit lentement 12h, jus infusé au romarin sauvage, légumes grillés.",
+                "dish-main5-name": "Magret de Canard au Miel",
+                "dish-main5-desc": "Magret poêlé rosé, sauce aigre-douce au miel de lavande et purée de patates douces.",
 
                 // Dishes Fast Food
                 "dish-burger1-name": "Classic Burger",
@@ -1139,30 +1499,46 @@
                 "dish-burger2-desc": "Burger de poulet croustillant au panko, mayo épicée et avocat frais.",
                 "dish-burger3-name": "Veggie Burger",
                 "dish-burger3-desc": "Galette maison quinoa & patate douce, roquette, sauce yaourt aux herbes.",
+                "dish-burger4-name": "Double Truffle Burger",
+                "dish-burger4-desc": "Double steak de bœuf Angus, oignons caramélisés et mayonnaise à la truffe.",
+                "dish-burger5-name": "BBQ Bacon Burger",
+                "dish-burger5-desc": "Steak de bœuf, bacon croustillant, cheddar fondu, oignons frits et sauce BBQ.",
                 "dish-tacos1-name": "Tacos Mixte",
                 "dish-tacos1-desc": "Tacos double fromage, bœuf grillé, poulet croustillant et frites.",
                 "dish-tacos2-name": "Tacos Gourmet",
                 "dish-tacos2-desc": "Viande hachée fraîche de bœuf, sauce au poivre vert maison et frites.",
+                "dish-tacos3-name": "Tacos Cordon Bleu",
+                "dish-tacos3-desc": "Cordon bleu fait maison croustillant, frites dorées et sauce fromagère Maison.",
+                "dish-tacos4-name": "Tacos Spicy Crispy",
+                "dish-tacos4-desc": "Poulet croustillant mariné aux épices, frites croustillantes et sauce algérienne.",
                 "dish-pizza1-name": "Pizza Truffe",
                 "dish-pizza1-desc": "Crème de truffe blanche, mozzarella, champignons frais et filet d'huile de truffe.",
                 "dish-pizza2-name": "Margherita Royale",
                 "dish-pizza2-desc": "Sauce tomate San Marzano, mozzarella di bufala campana, basilic et huile vierge.",
                 "dish-pizza3-name": "Pizza Bresaola & Burrata",
                 "dish-pizza3-desc": "Bresaola de bœuf premium, roquette fraîche, burrata crémeuse et copeaux de parmesan.",
+                "dish-pizza4-name": "Pizza Quatre Fromages Or",
+                "dish-pizza4-desc": "Mozzarella, gorgonzola dolcelatte, mozzarella de bufala, parmesan et miel de thym.",
 
                 // Dishes Desserts
                 "dish-crepe1-name": "Crêpe Chocolat Signature",
                 "dish-crepe1-desc": "Sauce au chocolat noir grand cru fondu et amandes effilées grillées.",
                 "dish-crepe2-name": "Crêpe Suzette Moderne",
                 "dish-crepe2-desc": "Flambée au Grand Marnier, zestes d'oranges confits et glace vanille Bourbon.",
+                "dish-crepe3-name": "Crêpe Spéculoos & Banane",
+                "dish-crepe3-desc": "Crêpe artisanale avec biscuits Spéculoos émiettés, bananes et chocolat chaud.",
                 "dish-pancake1-name": "Berry Bliss Pancakes",
                 "dish-pancake1-desc": "Pancakes moelleux, compotée de fruits rouges et sirop d'érable bio.",
                 "dish-pancake2-name": "Caramel Pecan Pancakes",
                 "dish-pancake2-desc": "Caramel au beurre salé chaud fait maison et éclats de noix de pécan.",
+                "dish-pancake3-name": "Nutella & Strawberries",
+                "dish-pancake3-desc": "Pancakes moelleux nappés de Nutella chaud, fraises fraîches et chantilly.",
                 "dish-gaufre1-name": "Gaufre Liégeoise Chocolat",
                 "dish-gaufre1-desc": "Gaufre croustillante perlée de sucre, nappage chocolat chaud et framboises.",
                 "dish-gaufre2-name": "Gaufre Banane & Coco",
                 "dish-gaufre2-desc": "Rondelles de bananes, sauce chocolat noir et glace à la noix de coco.",
+                "dish-gaufre3-name": "Gaufre Fruits Rouges",
+                "dish-gaufre3-desc": "Gaufre croustillante nappée d'un coulis de fruits rouges et glace yaourt.",
 
                 // Dishes Drinks
                 "dish-hot1-name": "Espresso Gold",
@@ -1171,12 +1547,18 @@
                 "dish-hot2-desc": "Espresso riche avec une mousse de lait veloutée et éclats de chocolat noir.",
                 "dish-hot3-name": "Matcha Latte Cérémoniel",
                 "dish-hot3-desc": "Matcha cérémoniel du Japon, lait d'amande crémeux et miel d'acacia.",
-                "dish-cold1-name": "Mocktail Signature Lumière",
+                "dish-hot4-name": "Latte Macchiato Caramel",
+                "dish-hot4-desc": "Lait chaud mousseux, expresso de spécialité et caramel doré.",
+                "dish-hot5-name": "Chocolat Chaud Grand Cru",
+                "dish-hot5-desc": "Chocolat noir fondu de Madagascar, lait crémeux et mousse de lait.",
+                "dish-cold1-name": "Mocktail Signature",
                 "dish-cold1-desc": "Jasmin infusé à froid, purée de framboises fraîches, jus de citron vert et soda.",
                 "dish-cold2-name": "Thé Glacé Hibiscus-Pêche",
                 "dish-cold2-desc": "Infusion froide maison aux fleurs d'hibiscus et sirop de pêche blanche.",
-                "dish-cold3-name": "Jus d'Orange Pressé Minute",
+                "dish-cold3-name": "Jus d'Orange Pressé",
                 "dish-cold3-desc": "Oranges locales pressées minute à la commande.",
+                "dish-cold4-name": "Limonade Basilic-Concombre",
+                "dish-cold4-desc": "Eau gazeuse, jus de citron vert frais, basilic et tranches de concombre.",
 
                 // CTA
                 "cta-eyebrow": "DÉGUSTATION & COMMANDES",
@@ -1204,11 +1586,16 @@
             }
         };
 
-        let currentLang = 'fr'; // Default to French as it's the requested default
+        // Persist language via localStorage
+        let currentLang = localStorage.getItem('preferred-lang') || 'fr';
 
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('preferred-lang', currentLang);
+            updatePageTranslations();
+        }
 
+        function updatePageTranslations() {
             // Update texts in the document
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -1229,22 +1616,14 @@
             document.getElementById('lang-indicator').innerText = translations[currentLang]["lang-indicator"];
         }
 
-        // Initialize with default language
+        // Initialize with default language and category filters
         document.addEventListener('DOMContentLoaded', () => {
-            // Set initial language to French
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    el.innerHTML = translations[currentLang][key];
-                }
-            });
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[currentLang][key]) {
-                    el.placeholder = translations[currentLang][key];
-                }
-            });
-            document.getElementById('lang-indicator').innerText = translations[currentLang]["lang-indicator"];
+            updatePageTranslations();
+
+            // Set initial subcategory filters
+            filterSubcategory('fastfood', 'burgers');
+            filterSubcategory('desserts', 'crêpes');
+            filterSubcategory('boissons', 'chaudes');
         });
     </script>
 </body>
