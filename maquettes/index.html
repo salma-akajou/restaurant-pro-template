@@ -229,12 +229,12 @@
                 <a href="space.html"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-space">Space</a>
-                <a href="about.html"
-                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
-                    data-i18n="nav-about">About</a>
                 <a href="menu.html"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-menu">Menu</a>
+                <a href="about.html"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-about">About</a>
                 <a href="index.html#reservation"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-reservation">Reservation</a>
@@ -252,11 +252,10 @@
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
                 </button>
                 <div class="w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
-                <a href="https://wa.me/212000000000" target="_blank" class="flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full hover:bg-[#20bd5a] transition-all shadow-md text-xs font-semibold">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                <a href="https://wa.me/212000000000" target="_blank" class="hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hover:text-[#25D366] transition-colors">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                     </svg>
-                    <span class="hidden md:inline" data-i18n="nav-whatsapp">Order WhatsApp</span>
                 </a>
                 <a href="https://glovoapp.com/" target="_blank" class="flex items-center gap-2 bg-[#FFC244] text-black px-4 py-2 rounded-full hover:bg-[#e6ae3d] transition-all shadow-md text-xs font-semibold">
                     <img src="images/glovo.png" alt="Glovo" class="w-4 h-4 object-contain">
@@ -500,45 +499,6 @@
         </div>
     </section>
 
-    <!-- ================= ABOUT US SECTION ================= -->
-    <section id="about" class="relative py-24 px-6 max-w-6xl mx-auto z-20 fade-up">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-
-            <!-- Left: Text -->
-            <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                <p data-i18n="about-eyebrow"
-                    class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Notre Héritage
-                </p>
-                <h2 data-i18n="about-title" class="font-serif text-2xl md:text-3xl lg:text-3xl font-bold mb-4">La Passion du Goût &
-                    de l'Élégance</h2>
-                <div class="w-16 h-0.5 bg-primary/30 mb-6 mx-auto md:mx-0"></div>
-                <p data-i18n="about-desc"
-                    class="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg transition-colors duration-300">
-                    Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to
-                    provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about
-                    creating dishes that are not only delicious but also visually appealing. Every ingredient is
-                    carefully selected to guarantee an unforgettable culinary experience.
-                </p>
-                <a href="#" data-i18n="about-btn"
-                    class="px-8 py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/30">
-                    Learn More
-                </a>
-            </div>
-
-            <!-- Right: Framed Images -->
-            <div class="w-full md:w-1/2 relative h-[400px] md:h-[500px] mt-12 md:mt-0 flex justify-end items-start pr-4 md:pr-12">
-                <!-- Main Image -->
-                <div class="relative w-[240px] md:w-[300px] h-[340px] md:h-[420px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#1A1A1A] z-10">
-                    <img src="images/restau%20space.png" alt="Restaurant Ambiance" class="w-full h-full object-cover">
-                </div>
-                <!-- Overlapping Image -->
-                <div class="absolute bottom-0 left-4 md:left-12 w-[180px] md:w-[220px] h-[240px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-[#FDF8F3] dark:border-[#050505] z-20">
-                    <img src="images/restau%20space2.png" alt="Gourmet Dish" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ================= OUR MENU SECTION ================= -->
     <section id="menu" class="py-24 relative bg-bgblack dark:bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -549,10 +509,24 @@
                 <div class="w-24 h-[1px] bg-primary/30 mx-auto"></div>
             </div>
 
+            
+            <!-- Filter -->
+            <div class="flex justify-center mb-16 fade-up">
+                <div class="inline-flex flex-wrap justify-center items-center p-1 bg-neutral-100 dark:bg-neutral-900 rounded-full shadow-sm"
+                    id="menu-filters">
+                    <button onclick="filterMenu('starters')" data-filter="starters" data-i18n="filter-starters"
+                        class="menu-filter-btn px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-colors">Starters</button>
+                    <button onclick="filterMenu('mains')" data-filter="mains" data-i18n="filter-mains"
+                        class="menu-filter-btn px-6 py-2 rounded-full bg-primary text-white text-xs font-semibold uppercase tracking-wider shadow-md transition-colors active-filter">Mains</button>
+                    <button onclick="filterMenu('desserts')" data-filter="desserts" data-i18n="filter-desserts"
+                        class="menu-filter-btn px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-colors">Desserts</button>
+                </div>
+            </div>
+
             <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
                 <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                    <div class="relative overflow-hidden aspect-video bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80" alt="Breakfast Hollandais" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -565,7 +539,7 @@
                 </div>
                 <!-- Card -->
                 <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                    <div class="relative overflow-hidden aspect-video bg-neutral-900">
                         <img src="https://i.pinimg.com/736x/5e/63/47/5e634733ffbe59b721c668c598d6f63c.jpg" alt="Breakfast Espagnol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -578,7 +552,7 @@
                 </div>
                 <!-- Card -->
                 <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                    <div class="relative overflow-hidden aspect-video bg-neutral-900">
                         <img src="https://i.pinimg.com/1200x/1a/2a/b0/1a2ab0df689d5c901833c8facf233504.jpg" alt="Breakfast Marocain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -591,7 +565,7 @@
                 </div>
                 <!-- Card -->
                 <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
+                    <div class="relative overflow-hidden aspect-video bg-neutral-900">
                         <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&q=80" alt="Breakfast Américain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
                     <div class="p-6 flex flex-col flex-grow">
@@ -756,6 +730,45 @@
                         très à l'écoute. La décoration est sublime et les plats sont un délice du début à la fin."</p>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT US SECTION ================= -->
+    <section id="about" class="relative py-24 px-6 max-w-6xl mx-auto z-20 fade-up">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+
+            <!-- Left: Text -->
+            <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+                <p data-i18n="about-eyebrow"
+                    class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Notre Héritage
+                </p>
+                <h2 data-i18n="about-title" class="font-serif text-2xl md:text-3xl lg:text-3xl font-bold mb-4">La Passion du Goût &
+                    de l'Élégance</h2>
+                <div class="w-16 h-0.5 bg-primary/30 mb-6 mx-auto md:mx-0"></div>
+                <p data-i18n="about-desc"
+                    class="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                    Maison Lumière is a restaurant that serves delicious food with a homey feel. Our mission is to
+                    provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about
+                    creating dishes that are not only delicious but also visually appealing. Every ingredient is
+                    carefully selected to guarantee an unforgettable culinary experience.
+                </p>
+                <a href="#" data-i18n="about-btn"
+                    class="px-8 py-3 rounded-full border border-primary text-primary font-medium text-sm hover:bg-primary hover:text-white transition-all shadow-lg shadow-primary/30">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Right: Framed Images -->
+            <div class="w-full md:w-1/2 relative h-[400px] md:h-[500px] mt-12 md:mt-0 flex justify-end items-start pr-4 md:pr-12">
+                <!-- Main Image -->
+                <div class="relative w-[240px] md:w-[300px] h-[340px] md:h-[420px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#1A1A1A] z-10">
+                    <img src="images/restau%20space.png" alt="Restaurant Ambiance" class="w-full h-full object-cover">
+                </div>
+                <!-- Overlapping Image -->
+                <div class="absolute bottom-0 left-4 md:left-12 w-[180px] md:w-[220px] h-[240px] md:h-[300px] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-[#FDF8F3] dark:border-[#050505] z-20">
+                    <img src="images/restau%20space2.png" alt="Gourmet Dish" class="w-full h-full object-cover">
+                </div>
             </div>
         </div>
     </section>
