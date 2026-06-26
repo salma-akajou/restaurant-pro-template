@@ -222,11 +222,19 @@
             <p data-i18n="menu-hero-desc" class="text-sm md:text-base text-gray-200 mb-6 max-w-2xl font-light leading-relaxed drop-shadow-md animate-fade-in opacity-0">
                 Un voyage sensoriel dessiné par les saisons, où chaque plat est une création originale mariant la noblesse des produits locaux et la finesse de notre art.
             </p>
+
+            <!-- Switcher V1 / V2 -->
+            <div class="flex justify-center mt-6 animate-fade-in opacity-0">
+                <div class="inline-flex p-1 bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 rounded-full backdrop-blur-md">
+                    <a href="menu.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-white shadow-md" data-i18n="menu-toggle-categories">Catégories</a>
+                    <a href="menu-photos.html" class="px-6 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all text-gray-300 hover:text-white" data-i18n="menu-toggle-dishes">Plats</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ================= STICKY CATEGORIES BAR ================= -->
-    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md border-b border-black/10 dark:border-white/10 transition-all duration-300 ease-in-out py-4">
+    <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md transition-all duration-300 ease-in-out py-4">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-start md:justify-center gap-2 md:gap-4 overflow-x-auto scrollbar-hide py-1">
                 <a href="#category-breakfasts" class="category-nav-link px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition-all bg-black/5 dark:bg-white/5 whitespace-nowrap" data-i18n="cat-breakfasts">Petit-déjeuner</a>
@@ -242,11 +250,11 @@
     <!-- ================= DECORATIVE FLOATING PNGS ================= -->
     <div class="absolute inset-x-0 overflow-hidden pointer-events-none z-0">
         <!-- Floating Pizza -->
-        <img src="pizza.png" alt="" class="absolute left-6 w-36 md:w-48 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 2500px;">
+        <img src="images/pizza.png" alt="" class="absolute left-6 w-36 md:w-48 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 2500px;">
         <!-- Floating Burger -->
-        <img src="burger.png" alt="" class="absolute right-6 w-40 md:w-52 opacity-[0.07] dark:opacity-[0.06] animate-float-delayed hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 3200px;">
+        <img src="images/burger.png" alt="" class="absolute right-6 w-40 md:w-52 opacity-[0.07] dark:opacity-[0.06] animate-float-delayed hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 3200px;">
         <!-- Floating Dessert -->
-        <img src="dessert.png" alt="" class="absolute left-10 w-36 md:w-44 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 4100px;">
+        <img src="images/dessert.png" alt="" class="absolute left-10 w-36 md:w-44 opacity-[0.07] dark:opacity-[0.06] animate-float hover:opacity-30 transition-opacity pointer-events-none hidden xl:block" style="top: 4100px;">
     </div>
 
     <!-- ================= MENU SECTIONS CONTAINER ================= -->
@@ -979,7 +987,7 @@
     </div>
 
     <!-- ================= PREMIUM CALL TO ACTION SECTION ================= -->
-    <section class="py-24 bg-black/5 dark:bg-white/5 relative z-20">
+    <section class="py-24 dark:bg-white/5 relative z-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <p class="text-[10px] md:text-xs text-primary tracking-[0.25em] uppercase font-semibold mb-3" data-i18n="cta-eyebrow">DÉGUSTATION & COMMANDES</p>
@@ -991,7 +999,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1: Table Reservation -->
                 <div class="fade-up relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
-                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Reserve Table" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Reserve Table" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
                         <i data-lucide="calendar-days" class="w-8 h-8 text-primary mb-4" stroke-width="1.5"></i>
@@ -1006,7 +1014,7 @@
 
                 <!-- Card 2: WhatsApp Order -->
                 <div class="fade-up transition-delay-150 relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="WhatsApp Order" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="WhatsApp Order" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
                         <i data-lucide="message-circle" class="w-8 h-8 text-emerald-500 mb-4" stroke-width="1.5"></i>
@@ -1021,7 +1029,7 @@
 
                 <!-- Card 3: Glovo Order -->
                 <div class="fade-up transition-delay-300 relative rounded-3xl overflow-hidden group shadow-lg min-h-[300px] flex flex-col justify-end p-8 bg-black">
-                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80" alt="Glovo Order" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80" alt="Glovo Order" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10 pointer-events-none"></div>
                     <div class="relative z-20">
                         <i data-lucide="shopping-bag" class="w-8 h-8 text-[#FFC244] mb-4" stroke-width="1.5"></i>
@@ -1297,6 +1305,8 @@
                 "nav-space": "Space",
                 "nav-menu": "Menu",
                 "nav-reservation": "Reservation",
+                "menu-toggle-categories": "Categories",
+                "menu-toggle-dishes": "Dishes",
                 
                 "menu-hero-eyebrow": "KNOW-HOW & EXCELLENCE",
                 "menu-hero-title": "Our <span class=\"italic text-primary\">Menu</span>",
@@ -1476,6 +1486,8 @@
                 "nav-space": "Espace",
                 "nav-menu": "Menu",
                 "nav-reservation": "Réservation",
+                "menu-toggle-categories": "Catégories",
+                "menu-toggle-dishes": "Plats",
                 
                 "menu-hero-eyebrow": "SAVOIR-FAIRE & EXCELLENCE",
                 "menu-hero-title": "Notre <span class=\"italic text-primary\">Carte</span>",
