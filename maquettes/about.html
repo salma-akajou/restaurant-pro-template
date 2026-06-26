@@ -144,7 +144,16 @@
         .animate-page-load {
             animation: pageLoad 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-    </style>
+    
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+</style>
 </head>
 
 <body
