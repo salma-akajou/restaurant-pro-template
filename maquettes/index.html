@@ -235,10 +235,10 @@
                 <a href="#"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-home">Home</a>
-                <a href="#about"
+                <a href="about.html"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-about">About</a>
-                <a href="#space"
+                <a href="space.html"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
                     data-i18n="nav-space">Space</a>
                 <a href="menu.html"
@@ -1008,7 +1008,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer
-        class="bg-[#FDF8F3] dark:bg-[#181613] text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+        class="bg-[#FDF8F3] dark:bg-transparent text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
                 <!-- Col 1 -->
@@ -1064,12 +1064,11 @@
                     <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
                     <div class="flex items-start gap-4">
                         <i data-lucide="map-pin" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0 mt-0.5"></i>
-                        <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008
-                            Paris, France</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">Avenue Mohammed VI, Hivernage, 40000 Marrakech, Maroc</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <i data-lucide="phone" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
-                        <p class="text-sm text-gray-700 dark:text-gray-400">+33 1 00 00 00 00</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-400">+212 600 000 000</p>
                     </div>
                     <div class="flex items-center gap-4">
                         <i data-lucide="mail" class="w-5 h-5 text-gray-600 dark:text-primary shrink-0"></i>
@@ -1082,7 +1081,7 @@
             <div
                 class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
                 <p class="text-xs text-gray-500 dark:text-gray-500">
-                    © 2026 Premium Restaurant Agency. All rights reserved. Made by Salma Akajou.
+                    © 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin.
                 </p>
                 <form
                     class="flex w-full md:w-auto overflow-hidden rounded-full border border-black/20 dark:border-none bg-transparent dark:bg-[#25221e]">
@@ -1219,18 +1218,18 @@
             if (isScrolled) {
                 navbar.classList.remove('bg-transparent', 'py-6');
                 if (isDark) {
-                    navbar.classList.add('bg-black/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                    navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
                     navbar.classList.remove('bg-[#FDF8F3]/95', 'border-black/10', 'text-black');
                     navbar.classList.add('text-white');
                 } else {
-                    navbar.classList.add('bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/10');
-                    navbar.classList.remove('bg-black/90', 'border-white/10', 'text-white');
+                    navbar.classList.add('bg-[#FDF8F3]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-black/10');
+                    navbar.classList.remove('bg-black/80', 'border-white/10', 'text-white');
                     navbar.classList.add('text-black');
                 }
             } else {
                 // Top of page over video is always white text
                 navbar.classList.add('bg-transparent', 'py-6', 'text-white');
-                navbar.classList.remove('bg-black/90', 'bg-[#FDF8F3]/95', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10', 'border-black/10', 'text-black');
+                navbar.classList.remove('bg-black/80', 'bg-[#FDF8F3]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10', 'border-black/10', 'text-black');
             }
         }
 

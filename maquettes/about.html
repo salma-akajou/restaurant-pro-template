@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Lumière - À Propos</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C1A58D',
+                        bgblack: '#050505',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Poppins"', 'sans-serif'],
+                        signature: ['"Great Vibes"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ken Burns Zoom Effect */
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-ken-burns {
+            animation: kenBurns 20s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Cursor */
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #C1A58D;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, opacity 0.2s, background-color 0.2s;
+        }
+
+        .custom-cursor.active {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 0.4;
+        }
+
+        /* Editorial Gallery (Columns) */
+        .editorial-gallery {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .editorial-gallery {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .editorial-gallery {
+                column-count: 3;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: block;
+        }
+
+        /* Hover effects */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(193, 165, 141, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(193, 165, 141, 0.5);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Reflections for Gallery */
+        .reflect-image {
+            -webkit-box-reflect: below 4px linear-gradient(transparent 70%, rgba(255, 255, 255, 0.15) 100%);
+        }
+
+        /* Page Load Animation */
+        @keyframes pageLoad {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .animate-page-load {
+            animation: pageLoad 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased overflow-x-hidden bg-[#FDF8F3] text-black dark:bg-[#050505] dark:text-white transition-colors duration-300 animate-page-load">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav id="navbar"
+        class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-wide">Maison Lumière</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-home">Home</a>
+                <a href="about.html"
+                    class="nav-item text-sm font-semibold hover:text-primary transition-all border-b border-current"
+                    data-i18n="nav-about">About</a>
+                <a href="space.html"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-space">Space</a>
+                <a href="menu.html"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-menu">Menu</a>
+                <a href="index.html#reservation"
+                    class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
+                    data-i18n="nav-reservation">Reservation</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div onclick="toggleLanguage()"
+                    class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
+                    <i data-lucide="globe" class="w-4 h-4" stroke-width="1.25"></i>
+                    <span id="lang-indicator" class="font-light">FR</span>
+                </div>
+                <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
+                </button>
+                <div class="w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
+                <a href="https://wa.me/212000000000" target="_blank" class="hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-6 h-6 hover:text-[#25D366] transition-colors">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                    </svg>
+                </a>
+                <a href="https://glovoapp.com/" target="_blank"
+                    class="hover:scale-110 transition-transform ml-1 w-8 h-8 rounded-full bg-[#FFC244] overflow-hidden flex items-center justify-center shadow-sm border border-white/10">
+                    <img src="images/glovo.png" alt="Glovo" class="w-5 h-5 object-contain">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ================= SECTION 1 : NOTRE HISTOIRE ================= -->
+    <section class="relative h-[100vh] w-full bg-[#050505] overflow-hidden">
+
+        <!-- Background Image (Right side) -->
+        <div class="absolute inset-y-0 right-0 w-full md:w-[75%] h-full">
+            <img src="images/restaurant.jpg" alt="Ambiance Restaurant"
+                class="w-full h-full object-cover object-center">
+        </div>
+
+        <!-- Gradient Overlay to blend left to right AND bottom to top -->
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent w-full md:w-[75%] h-full z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent w-full h-full z-10 pointer-events-none">
+        </div>
+
+        <!-- Content Overlay -->
+        <div class="relative z-20 max-w-7xl mx-auto px-6 md:px-12 h-full flex flex-col justify-center pt-20">
+            <div class="fade-up max-w-xl">
+                <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-6">Notre Histoire</p>
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                    L'Art de Vivre,<br>
+                    notre signature.
+                </h1>
+
+                <!-- Trait Charmant -->
+                <div class="flex items-center gap-2 mb-8 opacity-80">
+                    <div class="h-px w-6 bg-primary"></div>
+                    <div class="w-1 h-1 rotate-45 bg-primary"></div>
+                    <div class="h-px w-16 bg-primary/30"></div>
+                </div>
+
+                <div class="space-y-4 text-gray-400 font-light text-1sm md:text-base leading-relaxed">
+                    <p>
+                        Maison Lumière est né d'un rêve simple : créer un lieu où chaque détail célèbre l'art de vivre.
+                    </p>
+                    <p>
+                        Inspirée par la gastronomie française et les influences du monde entier, notre cuisine allie
+                        tradition et modernité dans une harmonie parfaite.
+                    </p>
+                    <p>
+                        Plus qu'un restaurant, Maison Lumière est une expérience — un voyage sensoriel où chaque moment
+                        devient un souvenir inoubliable.
+                    </p>
+                </div>
+
+                <div class="mt-8">
+                    <p class="font-signature text-1xl md:text-2xl text-white opacity-90">Mouha Italique</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 2 : L'ÂME DE MAISON LUMIÈRE ================= -->
+    <section class="py-24 md:py-32 bg-[#050505] overflow-hidden relative border-t border-white/5">
+        <div class="w-full max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-24 fade-up">
+                <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">L'Âme de Maison Lumière</h2>
+                <div class="flex items-center justify-center gap-2 mb-8 opacity-80">
+                    <div class="h-px w-6 bg-primary"></div>
+                    <div class="w-1 h-1 rotate-45 bg-primary"></div>
+                    <div class="h-px w-6 bg-primary"></div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-6 pb-20 pt-10 px-4 fade-up"
+                style="transition-delay: 200ms">
+
+                <!-- Image 1: Shifted Down -->
+                <div
+                    class="w-[45%] md:w-48 transform md:translate-y-16 shadow-[0_15px_40px_rgba(193,165,141,0.2)] rounded-2xl group overflow-hidden border border-primary/10">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&h=500&q=80"
+                        alt="Salade"
+                        class="w-full h-[250px] md:h-[350px] object-cover transition-all duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 grayscale-[30%] group-hover:grayscale-0">
+                </div>
+
+                <!-- Image 2: Shifted Up -->
+                <div
+                    class="w-[45%] md:w-48 transform md:-translate-y-12 shadow-[0_15px_40px_rgba(193,165,141,0.2)] rounded-2xl group z-10 overflow-hidden border border-primary/10">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=400&h=600&q=80"
+                        alt="Pâtes"
+                        class="w-full h-[300px] md:h-[420px] object-cover transition-all duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 grayscale-[30%] group-hover:grayscale-0">
+                </div>
+
+                <!-- Image 3: Shifted Down -->
+                <div
+                    class="w-[45%] md:w-48 transform md:translate-y-10 shadow-[0_15px_40px_rgba(193,165,141,0.2)] rounded-2xl group overflow-hidden border border-primary/10">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&h=600&q=80"
+                        alt="Planche"
+                        class="w-full h-[300px] md:h-[420px] object-cover transition-all duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 grayscale-[30%] group-hover:grayscale-0">
+                </div>
+
+                <!-- Image 4: Shifted Up -->
+                <div
+                    class="w-[45%] md:w-48 transform md:-translate-y-20 shadow-[0_15px_40px_rgba(193,165,141,0.2)] rounded-2xl group overflow-hidden border border-primary/10">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&h=500&q=80"
+                        alt="Dessert"
+                        class="w-full h-[250px] md:h-[350px] object-cover transition-all duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100 grayscale-[30%] group-hover:grayscale-0">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3 : HORAIRES D'OUVERTURE ================= -->
+    <section class="py-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+        <!-- Glow effect -->
+        <div
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-primary/5 blur-[120px] rounded-full pointer-events-none">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-16 items-center">
+
+                <!-- Left: Info -->
+                <div class="md:col-span-2 fade-up">
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-6">Nous sommes ouverts pour vous
+                        accueillir.</h2>
+                    <p class="text-gray-400 font-light text-sm mb-10 leading-relaxed">
+                        Pour un déjeuner d'affaires ou un dîner romantique, nos portes vous sont ouvertes pour vous
+                        offrir un moment d'exception.
+                    </p>
+                    <a href="index.html#reservation"
+                        class="inline-flex items-center justify-center px-8 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-black font-medium tracking-wide transition-all duration-400 group">
+                        Réserver une table
+                        <i data-lucide="arrow-right"
+                            class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Right: List -->
+                <div class="md:col-span-3 fade-up" style="transition-delay: 200ms">
+                    <div class="space-y-6">
+                        <!-- Ligne 1 -->
+                        <div class="flex items-center text-white/90 font-light group">
+                            <span class="w-32 tracking-wider">Lun – Ven</span>
+                            <div
+                                class="border-b border-dotted border-primary/30 group-hover:border-primary/70 transition-colors flex-grow mx-4">
+                            </div>
+                            <span class="w-40 text-right font-medium">10:00 AM – 11:00 PM</span>
+                        </div>
+
+                        <!-- Ligne 2 -->
+                        <div class="flex items-center text-white/90 font-light group">
+                            <span class="w-32 tracking-wider">Sam - Dim</span>
+                            <div
+                                class="border-b border-dotted border-primary/30 group-hover:border-primary/70 transition-colors flex-grow mx-4">
+                            </div>
+                            <span class="w-40 text-right font-medium text-primary">10:00 AM – 12:00 AM</span>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 4 : INFORMATIONS IMPORTANTES ================= -->
+    <section class="py-24 bg-[#0A0A0A] relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up">
+                <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-4">Informations Importantes
+                </p>
+                <h2 class="font-serif text-3xl md:text-4xl text-white">Conditions de Vente & Générales</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-8 fade-up cursor-pointer group" style="transition-delay: 100ms">
+                    <div
+                        class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <i data-lucide="calendar-clock" class="w-5 h-5 text-primary"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Conditions de Réservation</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">
+                        Toute réservation de plus de 6 personnes nécessite une empreinte bancaire. Annulation gratuite
+                        jusqu'à 24h à l'avance.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-8 fade-up cursor-pointer group" style="transition-delay: 200ms">
+                    <div
+                        class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <i data-lucide="receipt-text" class="w-5 h-5 text-primary"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Conditions de Vente</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">
+                        Nos prix s'entendent nets, taxes et service compris. Les menus et millésimes peuvent varier
+                        selon les arrivages du marché.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-8 fade-up cursor-pointer group" style="transition-delay: 300ms">
+                    <div
+                        class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-primary"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-white mb-3">Terms & Conditions</h3>
+                    <p class="text-gray-400 font-light text-sm leading-relaxed">
+                        Une tenue correcte est exigée. La direction se réserve le droit d'entrée pour préserver
+                        l'atmosphère élégante de l'établissement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5 : NOTRE LOCALISATION ================= -->
+    <section class="py-24 bg-[#050505] border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Contact -->
+                <div class="fade-up">
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mb-8">Venez nous rendre visite</h2>
+
+                    <div class="space-y-8 mb-10">
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-primary transition-colors">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Adresse</h4>
+                                <p class="text-gray-400 font-light text-sm">Avenue Mohammed VI, Hivernage<br>40000 Marrakech, Maroc</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-primary transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Téléphone</h4>
+                                <p class="text-gray-400 font-light text-sm">+212 600 000 000</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="mt-1 w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center group-hover:border-primary transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium mb-1">Email</h4>
+                                <p class="text-gray-400 font-light text-sm">contact@maisonlumiere.fr</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com" target="_blank"
+                        class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-black font-medium tracking-wide hover:bg-white transition-colors duration-400 group">
+                        Obtenir l'itinéraire
+                        <i data-lucide="navigation"
+                            class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Right: Map -->
+                <div class="h-[500px] w-full rounded-[30px] overflow-hidden relative fade-up group"
+                    style="transition-delay: 200ms">
+                    <!-- Google Maps Iframe with dark filter -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54313.44755106191!2d-8.046845344335496!3d31.634629474771488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafee8d96179e51%3A0x5950b6534f87adb8!2sMarrakesh%2C%20Morocco!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                        width="100%" height="100%"
+                        style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.1) opacity(0.8);"
+                        allowfullscreen="" loading="lazy"
+                        class="transition-transform duration-700 group-hover:scale-105">
+                    </iframe>
+                    <!-- Overlay to prevent interaction if desired, or just to add a slight border glow -->
+                    <div
+                        class="absolute inset-0 pointer-events-none rounded-[30px] border border-white/10 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] group-hover:border-primary/50 transition-colors duration-500">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+        class="bg-[#FDF8F3] dark:bg-transparent text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+                <!-- Col 1 -->
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison
+                            Lumière</h2>
+                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium
+                            Restaurant</p>
+                    </div>
+                    <p class="text-sm font-light leading-relaxed max-w-sm">Découvrez une expérience culinaire
+                        inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.</p>
+                </div>
+                <!-- Col 2 -->
+                <div class="flex flex-col gap-4 md:items-center">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Horaires</h3>
+                    <div class="text-sm font-light space-y-4">
+                        <p><strong class="font-medium">Services :</strong></p>
+                        <p>Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30</p>
+                        <p>Sam - Dim: 19h00 - 23h30</p>
+                    </div>
+                </div>
+                <!-- Col 3 -->
+                <div class="flex flex-col gap-4 md:items-end">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
+                    <div class="text-sm font-light space-y-4 text-left md:text-right">
+                        <p>Avenue Mohammed VI, Hivernage, 40000 Marrakech, Maroc</p>
+                        <p>+212 600 000 000</p>
+                        <p>contact@maisonlumiere.fr</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom -->
+            <div
+                class="pt-8 border-t border-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light">
+                <p>&copy; 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-primary transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-primary transition-colors">TripAdvisor</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        /* Custom Cursor */
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .cursor-pointer, .glass-card, .gallery-item').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        /* Initialize Lucide Icons */
+        lucide.createIcons();
+
+        /* Fade Up Observer */
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+        /* Navbar Scroll & Dark Mode (Boilerplate) */
+        let isDark = true;
+        const html = document.documentElement;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+            }
+        });
+
+        function toggleTheme() {
+            isDark = !isDark;
+            if (isDark) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Lumière - Nos Espaces</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C1A58D',
+                        bgblack: '#050505',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ken Burns Zoom Effect */
+        @keyframes kenBurns {
+            0% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .animate-ken-burns {
+            animation: kenBurns 12s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Cursor */
+        body { cursor: none; }
+        .custom-cursor {
+            position: fixed;
+            top: 0; left: 0;
+            width: 20px; height: 20px;
+            background-color: #C1A58D;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, opacity 0.2s, background-color 0.2s;
+        }
+        .custom-cursor.active {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 0.4;
+        }
+        .custom-cursor.play {
+            background-color: white;
+            transform: translate(-50%, -50%) scale(3);
+            opacity: 0.8;
+            mix-blend-mode: difference;
+        }
+
+        /* Editorial Grid Layout */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-flow: dense;
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Item Sizing */
+        .item-large { grid-column: span 12; aspect-ratio: 21/9; }
+        .item-tall { grid-column: span 6; aspect-ratio: 3/4; }
+        .item-square { grid-column: span 6; aspect-ratio: 1/1; }
+        .item-wide { grid-column: span 8; aspect-ratio: 16/9; }
+        .item-small { grid-column: span 4; aspect-ratio: 1/1; }
+
+        @media (min-width: 768px) {
+            .item-large { grid-column: span 8; aspect-ratio: 21/9; }
+            .item-tall { grid-column: span 4; grid-row: span 2; aspect-ratio: auto; }
+            .item-square { grid-column: span 4; aspect-ratio: 4/3; }
+            .item-wide { grid-column: span 8; aspect-ratio: 21/9; }
+            .item-small { grid-column: span 4; aspect-ratio: auto; }
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            opacity: 0;
+            backdrop-filter: blur(0px);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+
+        .gallery-item:hover {
+            z-index: 10;
+        }
+
+        .gallery-item:hover img, .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .gallery-content {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+
+        /* Modal Transitions */
+        .modal-enter { opacity: 0; transform: scale(0.95); }
+        .modal-enter-active { opacity: 1; transform: scale(1); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-exit { opacity: 1; transform: scale(1); }
+        .modal-exit-active { opacity: 0; transform: scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        .hide-scroll { overflow: hidden; }
+
+    </style>
+</head>
+
+<body class="font-sans antialiased overflow-x-hidden bg-[#FDF8F3] text-black dark:bg-[#050505] dark:text-white transition-colors duration-300">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav id="navbar" class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="font-serif text-2xl font-bold tracking-wide">Maison Lumière</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent" data-i18n="nav-home">Home</a>
+                <a href="about.html" class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent" data-i18n="nav-about">About</a>
+                <a href="#" class="nav-item text-sm font-semibold hover:text-primary transition-all border-b border-current" data-i18n="nav-space">Space</a>
+                <a href="menu.html" class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent" data-i18n="nav-menu">Menu</a>
+                <a href="index.html#reservation" class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent" data-i18n="nav-reservation">Reservation</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div onclick="toggleLanguage()" class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
+                    <i data-lucide="globe" class="w-4 h-4" stroke-width="1.25"></i>
+                    <span id="lang-indicator" class="font-light">FR</span>
+                </div>
+                <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
+                </button>
+                <div class="w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
+                <a href="https://wa.me/212000000000" target="_blank" class="hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 hover:text-[#25D366] transition-colors">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                </a>
+                <a href="https://glovoapp.com/" target="_blank" class="hover:scale-110 transition-transform ml-1 w-8 h-8 rounded-full bg-[#FFC244] overflow-hidden flex items-center justify-center shadow-sm border border-white/10">
+                    <img src="images/glovo.png" alt="Glovo" class="w-5 h-5 object-contain">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative h-[100vh] flex flex-col items-center justify-center pt-0 bg-black overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-black/60 z-10 pointer-events-none transition-colors duration-300"></div>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" alt="Restaurant Interior" class="w-full h-full object-cover animate-ken-burns opacity-90">
+        </div>
+        
+        <div class="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col items-center mt-20">
+            <div class="flex items-center gap-3 text-[10px] md:text-xs text-primary tracking-[0.3em] uppercase font-bold mb-6 fade-up">
+                <span data-i18n="space-hero-eyebrow">L'EXPÉRIENCE DE L'ATMOSPHÈRE</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 drop-shadow-2xl leading-[1.1] fade-up" style="transition-delay: 100ms" data-i18n="space-hero-title">
+                Découvrez Nos <span class="italic text-primary font-light">Espaces</span>
+            </h1>
+            <p class="text-sm md:text-base text-gray-300 mb-10 max-w-2xl font-light leading-relaxed drop-shadow-md fade-up" style="transition-delay: 200ms" data-i18n="space-hero-desc">
+                Chaque espace a été conçu pour créer des moments inoubliables, des dîners intimistes aux célébrations les plus mémorables.
+            </p>
+
+        </div>
+    </section>
+
+
+
+    <!-- ================= DISCOVERY GALLERY ================= -->
+    <section id="gallery" class="w-full px-4 lg:px-8 mx-auto pb-32 pt-24">
+        <div class="editorial-grid">
+            
+            <!-- Item 1: Large Video/Image -->
+            <div class="gallery-item item-large">
+                <video src="../video/IMG_9646.MP4" autoplay loop muted playsinline></video>
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Signature</p>
+                        <h3 class="font-serif text-3xl md:text-4xl text-white mb-2">L'Atmosphère Maison Lumière</h3>
+                        <p class="text-white/80 text-sm font-light max-w-lg mt-2">Le cœur de Maison Lumière, où l'élégance architecturale rencontre la chaleur de notre accueil. Un espace baigné de lumière conçu pour les déjeuners d'affaires et les dîners raffinés.<br><span class="text-xs text-primary mt-1 block">Capacité: 80 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Tall Image -->
+            <div class="gallery-item item-tall fade-up">
+                <img src="images/restau%20space.png" alt="Salon VIP">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Privé</p>
+                        <h3 class="font-serif text-2xl text-white mb-1">Salon VIP</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Un écrin de confidentialité pour vos moments les plus précieux. Ce salon exclusif offre un service dédié dans une atmosphère intimiste et luxueuse.<br><span class="text-primary mt-1 block">Capacité: 12 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Square -->
+            <div class="gallery-item item-square fade-up" style="transition-delay: 100ms">
+                <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80" alt="Cocktail Bar">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <h3 class="font-serif text-2xl text-white mb-1">Cocktail Bar</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">L'art de la mixologie dans un décor hypnotique. L'endroit parfait pour commencer la soirée ou la prolonger autour de créations signatures.<br><span class="text-primary mt-1 block">Capacité: 35 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Square -->
+            <div class="gallery-item item-square fade-up" style="transition-delay: 200ms">
+                <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80" alt="Chef's Table">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Gastronomie</p>
+                        <h3 class="font-serif text-2xl text-white mb-1">Chef's Table</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Une expérience immersive au plus près de l'action. Observez la brigade à l'œuvre et profitez d'un menu dégustation exclusif commenté par le Chef.<br><span class="text-primary mt-1 block">Capacité: 6 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Wide -->
+            <div class="gallery-item item-wide fade-up">
+                <img src="images/rooftop%20terrace.png" alt="Rooftop Lounge">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Plein Air</p>
+                        <h3 class="font-serif text-3xl text-white mb-2">Rooftop Lounge</h3>
+                        <p class="text-white/80 text-sm font-light mt-2">Suspendu entre ciel et ville, notre rooftop offre une vue panoramique spectaculaire. L'ambiance y évolue au rythme du soleil, de l'après-midi décontracté à la soirée branchée.<br><span class="text-xs text-primary mt-1 block">Capacité: 120 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Item 6: Small -->
+             <div class="gallery-item item-small fade-up" style="transition-delay: 100ms">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Terrasse Extérieure">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <h3 class="font-serif text-xl text-white mb-1">Terrasse Jardin</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Une oasis de verdure préservée de l'agitation urbaine. Un cadre bucolique idéal pour les brunchs ensoleillés et les douces soirées d'été.<br><span class="text-primary mt-1 block">Capacité: 45 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Item 8: Small Image -->
+             <div class="gallery-item item-small fade-up">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80" alt="Détails Table">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <h3 class="font-serif text-xl text-white mb-1">L'Art de la Table</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Chaque détail est pensé pour sublimer votre expérience culinaire avec élégance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7: Wide Video -->
+            <div class="gallery-item item-wide fade-up" style="transition-delay: 100ms">
+                <video src="../video/v2.MP4" autoplay loop muted playsinline></video>
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Ambiance</p>
+                        <h3 class="font-serif text-3xl text-white mb-2">Soirées d'Exception</h3>
+                        <p class="text-white/80 text-sm font-light mt-2">Plongez dans l'effervescence de nos soirées où la gastronomie rencontre l'art de vivre. Des moments magiques rythmés par nos artistes invités.<br><span class="text-xs text-primary mt-1 block">Capacité: 150 personnes</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 9: Square -->
+            <div class="gallery-item item-square fade-up">
+                <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Le Bar">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <h3 class="font-serif text-2xl text-white mb-1">Le Comptoir</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Prenez place au comptoir pour un moment convivial autour de nos spiritueux rares.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 10: Square -->
+            <div class="gallery-item item-square fade-up" style="transition-delay: 100ms">
+                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80" alt="Lumières">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-2">Décor</p>
+                        <h3 class="font-serif text-2xl text-white mb-1">Jeux de Lumière</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">Une atmosphère chaleureuse et intimiste créée par notre signature lumineuse.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 11: Square -->
+            <div class="gallery-item item-square fade-up" style="transition-delay: 200ms">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Cuisine">
+                <div class="gallery-overlay">
+                    <div class="gallery-content">
+                        <h3 class="font-serif text-2xl text-white mb-1">Côté Cuisine</h3>
+                        <p class="text-white/80 text-xs font-light mt-2">La passion et la précision de notre brigade à l'œuvre.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#FDF8F3] dark:bg-transparent text-black dark:text-gray-300 py-16 md:py-24 transition-colors duration-300 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-16">
+                <!-- Col 1 -->
+                <div class="flex flex-col gap-6">
+                    <div>
+                        <h2 class="font-serif text-3xl font-bold tracking-wide text-black dark:text-primary">Maison Lumière</h2>
+                        <p class="text-[10px] tracking-[0.3em] uppercase text-gray-600 dark:text-gray-500 mt-1">Premium Restaurant</p>
+                    </div>
+                    <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 max-w-sm">
+                        Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.
+                    </p>
+                </div>
+                <!-- Col 2 & 3 simplified for boilerplate -->
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Horaires</h3>
+                    <p class="text-sm font-semibold text-black dark:text-gray-200">Services :</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Lun - Ven: 12h00 - 14h30 | 19h30 - 22h30</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">Sam - Dim: 19h00 - 23h30</p>
+                </div>
+                <div class="flex flex-col gap-5">
+                    <h3 class="font-serif text-xl text-black dark:text-primary mb-2">Contact</h3>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">12 Rue du Faubourg Saint-Honoré, 75008 Paris</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">+212 600 000 000</p>
+                    <p class="text-sm text-gray-700 dark:text-gray-400">contact@maisonlumiere.fr</p>
+                </div>
+            </div>
+            <div class="border-t border-black/10 dark:border-white/10 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-gray-500 dark:text-gray-500">© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        /* Custom Cursor */
+        const cursor = document.getElementById('custom-cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+            document.querySelectorAll('a, button, input, .cursor-pointer').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+            });
+            // Play icon cursor for videos
+            document.querySelectorAll('.gallery-item').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('play'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('play'));
+            });
+        }
+
+        /* Scroll Animations */
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+        /* Navbar Scroll & Dark Mode (Boilerplate) */
+        let isDark = true;
+        const html = document.documentElement;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-6');
+                navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+            }
+        });
+        const translations = {
+            en: {
+                "nav-home": "Home", "nav-about": "About", "nav-space": "Space", "nav-menu": "Menu", "nav-reservation": "Reservation",
+                "space-hero-eyebrow": "THE ATMOSPHERE EXPERIENCE",
+                "space-hero-title": "Discover Our <span class='italic text-primary font-light'>Spaces</span>",
+                "space-hero-desc": "Each space has been designed to create unforgettable moments, from intimate dinners to the most memorable celebrations.",
+                "space-btn-explore": "Explore Spaces",
+                "space-btn-watch": "Watch Experience",
+                "space-transition-text": "\"Our restaurant is more than a place to eat. It is a <span class='italic text-primary'>collection of experiences</span>, atmospheres, and moments carefully imagined in every detail.\"",
+                "space-sig-eyebrow": "THE ULTIMATE EXPERIENCE",
+                "space-sig-title": "Private Cellar Tasting",
+                "space-sig-desc": "Descend into the intimacy of our historic vaults for a timeless oenological experience. Surrounded by over 2000 exceptional references, our Head Sommelier will orchestrate a bespoke sensory journey.",
+                "space-sig-f1": "7-course tasting menu",
+                "space-sig-f2": "Prestige wine pairings",
+                "space-sig-f3": "From 2 to 8 guests maximum",
+                "space-sig-f4": "Dedicated presence of the Sommelier",
+                "space-sig-btn": "Privatize the Cellar",
+                "lang-indicator": "FR"
+            },
+            fr: {
+                "nav-home": "Accueil", "nav-about": "À propos", "nav-space": "Espace", "nav-menu": "Menu", "nav-reservation": "Réservation",
+                "space-hero-eyebrow": "L'EXPÉRIENCE DE L'ATMOSPHÈRE",
+                "space-hero-title": "Découvrez Nos <span class='italic text-primary font-light'>Espaces</span>",
+                "space-hero-desc": "Chaque espace a été conçu pour créer des moments inoubliables, des dîners intimistes aux célébrations les plus mémorables.",
+                "space-btn-explore": "Explorer les Espaces",
+                "space-btn-watch": "Regarder l'Expérience",
+                "space-transition-text": "\"Notre restaurant est bien plus qu'un lieu où l'on vient manger. C'est une <span class='italic text-primary'>collection d'expériences</span>, d'ambiances et d'instants soigneusement imaginés dans les moindres détails.\"",
+                "space-sig-eyebrow": "L'EXPÉRIENCE ULTIME",
+                "space-sig-title": "Dégustation Privée en Cave",
+                "space-sig-desc": "Descendez dans l'intimité de nos voûtes historiques pour une expérience œnologique hors du temps. Entouré de plus de 2000 références exceptionnelles, notre Chef Sommelier orchestrera un voyage sensoriel sur-mesure.",
+                "space-sig-f1": "Menu dégustation en 7 temps",
+                "space-sig-f2": "Accords mets & vins prestige",
+                "space-sig-f3": "De 2 à 8 convives maximum",
+                "space-sig-f4": "Présence dédiée du Sommelier",
+                "space-sig-btn": "Privatiser la Cave",
+                "lang-indicator": "EN"
+            }
+        };
+
+        let currentLang = localStorage.getItem('preferred-lang') || 'fr';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTexts();
+        });
+
+        function updateTexts() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            document.getElementById('lang-indicator').innerText = translations[currentLang]["lang-indicator"];
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('preferred-lang', currentLang);
+            updateTexts();
+        }
+
+        function toggleTheme() {
+            // Space page is strictly dark mode for luxury cinematic feel
+            // But we keep the function to not break the button
+            isDark = !isDark;
+            if(isDark) { html.classList.add('dark'); } else { html.classList.remove('dark'); }
+        }
+    </script>
+</body>
+</html>
