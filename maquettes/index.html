@@ -279,7 +279,7 @@
             </video>
         </div>
         <!-- Vertical Social Icons (Left) -->
-        <div class="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 flex flex-col items-center gap-6 z-20">
+        <div class="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-row items-center gap-6 z-50">
             <a href="#" class="text-white/50 hover:text-white transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
@@ -306,7 +306,7 @@
                 </svg>
             </a>
             <!-- Vertical Line -->
-            <div class="w-px h-16 bg-white/30 mt-2"></div>
+            <div class="hidden md:block w-16 h-px bg-white/30 ml-2"></div>
         </div>
 
 
@@ -327,7 +327,7 @@
             </div>
 
             <!-- Title -->
-            <h1 class="hero-fade-up font-serif text-3xl md:text-[4.5rem] text-white mb-6 drop-shadow-2xl leading-[1.1]">
+            <h1 class="hero-fade-up font-serif text-3xl md:text-[6rem] text-white mb-6 drop-shadow-2xl leading-[1.1]">
                 Maison
                 <span class="italic">Lumière</span>
             </h1>
@@ -341,12 +341,12 @@
             <!-- Buttons -->
             <div class="hero-fade-up flex flex-col sm:flex-row items-center gap-4">
                 <a href="menu.html"
-                    class="flex items-center gap-2 px-8 py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-sm transition-all shadow-lg">
+                    class="flex items-center gap-2 px-6 py-2.5 md:px-8 md:py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-xs md:text-sm transition-all shadow-lg">
                     <span data-i18n="hero-btn-explore">Explore Menu</span> <i data-lucide="arrow-right"
                         class="w-4 h-4"></i>
                 </a>
                 <a href="#reservation"
-                    class="px-8 py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
+                    class="px-6 py-2.5 md:px-8 md:py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-xs md:text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
                     <span data-i18n="hero-btn-book">Book a table</span>
                 </a>
             </div>
