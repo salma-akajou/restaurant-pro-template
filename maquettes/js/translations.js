@@ -59,6 +59,8 @@ const translations = {
     "footer-desc": "Discover an unforgettable culinary experience where tradition and modernity meet to awaken your senses.",
     "footer-hours-title": "Opening Hours",
     "footer-services": "Services:",
+    "footer-hours-week": "Mon - Fri: 10:00 AM - 11:00 PM",
+    "footer-hours-weekend": "Sat - Sun: 10:00 AM - 12:00 AM",
     "footer-contact-title": "Contact",
     "footer-address": "Avenue Mohammed VI, Hivernage, 40000 Marrakech, Morocco",
     "footer-rights": "© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin."
@@ -123,6 +125,8 @@ const translations = {
     "footer-desc": "Découvrez une expérience culinaire inoubliable où tradition et modernité se rencontrent pour éveiller vos sens.",
     "footer-hours-title": "Horaires",
     "footer-services": "Services :",
+    "footer-hours-week": "Lun - Ven: 10:00 AM - 11:00 PM",
+    "footer-hours-weekend": "Sam - Dim: 10:00 AM - 12:00 AM",
     "footer-contact-title": "Contact",
     "footer-address": "Avenue Mohammed VI, Hivernage, 40000 Marrakech, Maroc",
     "footer-rights": "© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin."
