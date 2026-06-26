@@ -210,16 +210,7 @@
     <!-- Custom Cursor -->
     <div class="custom-cursor" id="custom-cursor"></div>
 
-    <!-- ================= PRELOADER ================= -->
-    <div id="preloader"
-        class="fixed inset-0 z-[10000] bg-[#050505] flex items-center justify-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.7,0,0.3,1)]">
-        <div class="flex flex-col items-center gap-4">
-            <h1 class="font-serif text-4xl md:text-5xl tracking-widest text-white">Maison <span
-                    class="text-primary italic">Lumière</span></h1>
-            <div class="w-16 h-px bg-white/20 mt-4 relative">
-                <div class="absolute inset-0 bg-primary animate-pulse"></div>
-            </div>
-        </div>
+    
     </div>
     <!-- ================= NAVIGATION ================= -->
     <nav id="navbar"
@@ -1057,10 +1048,8 @@
         // Initialize Icons
         lucide.createIcons();
 
-        /* =================== PRELOADER =================== */
+        /* =================== INITIAL ANIMATIONS =================== */
         window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-
             const triggerHeroAnimations = () => {
                 document.querySelectorAll('.hero-fade-up').forEach((el, index) => {
                     setTimeout(() => {
@@ -1068,30 +1057,9 @@
                     }, index * 200); // 200ms stagger between elements
                 });
             };
-
-            const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
-
-            if (preloader) {
-                if (hasSeenIntro) {
-                    preloader.style.display = 'none';
-                    preloader.remove();
-                    triggerHeroAnimations();
-                } else {
-                    setTimeout(() => {
-                        preloader.style.transform = 'translateY(-100%)';
-
-                        // Trigger hero animations as the preloader slides up
-                        setTimeout(triggerHeroAnimations, 300);
-
-                        setTimeout(() => {
-                            preloader.remove();
-                            sessionStorage.setItem('hasSeenIntro', 'true');
-                        }, 1500);
-                    }, 800); // Small delay to let the user see the opening screen
-                }
-            } else {
-                triggerHeroAnimations();
-            }
+            
+            // Trigger immediately
+            triggerHeroAnimations();
         });
 
         /* =================== CUSTOM CURSOR =================== */
