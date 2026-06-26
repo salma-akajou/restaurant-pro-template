@@ -1069,15 +1069,26 @@
                 });
             };
 
+            const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
+
             if (preloader) {
-                setTimeout(() => {
-                    preloader.style.transform = 'translateY(-100%)';
+                if (hasSeenIntro) {
+                    preloader.style.display = 'none';
+                    preloader.remove();
+                    triggerHeroAnimations();
+                } else {
+                    setTimeout(() => {
+                        preloader.style.transform = 'translateY(-100%)';
 
-                    // Trigger hero animations as the preloader slides up
-                    setTimeout(triggerHeroAnimations, 300);
+                        // Trigger hero animations as the preloader slides up
+                        setTimeout(triggerHeroAnimations, 300);
 
-                    setTimeout(() => preloader.remove(), 1500);
-                }, 800); // Small delay to let the user see the opening screen
+                        setTimeout(() => {
+                            preloader.remove();
+                            sessionStorage.setItem('hasSeenIntro', 'true');
+                        }, 1500);
+                    }, 800); // Small delay to let the user see the opening screen
+                }
             } else {
                 triggerHeroAnimations();
             }
