@@ -1,5 +1,8 @@
 const translations = {
     en: {
+                "nav-whatsapp": "Order WhatsApp",
+                "nav-glovo": "Order Glovo",
+                
     "nav-home": "Home",
     "nav-about": "About",
     "nav-space": "Space",
@@ -64,6 +67,9 @@ const translations = {
     "footer-rights": "© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin."
 },
     fr: {
+                "nav-whatsapp": "Commander WhatsApp",
+                "nav-glovo": "Commander Glovo",
+                
     "nav-home": "Accueil",
     "nav-about": "À propos",
     "nav-space": "Espace",
