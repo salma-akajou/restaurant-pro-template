@@ -172,7 +172,15 @@
     <nav id="navbar"
         class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
         <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 flex items-center justify-between">
-            <a href="index.html" class="font-serif text-2xl font-bold tracking-wide">DON PEPE</a>
+            <!-- Logo & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-4">
+                <button id="mobile-menu-btn" class="md:hidden block text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <a href="index.html" class="font-serif text-xl md:text-2xl font-bold tracking-wide shrink-0">
+                    DON PEPE
+                </a>
+            </div>
             <div class="hidden md:flex items-center gap-8">
                 <a href="index.html"
                     class="nav-item text-sm font-light hover:text-primary transition-all border-b border-transparent"
