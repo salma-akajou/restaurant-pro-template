@@ -1003,18 +1003,18 @@
             <!-- Row 1 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input type="text" data-i18n-placeholder="res-fullname" placeholder="Full Name"
-                class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                class="h-[58px] min-h-[58px] bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
               <input type="tel" data-i18n-placeholder="res-phone" placeholder="Phone Number"
-                class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                class="h-[58px] min-h-[58px] bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
             </div>
             <!-- Row 2 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <input type="text" data-i18n-placeholder="res-date" placeholder="Date" onfocus="(this.type='date')" onblur="(this.value==''?this.type='text':this.type='date')"
-                class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+                class="h-[58px] min-h-[58px] bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
               <input type="text" data-i18n-placeholder="res-time" placeholder="Time" onfocus="(this.type='time')" onblur="(this.value==''?this.type='text':this.type='time')"
-                class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
-              <input type="number" data-i18n-placeholder="res-persons" placeholder="Persons" min="1"
-                class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                class="h-[58px] min-h-[58px] bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+              <input type="text" inputmode="numeric" pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'')" data-i18n-placeholder="res-persons" placeholder="Persons"
+                class="h-[58px] min-h-[58px] bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
             </div>
             <!-- Row 3 -->
             <textarea data-i18n-placeholder="res-special" placeholder="Special Request (Birthday, Anniversary...)"
