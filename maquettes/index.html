@@ -214,10 +214,15 @@
     <nav id="navbar"
         class="fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 bg-transparent py-6 text-white opacity-90">
         <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="index.html" class="font-serif text-2xl font-bold tracking-wide">
-                DON PEPE
-            </a>
+            <!-- Logo & Hamburger -->
+            <div class="flex items-center gap-3 md:gap-4">
+                <button id="mobile-menu-btn" class="md:hidden block text-white focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <a href="index.html" class="font-serif text-xl md:text-2xl font-bold tracking-wide shrink-0">
+                    DON PEPE
+                </a>
+            </div>
 
             <!-- Menu -->
             <div class="hidden md:flex items-center gap-8">
@@ -239,17 +244,16 @@
             </div>
 
             <!-- Icons (Right) -->
-            <div class="flex items-center gap-4">
-                <div onclick="toggleLanguage()"
-                    class="flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
+            <div class="flex items-center gap-2 md:gap-4">
+                <div onclick="toggleLanguage()" class="hidden md:flex items-center gap-1 text-sm font-medium cursor-pointer hover:text-primary transition-colors">
                     <i data-lucide="globe" class="w-4 h-4" stroke-width="1.25"></i>
                     <span id="lang-indicator" class="font-light">FR</span>
                 </div>
-                <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
+                <button onclick="toggleTheme()" class="hidden md:block hover:text-primary transition-colors focus:outline-none">
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block" stroke-width="1.25"></i>
                     <i data-lucide="moon" class="w-5 h-5 block dark:hidden" stroke-width="1.25"></i>
                 </button>
-                <div class="w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
+                <div class="hidden md:block w-px h-5 bg-white/20 dark:bg-white/10 mx-1"></div>
                 <a href="https://wa.me/212000000000" target="_blank" class="hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor" class="w-6 h-6 hover:text-[#25D366] transition-colors">
@@ -258,7 +262,7 @@
                     </svg>
                 </a>
                 <a href="https://glovoapp.com/" target="_blank"
-                    class="flex items-center gap-2 bg-[#FFC244] text-black px-4 py-2 rounded-full hover:bg-[#e6ae3d] transition-all shadow-md text-xs font-semibold">
+                    class="flex items-center gap-2 bg-[#FFC244] text-black px-2 py-1.5 md:px-4 md:py-2 rounded-full hover:bg-[#e6ae3d] transition-all shadow-md text-[10px] md:text-xs font-semibold">
                     <img src="images/glovo.png" alt="Glovo" class="w-4 h-4 object-contain">
                     <span class="hidden md:inline" data-i18n="nav-glovo">Order Glovo</span>
                 </a>
@@ -313,7 +317,7 @@
         <div class="relative z-20 text-center px-8 md:px-16 lg:px-24 max-w-4xl mx-auto flex flex-col items-center mt-6 md:mt-12">
             <!-- Eyebrow text -->
             <div
-                class="hero-fade-up flex items-center gap-3 text-[3px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
+                class="hero-fade-up flex items-center gap-3 text-[8px] md:text-xs text-white/90 tracking-[0.2em] uppercase font-medium mb-6">
                 <span data-i18n="hero-eyebrow">CASABLANCA • SINCE 2014</span>
                 <span>•</span>
                 <span class="flex gap-1 text-white">
@@ -340,12 +344,12 @@
             <!-- Buttons -->
             <div class="hero-fade-up flex flex-col sm:flex-row items-center gap-4">
                 <a href="menu.html"
-                    class="flex items-center gap-2 px-6 py-2.5 md:px-8 md:py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-xs md:text-sm transition-all shadow-lg">
+                    class="flex items-center gap-2 px-4 py-2 md:px-6 md:py-2.5 md:px-8 md:py-3.5 rounded-full bg-primary text-white border border-transparent hover:bg-transparent hover:border-[#FDF8F3] hover:text-[#FDF8F3] font-semibold text-[11px] md:text-sm transition-all shadow-lg">
                     <span data-i18n="hero-btn-explore">Explore Menu</span> <i data-lucide="arrow-right"
                         class="w-4 h-4"></i>
                 </a>
                 <a href="#reservation"
-                    class="px-6 py-2.5 md:px-8 md:py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-xs md:text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
+                    class="px-4 py-2 md:px-6 md:py-2.5 md:px-8 md:py-3.5 rounded-full bg-black/20 backdrop-blur-sm border border-white/40 text-white font-medium text-xs md:text-sm hover:bg-white/10 hover:border-white transition-colors shadow-lg">
                     <span data-i18n="hero-btn-book">Book a table</span>
                 </a>
             </div>
@@ -357,12 +361,12 @@
         <!-- Titles -->
         <div class="text-center mb-8 md:mb-16">
             <p data-i18n="spaces-eyebrow"
-                class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">The Atmosphere</p>
+                class="text-[8px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">The Atmosphere</p>
             <h2 data-i18n="spaces-title" class="font-serif text-4xl md:text-5xl lg:text-5xl font-bold mb-4">Exceptional
                 Spaces</h2>
             <div class="w-16 h-0.5 bg-primary/30 mx-auto mb-6"></div>
             <p data-i18n="spaces-desc"
-                class="text-sm md:text-base text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
+                class="text-xs md:text-base text-gray-600 dark:text-gray-400 transition-colors duration-300 max-w-2xl mx-auto">
                 Immerse yourself in our distinct atmospheres, custom designed for every moment of your day.
             </p>
         </div>
@@ -399,7 +403,7 @@
                         energy of our main room, featuring high ceilings, warm lighting, and a front-row view of our
                         culinary theatre.</p>
                     <a href="#"
-                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        class="inline-block px-4 py-2 md:px-6 md:py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
                         A TABLE</a>
                 </div>
             </div>
@@ -430,7 +434,7 @@
                     <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">An exceptional
                         confidential and discreet space, ideal for your private meetings or small celebrations.</p>
                     <a href="#"
-                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        class="inline-block px-4 py-2 md:px-6 md:py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
                         A TABLE</a>
                 </div>
             </div>
@@ -461,7 +465,7 @@
                     <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">Live an immersive
                         experience closest to culinary creation. Facing our open kitchen, taste a unique blind menu.</p>
                     <a href="#"
-                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        class="inline-block px-4 py-2 md:px-6 md:py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
                         A TABLE</a>
                 </div>
             </div>
@@ -492,7 +496,7 @@
                     <p class="text-sm text-gray-100 mb-8 max-w-md hidden md:block drop-shadow-md">Enjoy stunning
                         panoramic views of the city skyline while savoring our exquisite dishes under the open sky.</p>
                     <a href="#"
-                        class="inline-block px-6 py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
+                        class="inline-block px-4 py-2 md:px-6 md:py-2.5 rounded-full bg-primary border border-primary text-white text-xs font-bold hover:bg-primary/80 transition-colors shadow-lg">BOOK
                         A TABLE</a>
                 </div>
             </div>
@@ -931,14 +935,14 @@
             <!-- Left: Text -->
             <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
                 <p data-i18n="about-eyebrow"
-                    class="text-[10px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Notre Héritage
+                    class="text-[8px] md:text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">Notre Héritage
                 </p>
                 <h2 data-i18n="about-title" class="font-serif text-3xl md:text-4xl lg:text-4xl font-bold mb-4">La
                     Passion du Goût &
                     de l'Élégance</h2>
                 <div class="w-16 h-0.5 bg-primary/30 mb-6 mx-auto md:mx-0"></div>
                 <p data-i18n="about-desc"
-                    class="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg transition-colors duration-300">
+                    class="text-xs md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 max-w-lg transition-colors duration-300">
                     DON PEPE is a restaurant that serves delicious food with a homey feel. Our mission is to
                     provide a warm and welcoming atmosphere for our customers.<br><br>Our chefs are passionate about
                     creating dishes that are not only delicious but also visually appealing. Every ingredient is
@@ -1423,6 +1427,48 @@
             currentLang = currentLang === 'en' ? 'fr' : 'en';
             localStorage.setItem('preferred-lang', currentLang);
             updateTexts();
+        }
+    </script>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[100] transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center items-center gap-8 text-white">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-white focus:outline-none">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="index.html" class="text-2xl font-serif hover:text-primary transition-colors" data-i18n="nav-home">Home</a>
+        <a href="menu.html" class="text-2xl font-serif hover:text-primary transition-colors" data-i18n="nav-menu">Menu</a>
+        <a href="space.html" class="text-2xl font-serif hover:text-primary transition-colors" data-i18n="nav-space">Space</a>
+        <a href="about.html" class="text-2xl font-serif hover:text-primary transition-colors" data-i18n="nav-about">About</a>
+        <a href="index.html#reservation" class="text-2xl font-serif hover:text-primary transition-colors" data-i18n="nav-reservation">Reservation</a>
+        <div class="flex items-center gap-6 mt-8">
+            <div onclick="toggleLanguage()" class="flex items-center gap-1 text-lg font-medium cursor-pointer hover:text-primary transition-colors">
+                <i data-lucide="globe" class="w-6 h-6"></i>
+                <span id="mobile-lang-indicator" class="font-light">FR</span>
+            </div>
+            <button onclick="toggleTheme()" class="hover:text-primary transition-colors focus:outline-none">
+                <i data-lucide="sun" class="w-6 h-6 hidden dark:block"></i>
+                <i data-lucide="moon" class="w-6 h-6 block dark:hidden"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && closeMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('-translate-x-full');
+            });
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('-translate-x-full');
+                });
+            });
         }
     </script>
 </body>
