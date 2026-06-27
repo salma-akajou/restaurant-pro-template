@@ -814,7 +814,7 @@
 
       <!-- Reviews Scroll Container -->
       <div id="reviews-container"
-        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 mt-4">
+        class="flex gap-6 overflow-x-auto overflow-y-hidden touch-pan-x snap-x snap-mandatory scrollbar-hide pb-8 mt-4">
 
         <!-- Review 1 -->
         <div
@@ -1009,9 +1009,9 @@
             </div>
             <!-- Row 2 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <input type="date"
+              <input type="text" data-i18n-placeholder="res-date" placeholder="Date" onfocus="(this.type='date')" onblur="(this.value==''?this.type='text':this.type='date')"
                 class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
-              <input type="time"
+              <input type="text" data-i18n-placeholder="res-time" placeholder="Time" onfocus="(this.type='time')" onblur="(this.value==''?this.type='text':this.type='time')"
                 class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
               <input type="number" data-i18n-placeholder="res-persons" placeholder="Persons" min="1"
                 class="bg-black/50 md:bg-transparent border border-white/10 md:border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
@@ -1288,9 +1288,11 @@
         "res-title": "Book Your Table",
         "res-fullname": "Full Name",
         "res-phone": "Phone Number",
+        "res-date": "Date",
+        "res-time": "Time",
         "res-persons": "Persons",
-        "res-special": "Special Request (Birthday, Anniversary...)",
-        "res-btn": "Book A Table",
+        "res-special": "Special Request (Birthday...)",
+        "res-btn": "Confirm Reservation",
         "stat-years": "Years Experience",
         "stat-dishes": "Signature Dishes",
         "stat-chefs": "Professional Team",
@@ -1341,6 +1343,8 @@
         "res-title": "Réservez Votre Table",
         "res-fullname": "Nom complet",
         "res-phone": "Numéro de téléphone",
+        "res-date": "Date",
+        "res-time": "Heure",
         "res-persons": "Personnes",
         "res-special": "Demande particulière (Anniversaire...)",
         "res-btn": "Réserver une table",

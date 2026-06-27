@@ -226,7 +226,7 @@
 
 
   <!-- ================= SECTION 1 : NOTRE HISTOIRE ================= -->
-  <section class="relative h-[60vh] xl:h-[100vh] w-full bg-[#050505] overflow-hidden">
+  <section class="relative min-h-[75vh] h-auto xl:min-h-0 xl:h-[100vh] w-full bg-[#050505] overflow-hidden">
     <!-- Top Shadow -->
     <div class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/60 to-transparent z-40 pointer-events-none"></div>
 
@@ -245,7 +245,7 @@
     </div>
 
     <!-- Content Overlay -->
-    <div class="relative z-20 max-w-7xl mx-auto px-8 md:px-16 lg:px-24 h-full flex flex-col justify-end pb-8 pt-32 md:justify-center md:pb-0 md:pt-20">
+    <div class="relative z-20 max-w-7xl mx-auto px-8 md:px-16 lg:px-24 h-full flex flex-col justify-end pb-12 pt-32 md:justify-center md:pb-0 md:pt-20">
       <div class="fade-up max-w-xl">
         <p class="text-[10px] text-primary tracking-[0.2em] uppercase font-bold mb-6"
           data-i18n="about-hero-eyebrow">Notre Histoire</p>
@@ -266,11 +266,11 @@
           <p data-i18n="about-hero-desc1">
             DON PEPE est né d'un rêve simple : créer un lieu où chaque détail célèbre l'art de vivre.
           </p>
-          <p data-i18n="about-hero-desc2" class="hidden md:block">
+          <p data-i18n="about-hero-desc2">
             Inspirée par la gastronomie française et les influences du monde entier, notre cuisine allie
             tradition et modernité dans une harmonie parfaite.
           </p>
-          <p data-i18n="about-hero-desc3" class="hidden md:block">
+          <p data-i18n="about-hero-desc3">
             Plus qu'un restaurant, DON PEPE est une expérience — un voyage sensoriel où chaque moment
             devient un souvenir inoubliable.
           </p>
@@ -323,7 +323,7 @@
     <div class="relative w-full group mt-4 z-10" id="gallery-wrapper">
       <!-- Track -->
       <div id="gallery-track"
-        class="flex items-center h-[320px] md:h-[450px] gap-4 md:gap-6 px-4 md:px-[calc((100vw-1280px)/2+16px)] w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8">
+        class="flex items-center h-[320px] md:h-[450px] gap-4 md:gap-6 px-4 md:px-[calc((100vw-1280px)/2+16px)] w-full overflow-x-auto overflow-y-hidden touch-pan-x snap-x snap-mandatory scrollbar-hide pb-8">
         <!-- Items -->
         <div
           class="w-[180px] md:w-[240px] h-[240px] md:h-[320px] rounded-[20px] overflow-hidden shrink-0 relative snap-center transform md:-translate-y-6 shadow-[0_15px_30px_rgba(0,0,0,0.5)] border border-white/10 transition-all duration-700 ease-out hover:scale-[1.08] hover:z-20 hover:shadow-[0_30px_50px_rgba(193,165,141,0.2)] group/card">
