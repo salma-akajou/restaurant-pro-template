@@ -984,43 +984,53 @@
         </div>
 
         <!-- Content -->
-        <div class="relative z-10 w-full px-8 md:px-16 lg:px-24 max-w-3xl mx-auto text-center">
-            <p data-i18n="res-eyebrow" class="text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">
-                RESERVATION</p>
-            <h2 data-i18n="res-title" class="font-serif text-2xl md:text-3xl lg:text-3xl text-white font-bold mb-6 md:mb-12">
-                Book Your Table
-            </h2>
+        <div class="relative z-10 w-full px-8 md:px-16 lg:px-24 max-w-4xl mx-auto">
+            <!-- Luxurious Card Wrapper -->
+            <div class="bg-black/40 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 md:p-16 shadow-[0_0_50px_rgba(0,0,0,0.5)] relative overflow-hidden text-center group">
+                <!-- Inner glow effect -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-primary/5 blur-[100px] pointer-events-none rounded-[2rem] transition-opacity duration-700 opacity-50 group-hover:opacity-100"></div>
+                <!-- Subtle top border accent -->
+                <div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+                
+                <div class="relative z-10">
+                    <p data-i18n="res-eyebrow" class="text-xs text-primary tracking-[0.2em] uppercase font-bold mb-4">
+                        RESERVATION</p>
+                    <h2 data-i18n="res-title" class="font-serif text-2xl md:text-3xl lg:text-3xl text-white font-bold mb-6 md:mb-12">
+                        Book Your Table
+                    </h2>
 
-            <form class="flex flex-col gap-6 text-left">
-                <!-- Row 1 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" data-i18n-placeholder="res-fullname" placeholder="Full Name"
-                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
-                    <input type="tel" data-i18n-placeholder="res-phone" placeholder="Phone Number"
-                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
-                </div>
-                <!-- Row 2 -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <input type="date"
-                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
-                    <input type="time"
-                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
-                    <input type="number" data-i18n-placeholder="res-persons" placeholder="Persons" min="1"
-                        class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
-                </div>
-                <!-- Row 3 -->
-                <textarea data-i18n-placeholder="res-special" placeholder="Special Request (Birthday, Anniversary...)"
-                    rows="3"
-                    class="bg-transparent border border-white/20 rounded-2xl px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full resize-none"></textarea>
+                    <form class="flex flex-col gap-6 text-left">
+                        <!-- Row 1 -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" data-i18n-placeholder="res-fullname" placeholder="Full Name"
+                                class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                            <input type="tel" data-i18n-placeholder="res-phone" placeholder="Phone Number"
+                                class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <input type="date"
+                                class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+                            <input type="time"
+                                class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full [color-scheme:dark]">
+                            <input type="number" data-i18n-placeholder="res-persons" placeholder="Persons" min="1"
+                                class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full">
+                        </div>
+                        <!-- Row 3 -->
+                        <textarea data-i18n-placeholder="res-special" placeholder="Special Request (Birthday, Anniversary...)"
+                            rows="3"
+                            class="bg-black/50 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white/5 transition-all w-full resize-none"></textarea>
 
-                <!-- Submit Button -->
-                <div class="flex justify-center mt-6">
-                    <button type="button" data-i18n="res-btn"
-                        class="px-10 py-4 rounded-full border border-white text-white hover:bg-primary hover:border-primary font-semibold tracking-wide transition-all duration-300">
-                        Book A Table
-                    </button>
+                        <!-- Submit Button -->
+                        <div class="flex justify-center mt-8">
+                            <button type="button" data-i18n="res-btn"
+                                class="px-10 py-4 rounded-full bg-primary text-black border border-primary hover:bg-transparent hover:text-primary font-bold tracking-widest uppercase text-[10px] md:text-xs transition-all duration-300 shadow-lg shadow-primary/20">
+                                Book A Table
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 
