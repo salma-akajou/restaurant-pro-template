@@ -230,6 +230,28 @@
     </div>
   </section>
 
+  <!-- ================= LOCATION SELECTOR SECTION ================= -->
+  <div class="w-full py-8 md:py-10 bg-transparent relative z-30 flex flex-col items-center gap-6 px-6 max-w-4xl mx-auto">
+      <!-- City Filter -->
+      <div class="flex flex-col items-center gap-3 w-full">
+          <span class="text-[9px] md:text-xs uppercase tracking-[0.25em] text-primary font-bold" data-i18n="loc-choose-city">Choisir une ville</span>
+          <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 bg-[#FAF5EF]/60 dark:bg-white/5 border border-[#C1A58D]/20 dark:border-white/10 rounded-full p-1 md:p-1.5 backdrop-blur-md shadow-sm">
+              <button onclick="selectCity('casablanca')" id="btn-city-casablanca" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-primary text-white shadow-md">Casablanca</button>
+              <button onclick="selectCity('marrakech')" id="btn-city-marrakech" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Marrakech</button>
+              <button onclick="selectCity('tanger')" id="btn-city-tanger" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger</button>
+          </div>
+      </div>
+
+      <!-- Space Filter (Hidden by default, shown for Tanger) -->
+      <div id="space-selector-container" class="flex flex-col items-center gap-3 w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0 pointer-events-none">
+          <span class="text-[9px] md:text-xs uppercase tracking-[0.25em] text-primary font-bold" data-i18n="loc-choose-space">Sélectionner un Espace</span>
+          <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 bg-[#FAF5EF]/60 dark:bg-white/5 border border-[#C1A58D]/20 dark:border-white/10 rounded-full p-1 md:p-1.5 backdrop-blur-md shadow-sm">
+              <button onclick="selectSpace('marina')" id="btn-space-marina" class="space-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger Marina</button>
+              <button onclick="selectSpace('marshan')" id="btn-space-marshan" class="space-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger Marshan</button>
+          </div>
+      </div>
+  </div>
+
   <!-- ================= STICKY CATEGORIES BAR ================= -->
   <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md transition-all duration-300 ease-in-out py-6">
     <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
@@ -352,7 +374,7 @@
       <!-- Dishes Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Dish 1 (Breakfast Hollandais) -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="casablanca,marrakech">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=500&q=80" alt="Breakfast Hollandais" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -365,7 +387,7 @@
           </div>
         </div>
         <!-- Dish 2 (Breakfast Espagnol) -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="casablanca">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://i.pinimg.com/736x/5e/63/47/5e634733ffbe59b721c668c598d6f63c.jpg" alt="Breakfast Espagnol" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -378,7 +400,7 @@
           </div>
         </div>
         <!-- Dish 3 (Breakfast Marocain) -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="marrakech,tanger">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://i.pinimg.com/1200x/1a/2a/b0/1a2ab0df689d5c901833c8facf233504.jpg" alt="Breakfast Marocain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -391,7 +413,7 @@
           </div>
         </div>
         <!-- Dish 4 (Breakfast Américain) -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="all">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=500&q=80" alt="Breakfast Américain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -506,7 +528,7 @@
           </div>
         </div>
         <!-- Plat 2 (Bénédictines Homard - Signature) -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="casablanca,marrakech">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=500&q=80" alt="Bénédictines Homard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             <div class="absolute top-4 left-4 bg-primary text-black dark:text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
@@ -536,7 +558,7 @@
           </div>
         </div>
         <!-- Plat 4 -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-city="tanger">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=500&q=80" alt="Risotto" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -601,7 +623,7 @@
           </div>
         </div>
         <!-- Burger 3 -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers" data-city="tanger" data-space="marina">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Truffle Beef Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -614,7 +636,7 @@
           </div>
         </div>
         <!-- Burger 4 -->
-        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers">
+        <div class="dish-photo-card group relative bg-[#FAF5EF] dark:bg-[#111] rounded-3xl overflow-hidden border border-[#C1A58D]/18 dark:border-white/5 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full fade-up" data-sub="burgers" data-city="tanger" data-space="marshan">
           <div class="relative overflow-hidden aspect-[4/3] bg-neutral-900">
             <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=500&q=80" alt="Gourmet Veggie Burger" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
@@ -1418,7 +1440,109 @@
       }
     }
 
-    /* =================== SUB-CATEGORY FILTERING =================== */
+    /* =================== LOCATION & SUB-CATEGORY FILTERING =================== */
+    let currentCity = 'casablanca';
+    let currentSpace = 'default';
+
+    function selectCity(city) {
+      currentCity = city;
+      
+      // Update buttons style
+      document.querySelectorAll('.city-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+        btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+      });
+      const activeBtn = document.getElementById(`btn-city-${city}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+        activeBtn.classList.add('bg-primary', 'text-white', 'shadow-md');
+      }
+
+      const spaceContainer = document.getElementById('space-selector-container');
+      if (city === 'tanger') {
+        spaceContainer.style.maxHeight = '200px';
+        spaceContainer.classList.remove('opacity-0', 'pointer-events-none');
+        spaceContainer.classList.add('opacity-100', 'pointer-events-auto', 'py-2');
+        selectSpace('marina');
+      } else {
+        spaceContainer.style.maxHeight = '0px';
+        spaceContainer.classList.remove('opacity-100', 'pointer-events-auto', 'py-2');
+        spaceContainer.classList.add('opacity-0', 'pointer-events-none');
+        currentSpace = 'default';
+        updateMenuFilters();
+      }
+    }
+
+    function selectSpace(space) {
+      currentSpace = space;
+      
+      // Update buttons style
+      document.querySelectorAll('.space-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+        btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+      });
+      const activeBtn = document.getElementById(`btn-space-${space}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+        activeBtn.classList.add('bg-primary', 'text-white', 'shadow-md');
+      }
+      
+      updateMenuFilters();
+    }
+
+    function updateMenuFilters() {
+      // Find all menu category sections
+      const sections = document.querySelectorAll('.menu-category-section');
+      sections.forEach(section => {
+        // Find active subcategory in this section, if any
+        let activeSub = 'all';
+        const activeSubBtn = section.querySelector('.subcategory-btn.bg-primary');
+        if (activeSubBtn) {
+          activeSub = activeSubBtn.getAttribute('data-sub') || 'all';
+        }
+
+        let sectionHasVisibleDishes = false;
+
+        // Filter cards/items inside this section
+        const items = section.querySelectorAll('.dish-photo-card, .dish-item-card');
+        items.forEach(card => {
+          const dishCity = card.getAttribute('data-city') || 'all';
+          const dishSpace = card.getAttribute('data-space') || 'all';
+          const dishSub = card.getAttribute('data-sub') || 'all';
+
+          const cityMatch = (dishCity === 'all' || dishCity.split(',').map(s => s.trim()).includes(currentCity));
+          const spaceMatch = (dishSpace === 'all' || currentSpace === 'default' || dishSpace.split(',').map(s => s.trim()).includes(currentSpace));
+          const subMatch = (dishSub === 'all' || activeSub === 'all' || dishSub === activeSub);
+
+          if (cityMatch && spaceMatch && subMatch) {
+            card.style.display = 'flex';
+            
+            // Add animation class if it was hidden
+            if (card.getAttribute('data-hidden') === 'true') {
+              card.classList.remove('animate-fade-in');
+              void card.offsetWidth; // force reflow
+              card.classList.add('animate-fade-in');
+            }
+            card.setAttribute('data-hidden', 'false');
+            sectionHasVisibleDishes = true;
+          } else {
+            card.style.display = 'none';
+            card.setAttribute('data-hidden', 'true');
+          }
+        });
+
+        // Hide/show the section completely
+        if (sectionHasVisibleDishes) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Trigger scroll event to sync active category indicator in sticky bar
+      window.dispatchEvent(new Event('scroll'));
+    }
+
     function filterSubcategory(categoryKey, subcategory) {
       const section = document.getElementById(`category-${categoryKey}`);
       if (!section) return;
@@ -1434,17 +1558,7 @@
         }
       });
 
-      // Show or hide menu card items
-      section.querySelectorAll('.dish-photo-card').forEach(card => {
-        if (subcategory === 'all' || card.dataset.sub === subcategory) {
-          card.style.display = 'flex';
-          card.classList.remove('animate-fade-in');
-          void card.offsetWidth; // Force reflow
-          card.classList.add('animate-fade-in');
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      updateMenuFilters();
     }
 
     /* =================== STICKY SCROLLSPY BAR =================== */
@@ -1693,7 +1807,9 @@
         "footer-contact-title": "Contact",
         "footer-subscribe": "Subscribe",
         "footer-email-placeholder": "Your email address",
-        "lang-indicator": "FR"
+        "lang-indicator": "FR",
+        "loc-choose-city": "Choose a City",
+        "loc-choose-space": "Select a Space"
       },
       fr: {
         "nav-home": "Accueil",
@@ -1915,7 +2031,9 @@
         "footer-contact-title": "Contact",
         "footer-subscribe": "S'abonner",
         "footer-email-placeholder": "Votre adresse e-mail",
-        "lang-indicator": "EN"
+        "lang-indicator": "EN",
+        "loc-choose-city": "Choisir une ville",
+        "loc-choose-space": "Sélectionner un Espace"
       }
     };
 
@@ -1960,6 +2078,9 @@
       filterSubcategory('fastfood', 'burgers');
       filterSubcategory('delices', 'crêpes');
       filterSubcategory('boissons', 'froides');
+
+      // Initialize with default city
+      selectCity('casablanca');
     });
   </script>
 

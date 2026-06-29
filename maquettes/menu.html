@@ -305,6 +305,28 @@
     </div>
   </section>
 
+  <!-- ================= LOCATION SELECTOR SECTION ================= -->
+  <div class="w-full py-8 md:py-10 bg-transparent relative z-30 flex flex-col items-center gap-6 px-6 max-w-4xl mx-auto">
+      <!-- City Filter -->
+      <div class="flex flex-col items-center gap-3 w-full">
+          <span class="text-[9px] md:text-xs uppercase tracking-[0.25em] text-primary font-bold" data-i18n="loc-choose-city">Choisir une ville</span>
+          <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 bg-[#FAF5EF]/60 dark:bg-white/5 border border-[#C1A58D]/20 dark:border-white/10 rounded-full p-1 md:p-1.5 backdrop-blur-md shadow-sm">
+              <button onclick="selectCity('casablanca')" id="btn-city-casablanca" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-primary text-white shadow-md">Casablanca</button>
+              <button onclick="selectCity('marrakech')" id="btn-city-marrakech" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Marrakech</button>
+              <button onclick="selectCity('tanger')" id="btn-city-tanger" class="city-btn px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger</button>
+          </div>
+      </div>
+
+      <!-- Space Filter (Hidden by default, shown for Tanger) -->
+      <div id="space-selector-container" class="flex flex-col items-center gap-3 w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0 pointer-events-none">
+          <span class="text-[9px] md:text-xs uppercase tracking-[0.25em] text-primary font-bold" data-i18n="loc-choose-space">Sélectionner un Espace</span>
+          <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3 bg-[#FAF5EF]/60 dark:bg-white/5 border border-[#C1A58D]/20 dark:border-white/10 rounded-full p-1 md:p-1.5 backdrop-blur-md shadow-sm">
+              <button onclick="selectSpace('marina')" id="btn-space-marina" class="space-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger Marina</button>
+              <button onclick="selectSpace('marshan')" id="btn-space-marshan" class="space-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full text-[9px] md:text-[10px] font-semibold uppercase tracking-wider transition-all duration-300 text-gray-500 hover:text-black dark:hover:text-white dark:text-gray-400">Tanger Marshan</button>
+          </div>
+      </div>
+  </div>
+
   <!-- ================= STICKY CATEGORIES BAR ================= -->
   <div id="sticky-category-bar" class="sticky top-0 md:top-[76px] z-[60] bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md transition-all duration-300 ease-in-out py-3 md:py-6">
     <div class="max-w-7xl mx-auto px-0 md:px-16 lg:px-24">
@@ -440,7 +462,7 @@
           <!-- Dishes List (2x2 Grid) -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Dish 1 -->
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-city="casablanca,tanger">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast1-name">Avocado Toast Impérial</h3>
@@ -451,7 +473,7 @@
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">85 DH</span></div>
             </div>
             <!-- Dish 2 -->
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-city="casablanca,marrakech">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <div class="flex items-center gap-1.5 min-w-0">
@@ -465,7 +487,7 @@
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">140 DH</span></div>
             </div>
             <!-- Dish 3 -->
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-city="marrakech,tanger">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <div class="flex items-center gap-1.5 min-w-0">
@@ -479,7 +501,7 @@
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">70 DH</span></div>
             </div>
             <!-- Dish 4 -->
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-city="all">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-breakfast4-name">Pancakes Sucrés-Salés</h3>
@@ -732,7 +754,7 @@
               </div>
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">90 DH</span></div>
             </div>
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers" data-city="tanger" data-space="marshan">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <div class="flex items-center gap-1.5 min-w-0">
@@ -745,7 +767,7 @@
               </div>
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">80 DH</span></div>
             </div>
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers" data-city="tanger" data-space="marina">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <div class="flex items-center gap-1.5 min-w-0">
@@ -758,7 +780,7 @@
               </div>
               <div class="shrink-0 self-start mt-0.5"><span class="font-sans text-sm font-semibold text-primary">115 DH</span></div>
             </div>
-            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers">
+            <div class="dish-item-card flex items-start justify-between gap-4 group pb-6 border-b border-black/10 dark:border-white/5" data-sub="burgers" data-city="casablanca">
               <div class="flex-grow flex flex-col min-w-0">
                 <div class="flex items-baseline w-full">
                   <h3 class="font-serif text-lg font-medium group-hover:text-primary transition-colors duration-300" data-i18n="dish-burger5-name">BBQ Bacon Burger</h3>
@@ -1362,7 +1384,109 @@
       }
     };
 
-    /* =================== SUB-CATEGORY FILTERING =================== */
+    /* =================== LOCATION & SUB-CATEGORY FILTERING =================== */
+    let currentCity = 'casablanca';
+    let currentSpace = 'default';
+
+    function selectCity(city) {
+      currentCity = city;
+      
+      // Update buttons style
+      document.querySelectorAll('.city-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+        btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+      });
+      const activeBtn = document.getElementById(`btn-city-${city}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+        activeBtn.classList.add('bg-primary', 'text-white', 'shadow-md');
+      }
+
+      const spaceContainer = document.getElementById('space-selector-container');
+      if (city === 'tanger') {
+        spaceContainer.style.maxHeight = '200px';
+        spaceContainer.classList.remove('opacity-0', 'pointer-events-none');
+        spaceContainer.classList.add('opacity-100', 'pointer-events-auto', 'py-2');
+        selectSpace('marina');
+      } else {
+        spaceContainer.style.maxHeight = '0px';
+        spaceContainer.classList.remove('opacity-100', 'pointer-events-auto', 'py-2');
+        spaceContainer.classList.add('opacity-0', 'pointer-events-none');
+        currentSpace = 'default';
+        updateMenuFilters();
+      }
+    }
+
+    function selectSpace(space) {
+      currentSpace = space;
+      
+      // Update buttons style
+      document.querySelectorAll('.space-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white', 'shadow-md');
+        btn.classList.add('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+      });
+      const activeBtn = document.getElementById(`btn-space-${space}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-gray-500', 'hover:text-black', 'dark:hover:text-white', 'dark:text-gray-400');
+        activeBtn.classList.add('bg-primary', 'text-white', 'shadow-md');
+      }
+      
+      updateMenuFilters();
+    }
+
+    function updateMenuFilters() {
+      // Find all menu category sections
+      const sections = document.querySelectorAll('.menu-category-section');
+      sections.forEach(section => {
+        // Find active subcategory in this section, if any
+        let activeSub = 'all';
+        const activeSubBtn = section.querySelector('.subcategory-btn.bg-primary');
+        if (activeSubBtn) {
+          activeSub = activeSubBtn.getAttribute('data-sub') || 'all';
+        }
+
+        let sectionHasVisibleDishes = false;
+
+        // Filter cards/items inside this section
+        const items = section.querySelectorAll('.dish-photo-card, .dish-item-card');
+        items.forEach(card => {
+          const dishCity = card.getAttribute('data-city') || 'all';
+          const dishSpace = card.getAttribute('data-space') || 'all';
+          const dishSub = card.getAttribute('data-sub') || 'all';
+
+          const cityMatch = (dishCity === 'all' || dishCity.split(',').map(s => s.trim()).includes(currentCity));
+          const spaceMatch = (dishSpace === 'all' || currentSpace === 'default' || dishSpace.split(',').map(s => s.trim()).includes(currentSpace));
+          const subMatch = (dishSub === 'all' || activeSub === 'all' || dishSub === activeSub);
+
+          if (cityMatch && spaceMatch && subMatch) {
+            card.style.display = 'flex';
+            
+            // Add animation class if it was hidden
+            if (card.getAttribute('data-hidden') === 'true') {
+              card.classList.remove('animate-fade-in');
+              void card.offsetWidth; // force reflow
+              card.classList.add('animate-fade-in');
+            }
+            card.setAttribute('data-hidden', 'false');
+            sectionHasVisibleDishes = true;
+          } else {
+            card.style.display = 'none';
+            card.setAttribute('data-hidden', 'true');
+          }
+        });
+
+        // Hide/show the section completely
+        if (sectionHasVisibleDishes) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Trigger scroll event to sync active category indicator in sticky bar
+      window.dispatchEvent(new Event('scroll'));
+    }
+
     function filterSubcategory(categoryKey, subcategory) {
       const section = document.getElementById(`category-${categoryKey}`);
       if (!section) return;
@@ -1378,18 +1502,6 @@
         }
       });
 
-      // Show or hide menu card items
-      section.querySelectorAll('.dish-item-card').forEach(card => {
-        if (card.dataset.sub === subcategory) {
-          card.style.display = 'flex';
-          card.classList.remove('animate-fade-in');
-          void card.offsetWidth; // Force reflow
-          card.classList.add('animate-fade-in');
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
       // Update category image dynamically with transition
       const img = document.getElementById(`img-${categoryKey}`);
       if (img && categoryImages[categoryKey] && categoryImages[categoryKey][subcategory]) {
@@ -1402,6 +1514,8 @@
           };
         }, 150);
       }
+
+      updateMenuFilters();
     }
 
     /* =================== STICKY SCROLLSPY BAR =================== */
@@ -1612,7 +1726,9 @@
         "footer-rights": "© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin.",
         "footer-subscribe": "Subscribe",
         "footer-email-placeholder": "Your email address",
-        "lang-indicator": "FR"
+        "lang-indicator": "FR",
+        "loc-choose-city": "Choose a City",
+        "loc-choose-space": "Select a Space"
       },
       fr: {
         "nav-home": "Accueil",
@@ -1796,7 +1912,9 @@
         "footer-rights": "© 2026 Premium Restaurant Agency. All rights reserved. Made by Akajou Twin.",
         "footer-subscribe": "S'abonner",
         "footer-email-placeholder": "Votre adresse e-mail",
-        "lang-indicator": "EN"
+        "lang-indicator": "EN",
+        "loc-choose-city": "Choisir une ville",
+        "loc-choose-space": "Sélectionner un Espace"
       }
     };
 
@@ -1841,6 +1959,9 @@
       filterSubcategory('fastfood', 'burgers');
       filterSubcategory('desserts', 'crêpes');
       filterSubcategory('boissons', 'chaudes');
+
+      // Initialize with default city
+      selectCity('casablanca');
     });
   </script>
 
