@@ -185,6 +185,34 @@
         font-size: 1.125rem !important; /* text-lg equivalent instead of text-xl */
       }
     }
+
+    /* Compact spacing optimizations for menu items on mobile and tablets/small laptops */
+    @media (max-width: 1280px) {
+      .menu-category-section .grid {
+        gap: 1rem !important; /* Reduced from 2rem (gap-8) to 1rem */
+      }
+      .dish-item-card {
+        padding-bottom: 0.5rem !important; /* Reduced from 1.5rem (pb-6) */
+        gap: 0.5rem !important;
+      }
+      .dish-item-card h3 {
+        line-height: 1.1 !important;
+        margin-bottom: 0.1rem;
+        font-size: 0.95rem !important;
+      }
+      .dish-item-card p {
+        margin-top: 0.15rem !important;
+        line-height: 1.3 !important;
+        font-size: 0.7rem !important; /* Make description slightly smaller to save space */
+      }
+      /* Reduce spacing around category header */
+      .menu-category-section .mb-10 {
+        margin-bottom: 1.5rem !important; /* Reduced from 2.5rem */
+      }
+      .menu-category-section h2 {
+        margin-bottom: 0.5rem !important;
+      }
+    }
   </style>
 </head>
 
@@ -278,14 +306,15 @@
   </section>
 
   <!-- ================= STICKY CATEGORIES BAR ================= -->
-  <div id="sticky-category-bar" class="sticky top-[68px] md:top-[76px] z-40 bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md transition-all duration-300 ease-in-out py-6">
-    <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+  <div id="sticky-category-bar" class="sticky top-0 md:top-[76px] z-[60] bg-[#FDF8F3]/95 dark:bg-[#050505]/95 backdrop-blur-md transition-all duration-300 ease-in-out py-3 md:py-6">
+    <div class="max-w-7xl mx-auto px-0 md:px-16 lg:px-24">
       <!-- Filters Wrapper without border -->
-      <div class="flex items-center justify-start md:justify-center gap-6 md:gap-12 overflow-x-auto scrollbar-hide py-2">
+      <div class="flex items-center justify-start md:justify-center gap-3 md:gap-12 overflow-x-auto scrollbar-hide py-2 px-0">
+        <div class="w-4 shrink-0 md:hidden"></div>
         <!-- Breakfast -->
-        <a href="#category-breakfasts" class="category-nav-link active-category group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-breakfasts" class="category-nav-link active-category group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <circle cx="12" cy="12" r="5" />
               <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke-linecap="round" />
             </svg>
@@ -296,9 +325,9 @@
           </span>
         </a>
         <!-- Entrées -->
-        <a href="#category-entrées" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-entrées" class="category-nav-link group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <path d="M20.24 3.76a6 6 0 0 0-8.49 0L3.5 12.01a6 6 0 0 0 0 8.49 6 6 0 0 0 8.49 0l8.25-8.25a6 6 0 0 0 0-8.49Z" />
               <path d="M3.5 20.5l5.5-5.5" />
               <path d="M9 15c2.5-1.5 4.5-3.5 5.5-6" />
@@ -311,9 +340,9 @@
           </span>
         </a>
         <!-- Plats -->
-        <a href="#category-plats" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-plats" class="category-nav-link group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <path d="M3 19h18" stroke-linecap="round" />
               <path d="M5 19v-2a7 7 0 0 1 14 0v2" stroke-linejoin="round" />
               <path d="M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
@@ -325,9 +354,9 @@
           </span>
         </a>
         <!-- Fast Food -->
-        <a href="#category-fastfood" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-fastfood" class="category-nav-link group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <path d="M3 11c0-4 3.5-7 9-7s9 3 9 7" stroke-linecap="round" />
               <path d="M2 13.5c1-.5 2-.5 3 0s2 .5 3 0 2-.5 3 0 2 .5 3 0 2-.5 3 0 2 .5 3 0" stroke-linecap="round" />
               <rect x="3" y="15" width="18" height="2.5" rx="1.25" />
@@ -340,9 +369,9 @@
           </span>
         </a>
         <!-- Desserts -->
-        <a href="#category-desserts" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-desserts" class="category-nav-link group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <path d="M7 13l5 9 5-9" stroke-linejoin="round" stroke-linecap="round" />
               <path d="M9 13l4.5 8M15 13L10.5 21" opacity="0.4" />
               <path d="M6 13a3.5 3.5 0 0 1 0-7 4 4 0 0 1 7.5-1.5 3.5 3.5 0 0 1 4.5 8.5Z" stroke-linejoin="round" />
@@ -354,9 +383,9 @@
           </span>
         </a>
         <!-- Boissons -->
-        <a href="#category-boissons" class="category-nav-link group flex flex-col items-center gap-3 transition-all min-w-[90px] md:min-w-[110px]">
-          <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-5 h-5 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
+        <a href="#category-boissons" class="category-nav-link group flex flex-col items-center gap-2 md:gap-3 transition-all min-w-[70px] md:min-w-[110px]">
+          <div class="w-10 h-10 md:w-16 md:h-16 rounded-full border border-transparent group-[.active-category]:border-primary transition-all duration-300 flex items-center justify-center bg-transparent group-[.active-category]:bg-primary/10 group-hover:bg-black/[0.03] dark:group-hover:bg-white/[0.03] group-hover:border-primary/20 group-[.active-category]:shadow-[0_0_15px_rgba(193,165,141,0.25)] group-hover:scale-105">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" class="w-4 h-4 md:w-6 md:h-6 text-primary transition-transform duration-300 group-hover:scale-110">
               <path d="M6 8l1.5 12.5A1.5 1.5 0 0 0 9 22h6a1.5 1.5 0 0 0 1.5-1.5L18 8" stroke-linejoin="round" />
               <path d="M5 8h14v-1.5a1.5 1.5 0 0 0-1.5-1.5h-11A1.5 1.5 0 0 0 5 6.5V8Z" stroke-linejoin="round" />
               <path d="M12 5V2l3 .75" stroke-linecap="round" stroke-linejoin="round" />
@@ -368,6 +397,7 @@
             <span class="absolute bottom-0 inset-x-0 mx-auto w-1.5 h-1.5 rounded-full bg-primary opacity-0 scale-50 transition-all duration-300 group-[.active-category]:opacity-100 group-[.active-category]:scale-100"></span>
           </span>
         </a>
+        <div class="w-4 shrink-0 md:hidden"></div>
       </div>
     </div>
   </div>
